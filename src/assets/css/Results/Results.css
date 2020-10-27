@@ -6,7 +6,7 @@
 .trip-card {
   width: 400px;
   height: 400px;
-  padding: 5px;
+  padding: 10px 10px 10px 10px;
   margin: 20px;
   display: flex;
   flex-direction: column;
@@ -14,21 +14,27 @@
   align-items: center;
   border: solid black;
 }
+.trip-container {
+  margin: auto;
+}
 .trip-card-carrousel {
-  width: 300px;
-  height: 225px;
-  margin-top: 10px;
+  width: 380px;
+  height: 310px;
+  position: relative;
   border: solid black;
 }
-
+.trip-sensation-meter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 .trip-caption {
-  width: 300px;
-  height: 75px;
+  width: 380px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   border: solid black;
 }
-
 .trip-info {
   width: 170px;
   display: flex;
@@ -41,7 +47,6 @@
 .trip-info-country {
   color: var(--main-color);
 }
-
 .trip-price {
   width: 100px;
   display: flex;
