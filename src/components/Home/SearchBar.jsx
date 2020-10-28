@@ -1,38 +1,18 @@
-import React from 'react';
-import ReactSearchBox from 'react-search-box';
-
-const data = [
-  {
-    key: 'spart',
-    value: 'spartaaa',
-  },
-  {
-    key: 'futur',
-    value: 'turfu',
-  },
-  {
-    key: 'gaulle',
-    value: 'gaulois',
-  },
-  {
-    key: 'romain',
-    value: 'romain',
-  },
-  {
-    key: 'prehistoire',
-    value: 'dinosaure',
-  },
-];
+import React, { useState } from 'react';
 
 const SearchBar = () => {
+  const [query, setQuery] = useState('');
+
   return (
-    <div className="searchBar">
-      <ReactSearchBox
-        placeholder="choisissez votre expérience !"
-        value=""
-        data={data}
+    <form>
+      <input
+        type="text"
+        placeholder="Search for..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
-    </div>
+      <p>{query}</p>
+    </form>
   );
 };
 

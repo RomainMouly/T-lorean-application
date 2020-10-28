@@ -5,7 +5,6 @@ import '../../assets/css/Home/Home.css';
 import Welcome from './Welcome';
 import SearchBar from './SearchBar';
 
-
 class Home extends Component {
   constructor() {
     super();
@@ -58,21 +57,31 @@ class Home extends Component {
         <div>
           <SearchBar />
         </div>
-         <div className="home-filters">
-        <h2>Époques</h2>
-        <div className="home-filter-era">
-          <FilterTravel data={filterTravelEraPrehistoire} type="Préhistoire" />
-          <FilterTravel data={filterTravelEraAntiquite} type="Antiquité" />
-          <FilterTravel data={filterTravelEraMoyenAge} type="Moyen-Âge" />
-          <FilterTravel data={filterTravelEraRenaissance} type="Renaissance" />
-          <FilterTravel data={filterTravelEraTempsModernes} type="Temps modernes"/>
-          <FilterTravel data={filterTravelEraFutur} type="Futur" />
-        </div>
-        <h2>Sensations</h2>
-        <div className="home-filter-level">
-          <FilterTravel data={filterTravelSensationOne} type="Calme" />
-          <FilterTravel data={filterTravelSensationTwo} type="Aventure" />
-          <FilterTravel data={filterTravelSensationThree} type="Extrême" />
+        <div className="home-filters">
+          <h2>Époques</h2>
+          <div className="home-filter-era">
+            <FilterTravel
+              data={filterTravelEraPrehistoire}
+              type="Préhistoire"
+            />
+            <FilterTravel data={filterTravelEraAntiquite} type="Antiquité" />
+            <FilterTravel data={filterTravelEraMoyenAge} type="Moyen-Âge" />
+            <FilterTravel
+              data={filterTravelEraRenaissance}
+              type="Renaissance"
+            />
+            <FilterTravel
+              data={filterTravelEraTempsModernes}
+              type="Temps modernes"
+            />
+            <FilterTravel data={filterTravelEraFutur} type="Futur" />
+          </div>
+          <h2>Sensations</h2>
+          <div className="home-filter-level">
+            <FilterTravel data={filterTravelSensationOne} type="Calme" />
+            <FilterTravel data={filterTravelSensationTwo} type="Aventure" />
+            <FilterTravel data={filterTravelSensationThree} type="Extrême" />
+          </div>
         </div>
       </div>
     );
