@@ -27,28 +27,6 @@ const SensationMeter = ({ data }) => {
           <img src={fire} alt="fire" />
         </div>
       );
-
-    // if (data === 1) {
-    //   return (
-    //     <div className="trip-sensation-meter">
-    //       <img src={fire} alt="fire" />
-    //     </div>
-    //   );
-    // } else if (data === 2) {
-    //   return (
-    //     <div className="trip-sensation-meter">
-    //       <img src={fire} alt="fire" />
-    //       <img src={fire} alt="fire" />
-    //     </div>
-    //   );
-    // }
-    // return (
-    //   <div className="trip-sensation-meter">
-    //     <img src={fire} alt="fire" />
-    //     <img src={fire} alt="fire" />
-    //     <img src={fire} alt="fire" />
-    //   </div>
-    // );
   }
 };
 
