@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="infos">
           <h4>Informations</h4>
           <ul>
-            <li>Conditions générales d`&apos;`utilisation</li>
+            <li>Conditions générales d&apos;utilisation</li>
             <li> Charte du voyageur dans le temps</li>
             <li> Mentions légales</li>
             <li>RGPD</li>
