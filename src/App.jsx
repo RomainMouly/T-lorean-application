@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Results from './components/Results/Results';
 import Trip from './components/Trip/Trip';
 import Booking from './components/Booking/Booking';
+import Footer from './components/componentsGlobal/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Trip" component={Trip} />
         <Route path="/Booking" component={Booking} />
       </Switch>
+      <Footer />
     </div>
   );
 }
