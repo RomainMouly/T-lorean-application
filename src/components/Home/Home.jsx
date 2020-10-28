@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import FilterTravel from '../componentsGlobal/FilterTravel';
+import '../../assets/css/global.css';
 import '../../assets/css/Home/Home.css';
+
 
 class Home extends Component {
   constructor() {
