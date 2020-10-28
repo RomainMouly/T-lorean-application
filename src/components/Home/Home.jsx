@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FilterTravel from '../componentsGlobal/FilterTravel';
+import '../../assets/css/global.css';
 import '../../assets/css/Home/Home.css';
 import Welcome from './Welcome';
 import SearchBar from './SearchBar';
 
+
 const Home = () => {
   const [travels, setTravels] = useState([]);
+
 
   useEffect(() => {
     axios
