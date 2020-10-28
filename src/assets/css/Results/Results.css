@@ -4,62 +4,8 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.results-number {
-  margin: calc(var(--spacing) * 3);
-}
 .results-list {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-}
-.trip-card {
-  width: 400px;
-  height: 400px;
-  padding: var(--spacing);
-  margin: calc(var(--spacing) * 3);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  border: solid black;
-}
-.trip-container {
-  margin: auto;
-}
-.trip-card-carrousel {
-  width: 380px;
-  height: 310px;
-  position: relative;
-  border: solid black;
-}
-.trip-sensation-meter {
-  position: absolute;
-  top: calc(var(--spacing) * 2);
-  right: calc(var(--spacing) * 2);
-}
-.trip-caption {
-  width: 380px;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  border: solid black;
-}
-.trip-info {
-  width: 170px;
-  display: flex;
-  flex-direction: column;
-  border: solid black;
-}
-.pin {
-  height: calc(var(--spacing) * 2);
-}
-.trip-info-country {
-  color: var(--main-color);
-}
-.trip-price {
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  border: solid black;
 }
