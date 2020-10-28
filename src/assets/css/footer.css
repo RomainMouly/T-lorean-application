@@ -1,7 +1,7 @@
 footer {
   background-color: var(--dark);
   color: var(--light);
-  position: absolute;
+  position: relative;
   width: 100%;
   bottom: 0;
   font-size: 14px;
@@ -28,7 +28,7 @@ footer h4 {
 }
 
 footer img:hover {
-  filter: drop-shadow(4px 4px 5px var(--second-color));
+  filter: drop-shadow(8px 8px 10px var(--second-color));
 }
 
 .links {
