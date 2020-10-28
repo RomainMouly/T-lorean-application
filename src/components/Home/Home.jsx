@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import FilterTravel from '../componentsGlobal/FilterTravel';
+import '../../assets/css/Home/Home.css';
 
 class Home extends Component {
   constructor() {
@@ -45,15 +46,11 @@ class Home extends Component {
     const filterTravelEraFutur = travels.filter(
       (travel) => travel.era === 'Futur'
     );
+
     return (
-      <div>
-        <div>
-          <FilterTravel data={filterTravelSensationOne} type="Calme" />
-          <FilterTravel data={filterTravelSensationTwo} type="Aventure" />
-          <FilterTravel data={filterTravelSensationThree} type="Extrême" />
-        </div>
-        ;
-        <div>
+      <div className="home-filters">
+        <h2>Époques</h2>
+        <div className="home-filter-era">
           <FilterTravel data={filterTravelEraPrehistoire} type="Préhistoire" />
           <FilterTravel data={filterTravelEraAntiquite} type="Antiquité" />
           <FilterTravel data={filterTravelEraMoyenAge} type="Moyen-Âge" />
@@ -64,7 +61,12 @@ class Home extends Component {
           />
           <FilterTravel data={filterTravelEraFutur} type="Futur" />
         </div>
-        ;
+        <h2>Sensations</h2>
+        <div className="home-filter-level">
+          <FilterTravel data={filterTravelSensationOne} type="Calme" />
+          <FilterTravel data={filterTravelSensationTwo} type="Aventure" />
+          <FilterTravel data={filterTravelSensationThree} type="Extrême" />
+        </div>
       </div>
     );
   }
