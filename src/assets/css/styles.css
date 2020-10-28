@@ -1,3 +1,6 @@
 @import 'global.css';
+@import './Home/Home.css';
+@import 'footer.css';
 @import 'welcome.css';
 @import 'searchBar.css';
+

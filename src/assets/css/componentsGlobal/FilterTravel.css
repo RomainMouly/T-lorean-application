@@ -1,0 +1,29 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-box {
+  background-color: blueviolet;
+  width: 45vw;
+  height: 100px;
+  margin: calc(var(--spacing) * 2) auto;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .link-box {
+    width: 30vw;
+    margin: calc(var(--spacing) * 3) auto;
+    font-size: 1.2rem;
+  }
+}
