@@ -1,26 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
+import Suggestions from './Suggestions';
 
-const SearchBar = () => {
-  const [query, setQuery] = useState('');
+const API_URL = 'https://api-airbnb-node.herokuapp.com/api/travels';
 
-  useEffect(() => {
-    axios
-      .get('https://api-airbnb-node.herokuapp.com/api/travels')
-      .then((response) => setQuery(response.data.title));
-  }, []);
+class SearchBar extends Component {
+  state = {
+    search: '',
+    results: [],
+  };
 
-  return (
-    <form>
-      <input
-        type="text"
-        placeholder="Entrer le nom de l'expérience"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <p>{query}</p>
-    </form>
-  );
-};
+  getInfo = () => {
+    axios.get(`${API_URL}`).then((response) =>
+      this.setState({
+        results: response.data.filter((travel) =>
+          travel.title.toLowerCase().includes(this.state.search.toLowerCase())
+        ),
+      })
+    );
+  };
+
+  handleInputChange = (event) => {
+    this.setState({ search: event.target.value });
+    this.getInfo();
+  };
+
+  render() {
+    return (
+      <form>
+        <input
+          placeholder="Search for..."
+          value={this.state.search}
+          onChange={this.handleInputChange}
+        />
+        <Suggestions results={this.state.results} />
+      </form>
+    );
+  }
+}
 
 export default SearchBar;
