@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import FilterTravel from '../componentsGlobal/FilterTravel';
 import '../../assets/css/Home/Home.css';
+import Welcome from './Welcome';
+import SearchBar from './SearchBar';
+
 
 class Home extends Component {
   constructor() {
@@ -48,17 +51,21 @@ class Home extends Component {
     );
 
     return (
-      <div className="home-filters">
+      <div>
+        <div>
+          <Welcome />
+        </div>
+        <div>
+          <SearchBar />
+        </div>
+         <div className="home-filters">
         <h2>Époques</h2>
         <div className="home-filter-era">
           <FilterTravel data={filterTravelEraPrehistoire} type="Préhistoire" />
           <FilterTravel data={filterTravelEraAntiquite} type="Antiquité" />
           <FilterTravel data={filterTravelEraMoyenAge} type="Moyen-Âge" />
           <FilterTravel data={filterTravelEraRenaissance} type="Renaissance" />
-          <FilterTravel
-            data={filterTravelEraTempsModernes}
-            type="Temps modernes"
-          />
+          <FilterTravel data={filterTravelEraTempsModernes} type="Temps modernes"/>
           <FilterTravel data={filterTravelEraFutur} type="Futur" />
         </div>
         <h2>Sensations</h2>
