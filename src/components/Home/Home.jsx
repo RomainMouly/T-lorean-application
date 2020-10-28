@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import FilterTravel from '../componentsGlobal/FilterTravel';
+import Welcome from './Welcome';
+import SearchBar from './SearchBar';
 
 class Home extends Component {
   constructor() {
@@ -47,6 +49,12 @@ class Home extends Component {
     );
     return (
       <div>
+        <div>
+          <Welcome />
+        </div>
+        <div>
+          <SearchBar />
+        </div>
         <div>
           <FilterTravel data={filterTravelSensationOne} type="Calme" />
           <FilterTravel data={filterTravelSensationTwo} type="Aventure" />
