@@ -9,6 +9,8 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: var(--light);
+  margin: 0;
 }
 
 h1 {
