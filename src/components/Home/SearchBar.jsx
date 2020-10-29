@@ -22,15 +22,17 @@ const SearchBar = ({ history }) => {
   };
 
   return (
-    <form>
-      <input
-        onKeyPress={(event) => event.key === 'Enter' && history.push('/Trip')}
-        placeholder="Search for..."
-        value={search}
-        onChange={handleInputChange}
-      />
-      <Suggestions results={results} />
-    </form>
+    <div className="searchBar">
+      <form>
+        <input
+          onKeyPress={(event) => event.key === 'Enter' && history.push('/Trip')}
+          placeholder="Search for..."
+          value={search}
+          onChange={handleInputChange}
+        />
+        <Suggestions results={results} />
+      </form>
+    </div>
   );
 };
 
