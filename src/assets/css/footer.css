@@ -28,11 +28,8 @@ footer h4 {
   text-align: center;
 }
 
-.contact .infos .follow {
-  min-width: 250px;
-}
 footer img:hover {
-  filter: drop-shadow(4px 4px 5px var(--second-color));
+  filter: drop-shadow(7px 7px 8px var(--second-color));
 }
 
 .links {
@@ -55,6 +52,10 @@ span {
 @media screen and (min-width: 992px) {
   footer .links {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+  }
+
+  .contact .infos .follow {
+    width: 50;
   }
 }
