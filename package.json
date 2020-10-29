@@ -14,7 +14,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-search-box": "^2.0.2"
   },
   "engines": {
     "node": "12.x",
@@ -55,16 +56,5 @@
     "lint-staged": "^10.2.2",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "./node_modules/.bin/eslint --max-warnings=0",
-      "pretty-quick --staged"
-    ]
   }
 }
