@@ -5,7 +5,7 @@ import '../../assets/css/Home/Home.css';
 import Welcome from './Welcome';
 import SearchBar from './SearchBar';
 
-const Home = () => {
+const Home = ({ history }) => {
   const [travels, setTravels] = useState([]);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const Home = () => {
         <Welcome />
       </div>
       <div>
-        <SearchBar />
+        <SearchBar history={history} />
       </div>
       <div className="home-filters">
         <h2>Époques</h2>

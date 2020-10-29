@@ -1,42 +1,37 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Suggestions from './Suggestions';
 
 const API_URL = 'https://api-airbnb-node.herokuapp.com/api/travels';
 
-class SearchBar extends Component {
-  state = {
-    search: '',
-    results: [],
+const SearchBar = ({ history }) => {
+  const [search, setSearch] = useState('');
+  const [results, setResults] = useState([]);
+
+  const handleInputChange = (event) => {
+    setSearch(event.target.value);
+    axios
+      .get(`${API_URL}`)
+      .then((response) =>
+        setResults(
+          response.data.filter((travel) =>
+            travel.title.toLowerCase().includes(search.toLowerCase())
+          )
+        )
+      );
   };
 
-  getInfo = () => {
-    axios.get(`${API_URL}`).then((response) =>
-      this.setState({
-        results: response.data.filter((travel) =>
-          travel.title.toLowerCase().includes(this.state.search.toLowerCase())
-        ),
-      })
-    );
-  };
-
-  handleInputChange = (event) => {
-    this.setState({ search: event.target.value });
-    this.getInfo();
-  };
-
-  render() {
-    return (
-      <form>
-        <input
-          placeholder="Search for..."
-          value={this.state.search}
-          onChange={this.handleInputChange}
-        />
-        <Suggestions results={this.state.results} />
-      </form>
-    );
-  }
-}
+  return (
+    <form>
+      <input
+        onKeyPress={(event) => event.key === 'Enter' && history.push('/Trip')}
+        placeholder="Search for..."
+        value={search}
+        onChange={handleInputChange}
+      />
+      <Suggestions results={results} />
+    </form>
+  );
+};
 
 export default SearchBar;
