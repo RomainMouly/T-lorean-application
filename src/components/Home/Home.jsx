@@ -15,7 +15,7 @@ import level1 from '../../assets/images/filters/level1.jpeg';
 import level2 from '../../assets/images/filters/level2.jpeg';
 import level3 from '../../assets/images/filters/level3.jpeg';
 
-const Home = () => {
+const Home = ({ history }) => {
   const [travels, setTravels] = useState([]);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const Home = () => {
         <Welcome />
       </div>
       <div>
-        <SearchBar />
+        <SearchBar history={history} />
       </div>
       <div className="home-filters">
         <h2>Époques</h2>

@@ -1,9 +1,5 @@
 .searchBar * {
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--third-color);
-  color: red !important;
 }
