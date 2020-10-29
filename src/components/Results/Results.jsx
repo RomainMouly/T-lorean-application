@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import '../../assets/css/global.css';
 import '../../assets/css/Results/Results.css';
 import ResultNumber from './ResultNumber';
@@ -12,7 +13,9 @@ const Results = ({ location }) => {
       <ResultNumber data={filterOne} />
       <div className="results-list">
         {Object.keys(filterOne).map((indexTravel) => (
-          <TripCard data={filterOne} indexTravel={indexTravel} />
+          <Link to={{ pathname: '/Trip' }}>
+            <TripCard data={filterOne} indexTravel={indexTravel} />
+          </Link>
         ))}
       </div>
     </div>
