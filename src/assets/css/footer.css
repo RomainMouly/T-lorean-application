@@ -1,4 +1,5 @@
 footer {
+  margin-top: 1em;
   background-color: var(--dark);
   color: var(--light);
   position: absolute;
@@ -10,7 +11,7 @@ footer {
 footer ul {
   padding: 0;
   list-style-type: none;
-  margin: 2px;
+  margin: var(--spacing);
 }
 .follow ul {
   display: flex;
@@ -27,6 +28,9 @@ footer h4 {
   text-align: center;
 }
 
+.contact .infos .follow {
+  min-width: 250px;
+}
 footer img:hover {
   filter: drop-shadow(4px 4px 5px var(--second-color));
 }
