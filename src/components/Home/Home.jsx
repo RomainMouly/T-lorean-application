@@ -5,11 +5,18 @@ import '../../assets/css/global.css';
 import '../../assets/css/Home/Home.css';
 import Welcome from './Welcome';
 import SearchBar from './SearchBar';
-
+import era1 from '../../assets/images/filters/era1.jpg';
+import era2 from '../../assets/images/filters/era2.jpg';
+import era3 from '../../assets/images/filters/era3.jpg';
+import era4 from '../../assets/images/filters/era4.jpg';
+import era5 from '../../assets/images/filters/era5.jpg';
+import era6 from '../../assets/images/filters/era6.png';
+import level1 from '../../assets/images/filters/level1.jpeg';
+import level2 from '../../assets/images/filters/level2.jpeg';
+import level3 from '../../assets/images/filters/level3.jpeg';
 
 const Home = () => {
   const [travels, setTravels] = useState([]);
-
 
   useEffect(() => {
     axios
@@ -56,21 +63,50 @@ const Home = () => {
       <div className="home-filters">
         <h2>Époques</h2>
         <div className="home-filter-era">
-          <FilterTravel data={filterTravelEraPrehistoire} type="Préhistoire" />
-          <FilterTravel data={filterTravelEraAntiquite} type="Antiquité" />
-          <FilterTravel data={filterTravelEraMoyenAge} type="Moyen-Âge" />
-          <FilterTravel data={filterTravelEraRenaissance} type="Renaissance" />
+          <FilterTravel
+            data={filterTravelEraPrehistoire}
+            type="Préhistoire"
+            image={era1}
+          />
+          <FilterTravel
+            data={filterTravelEraAntiquite}
+            type="Antiquité"
+            image={era2}
+          />
+          <FilterTravel
+            data={filterTravelEraMoyenAge}
+            type="Moyen-Âge"
+            image={era3}
+          />
+          <FilterTravel
+            data={filterTravelEraRenaissance}
+            type="Renaissance"
+            image={era4}
+          />
           <FilterTravel
             data={filterTravelEraTempsModernes}
             type="Temps modernes"
+            image={era5}
           />
-          <FilterTravel data={filterTravelEraFutur} type="Futur" />
+          <FilterTravel data={filterTravelEraFutur} type="Futur" image={era6} />
         </div>
         <h2>Sensations</h2>
         <div className="home-filter-level">
-          <FilterTravel data={filterTravelSensationOne} type="Calme" />
-          <FilterTravel data={filterTravelSensationTwo} type="Aventure" />
-          <FilterTravel data={filterTravelSensationThree} type="Extrême" />
+          <FilterTravel
+            data={filterTravelSensationOne}
+            type="Détente"
+            image={level1}
+          />
+          <FilterTravel
+            data={filterTravelSensationTwo}
+            type="Aventure"
+            image={level2}
+          />
+          <FilterTravel
+            data={filterTravelSensationThree}
+            type="Extrême"
+            image={level3}
+          />
         </div>
       </div>
     </div>

@@ -6,6 +6,9 @@ ul {
 
 .link-box {
   background-color: blueviolet;
+  background-image: url('../../images/filters/era2.jpg');
+  background-position: center;
+  background-size: cover;
   width: 45vw;
   height: 100px;
   margin: calc(var(--spacing) * 2) auto;
