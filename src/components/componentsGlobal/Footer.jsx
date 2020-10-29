@@ -20,18 +20,30 @@ const Footer = () => {
           <h4>Suivez Nous !</h4>
           <ul>
             <li>
-              <a href="https://www.facebook.com/Martymaaaaacflai/">
+              <a
+                href="https://www.facebook.com/Martymaaaaacflai/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={fb} alt="facebook de Marty McFly" />
               </a>
             </li>
             <li>
               {' '}
-              <a href="https://www.instagram.com/backtothefuturetrilogy/?hl=fr">
+              <a
+                href="https://www.instagram.com/backtothefuturetrilogy/?hl=fr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={instagram} alt="compte insta" />{' '}
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/backtothefuture?lang=fr">
+              <a
+                href="https://twitter.com/backtothefuture?lang=fr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={twitter} alt="compte twitter" />
               </a>
             </li>

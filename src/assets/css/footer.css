@@ -1,4 +1,5 @@
 footer {
+  margin-top: 1em;
   background-color: var(--dark);
   color: var(--light);
   position: relative;
@@ -10,7 +11,7 @@ footer {
 footer ul {
   padding: 0;
   list-style-type: none;
-  margin: 2px;
+  margin: var(--spacing);
 }
 .follow ul {
   display: flex;
@@ -51,6 +52,10 @@ span {
 @media screen and (min-width: 992px) {
   footer .links {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+  }
+
+  .contact .infos .follow {
+    width: 50;
   }
 }
