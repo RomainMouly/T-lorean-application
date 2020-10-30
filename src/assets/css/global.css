@@ -9,7 +9,13 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+<<<<<<< HEAD
   height: 100%;
+=======
+  margin: 0;
+  padding: 0;
+  background-color: var(--light);
+>>>>>>> c46ea589b7f873d49d244cd5208d0035f99f93f2
 }
 
 h1 {
