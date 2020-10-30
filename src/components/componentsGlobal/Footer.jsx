@@ -60,7 +60,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="credits">
-        <p>&copy; t-lorean Team for Wild Code School - 2020</p>
+        <p>
+          &copy; Les gardiens de la Galaxie pour t-lorean et Wild Code School -
+          2020
+        </p>
       </div>
     </footer>
   );

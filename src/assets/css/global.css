@@ -7,11 +7,29 @@
   --spacing: 8px;
 }
 
-body {
-  font-family: 'Montserrat', sans-serif;
+* {
   margin: 0;
   padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--light);
+  color: var(--dark);
+}
+.App {
+  min-height: 100vh;
+  position: relative;
 }
 
 h1 {
@@ -20,7 +38,7 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: lighter;
   text-transform: uppercase;
 }
