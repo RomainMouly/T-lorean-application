@@ -1,11 +1,14 @@
 footer {
-  margin-top: 1em;
+  padding: var(--spacing);
   background-color: var(--dark);
   color: var(--light);
   position: relative;
   width: 100%;
   bottom: 0;
+  left: 0;
+  right: 0;
   font-size: 14px;
+  margin-top: auto;
 }
 
 footer ul {
