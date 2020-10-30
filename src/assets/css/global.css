@@ -25,6 +25,7 @@ body,
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--light);
+  color: var(--dark);
 }
 .App {
   min-height: 100vh;
