@@ -55,7 +55,7 @@ span {
     justify-content: space-evenly;
   }
 
-  .contact .infos .follow {
-    width: 50;
+  .links > * {
+    width: 250px;
   }
 }
