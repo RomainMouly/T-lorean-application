@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import FilterTravel from '../componentsGlobal/FilterTravel';
 import '../../assets/css/global.css';
 import '../../assets/css/Home/Home.css';
@@ -14,14 +13,13 @@ import era6 from '../../assets/images/filters/era6.png';
 import level1 from '../../assets/images/filters/level1.jpeg';
 import level2 from '../../assets/images/filters/level2.jpeg';
 import level3 from '../../assets/images/filters/level3.jpeg';
+import { getTravels } from '../../interfaces/database/travel';
 
 const Home = ({ history }) => {
   const [travels, setTravels] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('https://api-airbnb-node.herokuapp.com/api/travels')
-      .then((response) => setTravels(response.data));
+    getTravels().then((response) => setTravels(response.data));
   }, []);
 
   const filterTravelSensationOne = travels.filter(

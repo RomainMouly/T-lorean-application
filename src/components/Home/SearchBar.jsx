@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import Suggestions from './Suggestions';
-
-const API_URL = 'https://api-airbnb-node.herokuapp.com/api/travels';
+import { getTravels } from '../../interfaces/database/travel';
 
 const SearchBar = ({ history }) => {
   const [search, setSearch] = useState('');
@@ -10,16 +8,21 @@ const SearchBar = ({ history }) => {
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
-    axios
-      .get(`${API_URL}`)
-      .then((response) =>
+  };
+
+  useEffect(() => {
+    if (search.length > 1) {
+      getTravels().then((response) => {
         setResults(
           response.data.filter((travel) =>
-            travel.title.toLowerCase().includes(search.toLowerCase())
+            travel.title.toLowerCase().includes(search.toLocaleLowerCase())
           )
-        )
-      );
-  };
+        );
+      });
+    } else {
+      setResults([]);
+    }
+  }, [search]);
 
   return (
     <div className="searchBar">
