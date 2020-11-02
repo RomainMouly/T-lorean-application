@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Suggestions from './Suggestions';
+import SearchButton from './SearchButton';
 import { getTravels } from '../../interfaces/database/travel';
 
 const SearchBar = ({ history }) => {
@@ -36,6 +37,7 @@ const SearchBar = ({ history }) => {
         />
         <Suggestions results={results} />
       </form>
+      <SearchButton />
     </div>
   );
 };
