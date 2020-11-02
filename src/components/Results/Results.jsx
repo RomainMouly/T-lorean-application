@@ -13,7 +13,7 @@ const Results = ({ location }) => {
       <ResultNumber data={filterOne} />
       <div className="results-list">
         {Object.keys(filterOne).map((indexTravel) => (
-          <Link to={{ pathname: '/Trip' }}>
+          <Link to={{ pathname: `/Trip/${filterOne[indexTravel].id}` }}>
             <TripCard data={filterOne} indexTravel={indexTravel} />
           </Link>
         ))}
