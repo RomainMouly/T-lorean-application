@@ -11,7 +11,7 @@ const SearchBar = ({ history }) => {
   };
 
   useEffect(() => {
-    if (search.length > 1) {
+    if (search.length > 0) {
       getTravels().then((response) => {
         setResults(
           response.data.filter((travel) =>
