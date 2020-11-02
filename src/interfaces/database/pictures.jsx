@@ -1,6 +1,5 @@
 import { get } from './client';
 
-const getPictures = () => get('travels/:id/pictures');
-console.log(getPictures);
+const getPictures = (id) => get(`/travels/${id}/pictures`);
 
 export { getPictures };

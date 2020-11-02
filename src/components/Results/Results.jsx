@@ -10,11 +10,11 @@ const Results = ({ location }) => {
   const filterOne = location.query.filter;
   return (
     <div className="results">
-      <ResultNumber data={filterOne} />
+      <ResultNumber filterList={filterOne} />
       <div className="results-list">
         {Object.keys(filterOne).map((indexTravel) => (
           <Link to={{ pathname: '/Trip' }}>
-            <TripCard data={filterOne} indexTravel={indexTravel} />
+            <TripCard filteredTrips={filterOne} indexTravel={indexTravel} />
           </Link>
         ))}
       </div>
