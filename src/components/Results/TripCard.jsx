@@ -14,7 +14,6 @@ const TripCard = ({ filteredTrips, indexTravel }) => {
           tripId={filteredTrips[indexTravel].id}
           altName={filteredTrips[indexTravel].title}
         />
-        s
         <SensationMeter filteredTripsLevel={filteredTrips[indexTravel].level} />
       </div>
       <div className="trip-caption">
