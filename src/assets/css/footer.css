@@ -25,6 +25,7 @@ footer ul {
   padding: 1em;
 }
 footer h4 {
+  display: none;
   text-transform: uppercase;
   font-weight: lighter;
   letter-spacing: 0.1em;
@@ -56,6 +57,10 @@ span {
   footer .links {
     display: flex;
     justify-content: space-evenly;
+  }
+
+  footer h4 {
+    display: block;
   }
 
   .links > * {
