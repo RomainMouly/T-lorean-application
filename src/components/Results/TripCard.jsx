@@ -4,11 +4,16 @@ import '../../assets/css/global.css';
 import '../../assets/css/Results/TripCard.css';
 import pin from '../../assets/images/location-pin.png';
 import SensationMeter from './SensationMeter';
+import TripBanner from './TripBanner';
 
 const TripCard = ({ data, indexTravel }) => {
   return (
     <div className="trip-container">
       <div className="trip-card-carrousel">
+        <TripBanner
+          photo={data[indexTravel].id}
+          name={data[indexTravel].title}
+        />
         <SensationMeter data={data[indexTravel].level} />
       </div>
       <div className="trip-caption">

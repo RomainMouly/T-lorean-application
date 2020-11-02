@@ -16,7 +16,7 @@
   height: 75%;
   border-radius: 16px 16px 0px 0px;
   position: relative;
-  background-image: url('https://blog.myollie.com/content/images/2020/02/beagle-puppy-running-through-a-yard-with-a-ball-in-his-mouth.jpg');
+  /* background-image: url('https://blog.myollie.com/content/images/2020/02/beagle-puppy-running-through-a-yard-with-a-ball-in-his-mouth.jpg'); */
   background-size: cover;
 }
 .trip-caption {
