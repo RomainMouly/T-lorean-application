@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Suggestions = ({ results }) => {
+const Suggestions = ({ suggestionInputChange, results }) => {
   const options = results.map((travel) => (
-    <li key={travel.id}>{travel.title}</li>
+    <li onClick={() => suggestionInputChange(travel.title)} key={travel.id}>
+      {travel.title}
+    </li>
   ));
   return <ul>{options}</ul>;
 };
