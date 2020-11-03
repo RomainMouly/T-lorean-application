@@ -1,8 +1,12 @@
 import React from 'react';
-import magnifier from '../../assets/images/magnifier.png';
+import { Link } from 'react-router-dom';
 
-const SearchButton = () => {
-  return <button id="searchbarButton">OK</button>;
+const SearchButton = ({ travelId }) => {
+  return (
+    <Link to={{ pathname: `/Trip/${travelId}` }} id="searchbarButton">
+      OK
+    </Link>
+  );
 };
 
 export default SearchButton;

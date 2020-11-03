@@ -6,13 +6,15 @@ import { getTravels } from '../../interfaces/database/travel';
 const SearchBar = ({ history }) => {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
+  const [travelId, setTravelId] = useState(0);
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
   };
 
-  const suggestionInputChange = (value) => {
-    setSearch(value);
+  const suggestionInputChange = (travel) => {
+    setSearch(travel.title);
+    setTravelId(travel.id);
   };
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const SearchBar = ({ history }) => {
           value={search}
           onChange={handleInputChange}
         />
-        <SearchButton />
+        <SearchButton travelId={travelId} />
       </form>
       <div className="travelTitles">
         <Suggestions
