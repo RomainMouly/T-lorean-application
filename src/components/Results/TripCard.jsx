@@ -4,23 +4,28 @@ import '../../assets/css/global.css';
 import '../../assets/css/Results/TripCard.css';
 import pin from '../../assets/images/location-pin.png';
 import SensationMeter from './SensationMeter';
+import TripBanner from './TripBanner';
 
-const TripCard = ({ data, indexTravel }) => {
+const TripCard = ({ filteredTrips, indexTravel }) => {
   return (
     <div className="trip-container">
       <div className="trip-card-carrousel">
-        <SensationMeter data={data[indexTravel].level} />
+        <TripBanner
+          tripId={filteredTrips[indexTravel].id}
+          altName={filteredTrips[indexTravel].title}
+        />
+        <SensationMeter filteredTripsLevel={filteredTrips[indexTravel].level} />
       </div>
       <div className="trip-caption">
         <div className="trip-info">
-          <div>{data[indexTravel].title}</div>
+          <div>{filteredTrips[indexTravel].title}</div>
           <div className="trip-info-country">
             <img className="pin" src={pin} alt="pin" />
-            {data[indexTravel].country}
+            {filteredTrips[indexTravel].country}
           </div>
         </div>
         <div className="trip-price">
-          <div>{data[indexTravel].price}€/pers</div>
+          <div>{filteredTrips[indexTravel].price}€/pers</div>
           <div>la journée</div>
         </div>
       </div>
@@ -29,7 +34,7 @@ const TripCard = ({ data, indexTravel }) => {
 };
 
 TripCard.propTypes = {
-  data: PropTypes.shape.isRequired,
+  filteredTrips: PropTypes.shape.isRequired,
   indexTravel: PropTypes.shape.isRequired,
 };
 

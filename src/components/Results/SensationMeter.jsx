@@ -4,8 +4,8 @@ import '../../assets/css/global.css';
 import '../../assets/css/Results/SensationMeter.css';
 import fire from '../../assets/images/fire.png';
 
-const SensationMeter = ({ data }) => {
-  switch (data) {
+const SensationMeter = ({ filteredTripsLevel }) => {
+  switch (filteredTripsLevel) {
     case 2:
       return (
         <div className="trip-sensation-meter">
