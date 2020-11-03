@@ -13,6 +13,29 @@ form {
   display: inline-flex;
 }
 
+.colorButton {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--third-color),
+    var(--main-color),
+    var(--second-color),
+    var(--dark)
+  );
+  margin-left: 1em;
+  border-radius: 20px;
+  border-color: var(--light);
+  color: var(--light);
+  font-weight: bolder;
+  padding: var(--spacing) calc(var(--spacing) * 2);
+  font-family: 'Turret Road', 'cursive';
+  width: auto;
+  text-decoration: none;
+}
+
+.colorButton:hover {
+  filter: brightness(80%);
+}
+
 #searchInput {
   margin-top: var(--calc);
   padding: calc(var(--spacing) / 2);
@@ -46,27 +69,13 @@ form {
   color: var(--light);
 }
 
-#searchbarButton {
-  background-image: linear-gradient(
-    to bottom right,
-    var(--third-color),
-    var(--main-color),
-    var(--second-color),
-    var(--dark)
-  );
-  border-radius: 20px;
-  border-color: var(--light);
-  color: var(--light);
-  font-weight: bolder;
-  padding: var(--spacing) calc(var(--spacing) * 2);
-  font-family: 'Turret Road', 'cursive';
-  width: auto;
-}
-
 @media screen and (min-width: 992px) {
   .searchBar,
   form {
     max-width: 70vh;
     margin: var(--spacing) auto;
+  }
+  .travelTitles ul {
+    max-width: 60vh;
   }
 }
