@@ -1,11 +1,16 @@
 .searchBar * {
-  width: 100%;
-  text-align: center;
   font-family: 'Montserrat', sans-serif;
+  width: 99%;
+}
+
+.searchBar {
+  width: 95%;
+  margin: var(--spacing) 0;
 }
 
 form {
   margin: var(--spacing);
+  display: inline-flex;
 }
 
 #searchInput {
@@ -20,14 +25,15 @@ form {
 #searchInput:focus::placeholder {
   color: transparent;
 }
-form ul {
+
+.travelTitles ul {
   border-radius: 0 5px 5px 0;
   background-color: white;
   padding: calc(var(--spacing) / 2);
   position: absolute;
-  padding: 0;
+  padding: 0 0 0 var(--spacing);
 }
-form ul li {
+.travelTitles ul li {
   z-index: 1;
   margin: 0;
   border: solid 1px var(--light);
@@ -35,7 +41,7 @@ form ul li {
   padding-top: 0;
   background-color: white;
 }
-form ul li:hover {
+.travelTitles ul li:hover {
   background-color: var(--dark);
   color: var(--light);
 }
@@ -48,21 +54,19 @@ form ul li:hover {
     var(--second-color),
     var(--dark)
   );
-  width: 100px;
-  height: 25px;
   border-radius: 20px;
   border-color: var(--light);
   color: var(--light);
   font-weight: bolder;
-  padding-top: 5px;
+  padding: var(--spacing) calc(var(--spacing) * 2);
   font-family: 'Turret Road', 'cursive';
+  width: auto;
 }
 
 @media screen and (min-width: 992px) {
-  .searchBar * {
-    width: 80vh;
-  }
-  .searchBar {
-    margin-left: 50vh;
+  .searchBar,
+  form {
+    max-width: 70vh;
+    margin: var(--spacing) auto;
   }
 }

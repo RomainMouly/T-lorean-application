@@ -11,6 +11,10 @@ const SearchBar = ({ history }) => {
     setSearch(event.target.value);
   };
 
+  // const suggestionInputChange = (onclick) => {
+  //   setSearch(onclick.target.value);
+  // };
+
   useEffect(() => {
     if (search.length > 1) {
       getTravels().then((response) => {
@@ -35,9 +39,11 @@ const SearchBar = ({ history }) => {
           value={search}
           onChange={handleInputChange}
         />
-        <Suggestions results={results} />
+        <SearchButton />
       </form>
-      <SearchButton />
+      <div className="travelTitles">
+        <Suggestions results={results} />
+      </div>
     </div>
   );
 };
