@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../../assets/css/global.css';
+import '../../assets/css/Results/TripBanner.css';
+
 import { getPictures } from '../../interfaces/database/pictures';
 
 const TripBanner = ({ tripId, altName }) => {
@@ -15,12 +17,7 @@ const TripBanner = ({ tripId, altName }) => {
     })();
   }, [tripId]);
 
-  return (
-    <div>
-      <img src={pictures} alt={altName} />
-      {tripId}
-    </div>
-  );
+  return <img src={pictures} alt={altName} />;
 };
 
 TripBanner.propTypes = {

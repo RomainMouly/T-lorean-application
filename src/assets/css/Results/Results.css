@@ -9,3 +9,10 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+.travel-card-link:link,
+.travel-card-link:visited,
+.travel-card-link:hover,
+.travel-card-link:active {
+  text-decoration: none;
+  color: var(--dark);
+}
