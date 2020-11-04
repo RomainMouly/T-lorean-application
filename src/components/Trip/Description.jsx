@@ -16,9 +16,11 @@ const Description = ({ match }) => {
   }, [id]);
   console.log(travel);
   return (
-    <div>
-      {travel.id} {travel.description}
-      {/* {travel && <TripCard data={travel} indexTravel={id} />} */}
+    <div className="trip-texts">
+      <h2>{travel.title}</h2>
+      <div className="description">{travel.description}</div>
+      <div className="calendar">Ceci est un calendrier en devenir.</div>
+      {/*<div>{travel.price}</div>*/}
     </div>
   );
 };

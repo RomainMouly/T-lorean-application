@@ -1,3 +1,60 @@
 .trip {
   min-height: 90vh;
+  text-align: center;
+}
+
+.trip-texts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.trip-texts h2 {
+  width: 100%;
+}
+
+.carousel-box {
+  background: url('../images/filters/era4.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  margin-bottom: var(--spacing);
+}
+
+.description {
+  padding: calc(var(--spacing) * 2);
+  margin: 10px;
+  border-radius: 20px;
+  height: 100%;
+  background-color: var(--light);
+  box-shadow: 0 0 8px hsl(0, 0%, 65%);
+}
+
+.calendar {
+  margin: 10px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 0 8px hsl(0, 0%, 65%);
+  height: 50vh; /*à supprimer quand le VRAI composant aura été intégré*/
+  width: 100%;
+}
+
+.colorButton {
+  margin: var(--spacing);
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 5);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel-box {
+    height: 400px;
+  }
+  .description {
+    width: 45%;
+  }
+
+  .calendar {
+    width: 45%;
+  }
 }
