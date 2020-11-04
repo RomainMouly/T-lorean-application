@@ -7,6 +7,7 @@ const SearchBar = ({ history }) => {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
   const [travelId, setTravelId] = useState(0);
+  const [hasClicked, setHasClicked] = useState(false);
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
@@ -18,6 +19,11 @@ const SearchBar = ({ history }) => {
   };
 
   useEffect(() => {
+    if (travelId && !hasClicked) {
+      setHasClicked(true);
+    } else if (travelId && hasClicked) {
+      setHasClicked(false);
+    }
     if (search.length > 1) {
       getTravels().then((response) => {
         setResults(
@@ -45,7 +51,7 @@ const SearchBar = ({ history }) => {
       </form>
       <div className="travelTitles">
         <Suggestions
-          results={results}
+          results={!hasClicked ? results : []}
           suggestionInputChange={suggestionInputChange}
         />
       </div>
