@@ -15,7 +15,8 @@
 }
 
 .presentation {
-  width: 370px;
+  width: 90%;
+  max-width: 370px;
   text-align: center;
   color: black;
 }
