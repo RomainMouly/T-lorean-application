@@ -21,7 +21,7 @@ const Trip = ({ match }) => {
     <div className="trip">
       {' '}
       Welcome tu es dans le trip !
-      <Description description={Description} match={match} />
+      <Description match={match} />
       <BookingButton travelId={travel.id} />
     </div>
   );
