@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SearchButton = ({ travelId }) => {
   return (
-    <Link to={{ pathname: `/Trip/${travelId}` }} id="searchbarButton">
+    <Link to={{ pathname: `/Trip/${travelId}` }} className="colorButton">
       OK
     </Link>
   );
