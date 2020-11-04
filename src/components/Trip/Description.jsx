@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import TripCard from '../Results/TripCard';
 import pin from '../../assets/images/location-pin.png';
+import Calendar from '../Booking/Calendar';
 
 const Description = (props) => {
   const { travelTitle, travelCountry, travelPrice, travelDescription } = props;
@@ -36,7 +37,9 @@ const Description = (props) => {
           complémentaire, nos conseillers seront ravis de vous répondre !
         </p>
       </div>
-      <div className="calendar">Ceci est un calendrier en devenir.</div>
+      <div className="calendar">
+        <Calendar />
+      </div>
     </div>
   );
 };
