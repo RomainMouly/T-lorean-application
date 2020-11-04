@@ -1,6 +1,7 @@
 import React from 'react';
 import Description from './Description';
 import '../../assets/css/trip.css';
+import BookingButton from './BookingButton';
 
 const Trip = ({ description, match }) => {
   return (
@@ -8,6 +9,7 @@ const Trip = ({ description, match }) => {
       {' '}
       Welcome tu es dans le trip !
       <Description description={description} match={match} />
+      <BookingButton />
     </div>
   );
 };
