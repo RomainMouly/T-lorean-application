@@ -5,6 +5,7 @@ import '../../assets/css/trip.css';
 import CarouselDetail from './CarouselDetail';
 import Description from './Description';
 import BookingButton from './BookingButton';
+import Calendar from '../Booking/Calendar';
 
 const Trip = ({ match }) => {
   const { id } = match.params;
