@@ -22,12 +22,6 @@ const Trip = ({ match }) => {
   return (
     <div className="trip">
       {' '}
-<<<<<<< HEAD
-      Welcome tu es dans le trip !
-      <Description description={description} match={match} />
-      <BookingButton />
-      <Calendar />
-=======
       <CarouselDetail />
       <Description
         travelTitle={travel.title}
@@ -36,7 +30,6 @@ const Trip = ({ match }) => {
         travelCountry={travel.country}
       />
       <BookingButton travelId={travel.id} />
->>>>>>> 6c5f14f7e8d97bf3e6e6c78a1f28892ffeacb8dd
     </div>
   );
 };

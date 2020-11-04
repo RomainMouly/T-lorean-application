@@ -22,9 +22,6 @@
 }
 
 .logo {
-<<<<<<< HEAD:src/assets/css/Home/welcome.css
-  width: 180px;
-=======
   width: 11rem;
 }
 
@@ -42,5 +39,4 @@
   .banner h1 {
     font-size: 60px;
   }
->>>>>>> 6c5f14f7e8d97bf3e6e6c78a1f28892ffeacb8dd:src/assets/css/welcome.css
 }
