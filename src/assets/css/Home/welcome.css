@@ -15,11 +15,32 @@
 }
 
 .presentation {
-  width: 370px;
+  width: 90%;
+  max-width: 370px;
   text-align: center;
   color: black;
 }
 
 .logo {
+<<<<<<< HEAD:src/assets/css/Home/welcome.css
   width: 180px;
+=======
+  width: 11rem;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 13rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .logo {
+    width: 18rem;
+  }
+
+  .banner h1 {
+    font-size: 60px;
+  }
+>>>>>>> 6c5f14f7e8d97bf3e6e6c78a1f28892ffeacb8dd:src/assets/css/welcome.css
 }
