@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const BookingButton = () => {
-  return <button className="colorButton">Réserver</button>;
+const BookingButton = ({ travelId }) => {
+  return (
+    <Link to={{ pathname: `/Booking/${travelId}` }} className="colorButton">
+      Reserver
+    </Link>
+  );
 };
 
 export default BookingButton;
