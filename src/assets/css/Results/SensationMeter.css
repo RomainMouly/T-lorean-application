@@ -1,12 +1,5 @@
 .trip-sensation-meter {
   position: absolute;
-  top: calc(var(--spacing) * 2);
-  right: calc(var(--spacing) * 2);
-  width: calc(var(--spacing) * 2);
-  display: flex;
-  flex-direction: flex-start;
-}
-
-.trip-sensation-meter img {
-  width: calc(var(--spacing) * 3);
+  top: var(--spacing);
+  right: var(--spacing);
 }
