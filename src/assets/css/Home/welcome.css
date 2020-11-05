@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: var(--light);
 }
 
 .banner h1 {
@@ -18,19 +17,15 @@
 .banner h2 {
   margin-bottom: 90px;
   text-align: center;
+  color: var(--third-color);
 }
 .presentation {
   width: 90%;
   max-width: 370px;
   text-align: justify;
+  color: var(--light);
 }
 
-.presentation h4 {
-  text-align: center;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin-bottom: var(--spacing);
-}
 .logo {
   width: 11rem;
 }
