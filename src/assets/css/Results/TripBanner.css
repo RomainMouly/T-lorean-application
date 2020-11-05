@@ -1,0 +1,7 @@
+.trip-card-carrousel > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 16px 16px 0px 0px;
+}

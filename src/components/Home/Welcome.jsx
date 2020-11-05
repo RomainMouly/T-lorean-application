@@ -8,10 +8,11 @@ const Welcome = () => {
         <img className="logo" src={logo} alt="logo" />
         <h1>T-Lorean</h1>
         <p className="presentation">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui
-          saepe non alias nesciunt dolorum, repellendus commodi harum
-          exercitationem quisquam soluta. Quia tenetur cupiditate dolorum vitae
-          reprehenderit consectetur doloremque ut.
+          Plongez au cœur de l’Histoire !<br />
+          Embarquez pour un voyage comme vous n’en avez jamais vécu ; changez
+          d'époque ! Grâce à notre technologie de pointe dans le domaine
+          temporel, nous offrons une large gamme de séjours pour vivre le grand
+          frisson ou simplement vous détendre.
         </p>
       </section>
     </div>

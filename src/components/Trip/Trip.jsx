@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-
+import '../../assets/css/trip.css';
+import CarouselDetail from './CarouselDetail';
 import Description from './Description';
 import BookingButton from './BookingButton';
 
@@ -20,10 +21,12 @@ const Trip = ({ match }) => {
   return (
     <div className="trip">
       {' '}
-      Welcome tu es dans le trip !
+      <CarouselDetail />
       <Description
         travelTitle={travel.title}
         travelDescription={travel.description}
+        travelPrice={travel.price}
+        travelCountry={travel.country}
       />
       <BookingButton travelId={travel.id} />
     </div>
