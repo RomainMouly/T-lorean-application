@@ -6,8 +6,8 @@ import '../../assets/css/Results/ResultNumber.css';
 const ResultNumber = ({ filterList }) => {
   return (
     <div className="results-number">
-      {Object.keys(filterList).length} résultat
-      {Object.keys(filterList).length > 1 && 's'}
+      {filterList.length} résultat
+      {filterList.length > 1 && 's'}
     </div>
   );
 };
