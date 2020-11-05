@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../../assets/css/componentsGlobal/FilterTravel.css';
 
-const FilterTravel = ({ data, type, image }) => {
+const FilterTravel = ({ data, type, image, name }) => {
   return (
     <ul>
       <li>
         <Link
-          to={{ pathname: '/Results', query: { filter: { ...data } } }}
+          to={`/Results/${name}/${type}`}
           className="link-box"
           style={{ backgroundImage: `url(${image})` }}
         >
-          {' '}
-          {type}{' '}
+          {type}
         </Link>
       </li>
     </ul>

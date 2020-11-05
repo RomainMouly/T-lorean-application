@@ -65,11 +65,10 @@
   border-radius: 20px;
   background-color: white;
   box-shadow: 0 0 8px hsl(0, 0%, 76%);
-  height: 50vh; /*à supprimer quand le VRAI composant aura été intégré*/
   width: 100%;
 }
 
-.colorButton {
+.trip .colorButton {
   margin: var(--spacing);
   padding: calc(var(--spacing) * 2) calc(var(--spacing) * 5);
   text-transform: uppercase;
