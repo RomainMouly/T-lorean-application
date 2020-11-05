@@ -65,7 +65,6 @@
   border-radius: 20px;
   background-color: white;
   box-shadow: 0 0 8px hsl(0, 0%, 76%);
-  height: 50vh; /*à supprimer quand le VRAI composant aura été intégré*/
   width: 100%;
 }
 
