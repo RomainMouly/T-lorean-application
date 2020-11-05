@@ -65,28 +65,38 @@ const Home = ({ history }) => {
             data={filterTravelEraPrehistoire}
             type="Préhistoire"
             image={era1}
+            name="era"
           />
           <FilterTravel
             data={filterTravelEraAntiquite}
             type="Antiquité"
             image={era2}
+            name="era"
           />
           <FilterTravel
             data={filterTravelEraMoyenAge}
             type="Moyen-Âge"
             image={era3}
+            name="era"
           />
           <FilterTravel
             data={filterTravelEraRenaissance}
             type="Renaissance"
             image={era4}
+            name="era"
           />
           <FilterTravel
             data={filterTravelEraTempsModernes}
             type="Temps modernes"
             image={era5}
+            name="era"
           />
-          <FilterTravel data={filterTravelEraFutur} type="Futur" image={era6} />
+          <FilterTravel
+            data={filterTravelEraFutur}
+            type="Futur"
+            image={era6}
+            name="era"
+          />
         </div>
         <h2>Filtrer par Sensations</h2>
         <div className="home-filter-level">
@@ -94,16 +104,19 @@ const Home = ({ history }) => {
             data={filterTravelSensationOne}
             type="Détente"
             image={level1}
+            name="1"
           />
           <FilterTravel
             data={filterTravelSensationTwo}
             type="Aventure"
             image={level2}
+            name="2"
           />
           <FilterTravel
             data={filterTravelSensationThree}
             type="Extrême"
             image={level3}
+            name="3"
           />
         </div>
       </div>

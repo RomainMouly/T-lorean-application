@@ -6,26 +6,23 @@ import pin from '../../assets/images/location-pin.png';
 import SensationMeter from './SensationMeter';
 import TripBanner from './TripBanner';
 
-const TripCard = ({ filteredTrips, indexTravel }) => {
+const TripCard = ({ filteredTrips }) => {
   return (
     <div className="trip-container">
       <div className="trip-card-carrousel">
-        <TripBanner
-          tripId={filteredTrips[indexTravel].id}
-          altName={filteredTrips[indexTravel].title}
-        />
-        <SensationMeter filteredTripsLevel={filteredTrips[indexTravel].level} />
+        <TripBanner tripId={filteredTrips.id} altName={filteredTrips.title} />
+        <SensationMeter filteredTripsLevel={filteredTrips.level} />
       </div>
       <div className="trip-caption">
         <div className="trip-info">
-          <div>{filteredTrips[indexTravel].title}</div>
+          <div>{filteredTrips.title}</div>
           <div className="trip-info-country">
             <img className="pin" src={pin} alt="pin" />
-            {filteredTrips[indexTravel].country}
+            {filteredTrips.country}
           </div>
         </div>
         <div className="trip-price">
-          <div>{filteredTrips[indexTravel].price}€/pers</div>
+          <div>{filteredTrips.price}€/pers</div>
           <div>la journée</div>
         </div>
       </div>

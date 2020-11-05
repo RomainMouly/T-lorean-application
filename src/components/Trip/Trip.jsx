@@ -17,7 +17,6 @@ const Trip = ({ match }) => {
       .then((result) => result.data[0])
       .then((data) => setTravel(data));
   }, [id]);
-  console.log(travel);
   return (
     <div className="trip">
       {' '}
