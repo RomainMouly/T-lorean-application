@@ -14,7 +14,7 @@
 }
 
 .carousel-box {
-  background: url('../images/filters/era4.jpg') no-repeat;
+  /* background: url('../images/filters/era4.jpg') no-repeat; */
   background-position: center;
   background-size: cover;
   height: 300px;

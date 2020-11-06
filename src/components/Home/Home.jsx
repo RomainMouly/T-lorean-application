@@ -49,7 +49,6 @@ const Home = ({ history }) => {
   const filterTravelEraFutur = travels.filter(
     (travel) => travel.era === 'Futur'
   );
-
   return (
     <div>
       <div>

@@ -9,18 +9,31 @@ import BookingButton from './BookingButton';
 const Trip = ({ match }) => {
   const { id } = match.params;
   const [travel, setTravel] = useState({});
-  console.log(process.env.REACT_APP_BACK);
+  const [pictures, setPictures] = useState([]);
 
-  useEffect(() => {
+  useEffect(async () => {
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}`)
       .then((result) => result.data[0])
       .then((data) => setTravel(data));
+
+    /*(async () => {
+      const picturesArr = await axios
+        .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}/pictures`)
+        .then((result) => result.data)
+        .catch((err) => console.log(`${err}`));
+      setPictures(picturesArr);
+    })();*/
+    axios
+      .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}/pictures`)
+      .then((responses) => responses.data)
+      .then((data) => setPictures(data));
   }, [id]);
+
   return (
     <div className="trip">
       {' '}
-      <CarouselDetail />
+      <CarouselDetail pictures={pictures} />
       <Description
         travelTitle={travel.title}
         travelDescription={travel.description}
