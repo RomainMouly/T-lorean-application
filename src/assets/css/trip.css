@@ -17,8 +17,13 @@
   /* background: url('../images/filters/era4.jpg') no-repeat; */
   background-position: center;
   background-size: cover;
-  height: 300px;
-  margin-bottom: calc(var(--spacing) * 2);
+  border-radius: 16px;
+  height: 450px;
+  margin: calc(var(--spacing) * 2), auto;
+  width: 90%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
 }
 
 .trip-infos {

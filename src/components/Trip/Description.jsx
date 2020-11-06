@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TripCard from '../Results/TripCard';
 import pin from '../../assets/images/location-pin.png';
 import Calendar from '../Booking/Calendar';
 
 const Description = (props) => {
-  const { travelTitle, travelCountry, travelPrice, travelDescription } = props;
+  const { travelCountry, travelPrice, travelDescription } = props;
 
   return (
     <div className="trip-texts">
-      <h2>{travelTitle}</h2>
       <div className="trip-infos">
         <div className="trip-infos-country">
           <img className="pin" src={pin} alt="pin" />

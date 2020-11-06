@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../../assets/css/trip.css';
 import CarouselDetail from './CarouselDetail';
 import Description from './Description';
+import TripTitle from './TripTitle';
 import BookingButton from './BookingButton';
 
 const Trip = ({ match }) => {
@@ -11,7 +12,7 @@ const Trip = ({ match }) => {
   const [travel, setTravel] = useState({});
   const [pictures, setPictures] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}`)
       .then((result) => result.data[0])
@@ -33,6 +34,7 @@ const Trip = ({ match }) => {
   return (
     <div className="trip">
       {' '}
+      <TripTitle travelTitle={travel.title} />
       <CarouselDetail pictures={pictures} />
       <Description
         travelTitle={travel.title}
