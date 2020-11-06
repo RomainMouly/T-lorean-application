@@ -11,7 +11,7 @@ const Trip = ({ match }) => {
   const [travel, setTravel] = useState({});
   const [pictures, setPictures] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}`)
       .then((result) => result.data[0])
