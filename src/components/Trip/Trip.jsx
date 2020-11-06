@@ -35,6 +35,7 @@ const Trip = ({ match }) => {
     <div className="trip">
       {' '}
       <TripTitle travelTitle={travel.title} />
+
       <CarouselDetail pictures={pictures} />
       <Description
         travelDescription={travel.description}

@@ -9,12 +9,10 @@ const TripBanner = ({ tripId, altName }) => {
   const [pictures, setPictures] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      const picturesArr = await getPictures(tripId)
-        .then((response) => response.data[0].url)
-        .catch((err) => console.log(`${err}`));
-      setPictures(picturesArr);
-    })();
+    getPictures(tripId)
+      .then((response) => response.data[0].url)
+      .then((data) => setPictures(data))
+      .catch((err) => console.log(`${err}`));
   }, [tripId]);
 
   return <img src={pictures} alt={altName} />;
