@@ -31,6 +31,7 @@
 }
 .pin {
   height: calc(var(--spacing) * 2);
+  margin-right: 2px;
 }
 .trip-info-country {
   color: var(--main-color);
