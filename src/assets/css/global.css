@@ -1,5 +1,5 @@
 :root {
-  --light: #eaf5fe;
+  --light: white;
   --dark: #111d62;
   --main-color: #c13636;
   --second-color: #780e5a;
@@ -44,7 +44,10 @@ h2 {
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 25px;
   text-transform: uppercase;
   font-weight: lighter;
+}
+h4 {
+  text-transform: uppercase;
 }
