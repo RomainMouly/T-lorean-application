@@ -32,6 +32,10 @@ form {
   text-decoration: none;
 }
 
+#go {
+  letter-spacing: 2px;
+}
+
 .colorButton:hover {
   filter: brightness(80%);
 }

@@ -58,7 +58,7 @@ const Home = ({ history }) => {
         <SearchBar history={history} />
       </div>
       <div className="home-filters">
-        <h2>Filtrer par Époques</h2>
+        <h2>Quand voulez-vous aller ?</h2>
         <div className="home-filter-era">
           <FilterTravel
             data={filterTravelEraPrehistoire}
@@ -97,7 +97,7 @@ const Home = ({ history }) => {
             name="era"
           />
         </div>
-        <h2>Filtrer par Sensations</h2>
+        <h2>Degré de sensation </h2>
         <div className="home-filter-level">
           <FilterTravel
             data={filterTravelSensationOne}

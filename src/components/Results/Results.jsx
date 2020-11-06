@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import FilterBanner from './FilterBanner';
 import ResultNumber from './ResultNumber';
 import TripCard from './TripCard';
 
@@ -32,6 +33,7 @@ const Results = ({ match }) => {
 
   return (
     <div className="results">
+      <FilterBanner filterName={type} />
       <ResultNumber filterList={travels} />
       <div className="results-list">
         {travels &&

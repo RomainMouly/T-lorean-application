@@ -27,19 +27,22 @@ const Description = (props) => {
         </p>
         <p>
           Santé et sécurité :<br />
-          Avant votre départ, veuillez consulter le site du ministère des
-          Affaires temporelles pour connaître les risques sanitaires éventuels
-          qui peuvent concerner votre destination :
-          https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/conseils-par-pays-destination/
+          Avant votre départ, veuillez consulter le site du{' '}
+          <a
+            className="description-link-ext"
+            href="https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/conseils-par-pays-destination/"
+          >
+            ministère des Affaires temporelles
+          </a>{' '}
+          pour connaître les risques sanitaires éventuels qui peuvent concerner
+          votre destination.
         </p>
         <p>
           N’hésitez pas à nous contacter pour toute demande d’informations
           complémentaire, nos conseillers seront ravis de vous répondre !
         </p>
       </div>
-      <div className="calendar">
-        <Calendar />
-      </div>
+      <Calendar className="calendar" />
     </div>
   );
 };
