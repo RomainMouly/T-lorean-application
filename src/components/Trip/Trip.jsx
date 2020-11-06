@@ -37,7 +37,6 @@ const Trip = ({ match }) => {
       <TripTitle travelTitle={travel.title} />
       <CarouselDetail pictures={pictures} />
       <Description
-        travelTitle={travel.title}
         travelDescription={travel.description}
         travelPrice={travel.price}
         travelCountry={travel.country}
