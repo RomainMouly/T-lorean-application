@@ -17,7 +17,7 @@ const Booking = ({ match }) => {
   return (
     <div className="Booking">
       {' '}
-      Welcome tu es dans le Booking !
+      <h1>Welcome tu es dans le Booking !</h1>{' '}
       <Description
         travelTitle={travel.title}
         travelDescription={travel.description}

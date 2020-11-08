@@ -13,14 +13,11 @@ const Calendar = () => {
   return (
     <div className="calendar">
       <p>
-        Selected start date:{' '}
-        {startDate ? format(startDate, 'dd MMM yyyy', { locale: fr }) : 'none'}.
+        Arrivée{' '}
+        {startDate ? format(startDate, 'dd MMM yyyy', { locale: fr }) : 'none'}{' '}
+        - Départ{' '}
+        {endDate ? format(endDate, 'dd MMM yyyy', { locale: fr }) : 'none'}
       </p>
-      <p>
-        Selected end date:{' '}
-        {endDate ? format(endDate, 'dd MMM yyyy', { locale: fr }) : 'none'}.
-      </p>
-      <p>Currently selecting: {focus}.</p>
       <DateRangePickerCalendar
         startDate={startDate}
         endDate={endDate}
