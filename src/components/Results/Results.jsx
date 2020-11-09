@@ -31,9 +31,17 @@ const Results = ({ match }) => {
     }
   };
 
+  const handleSubfiltering = () => {
+    console.log('subfiltered!');
+  };
+
   return (
     <div className="results">
-      <FilterBanner filterName={type} />
+      <FilterBanner
+        filterType={name}
+        filterName={type}
+        handleSubfiltering={handleSubfiltering}
+      />
       <ResultNumber filterList={travels} />
       <div className="results-list">
         {travels &&
