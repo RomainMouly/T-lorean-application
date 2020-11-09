@@ -1,5 +1,14 @@
 .nice-dates-day {
+  height: 40px !important;
   color: var(--dark) !important;
+}
+
+.nice-dates-day.-outside {
+  color: #999 !important;
+}
+
+.nice-dates-day.-disabled {
+  coslor: #999 !important;
 }
 
 .nice-dates-day:before {
@@ -19,6 +28,8 @@
   color: var(--dark) !important;
 }
 
-.calendar p {
-  margin-top: var(--spacing);
+.calendar {
+  padding-top: calc(var(--spacing) * 2) !important;
+  height: 400px !important;
+  margin-top: calc(var(--spacing) * 10) !important;
 }

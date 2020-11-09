@@ -2,19 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import pin from '../../assets/images/location-pin.png';
 import Calendar from '../Booking/Calendar';
-import SensationMeter from '../Results/SensationMeter';
 
 const Description = (props) => {
-  const { travelCountry, travelPrice, travelDescription } = props;
+  const { travelCountry, travelPrice, travelDescription, travelLevel } = props;
+  const levelName = {
+    1: 'Détente',
+    2: 'Aventure',
+    3: 'Extrême',
+  };
 
   return (
     <div className="trip-texts">
       <div className="travel-info">
         <div>
           <img className="pin" src={pin} alt="pin" />
-          {travelCountry} &nbsp;| &nbsp; &nbsp;
+          {travelCountry} &nbsp;| &nbsp;
         </div>
-        <div>{travelPrice} €/personne la journée | </div>
+        <div>{travelPrice} €/personne la journée | &nbsp; </div>
+        <div>{levelName[travelLevel]}</div>
       </div>
       <div className="trip-infos">
         <div className="description">
