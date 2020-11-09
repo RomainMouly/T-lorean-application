@@ -46,21 +46,12 @@
   margin-bottom: calc(var(--spacing) * 2);
 }
 
-.trip-infos {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: justify;
-  width: 100%;
-  margin: 0 auto var(--spacing) auto;
-}
-
 .api-description {
   font-weight: bolder;
-  margin-bottom: calc (var(--spacing) * 2);
+  margin: calc(var(--spacing) * 4) auto;
 }
 .description p {
-  margin: calc(var(--spacing) * 2);
+  margin: calc(var(--spacing) * 4);
   text-align: justify;
 }
 
@@ -75,7 +66,6 @@
   margin: 10px;
   border-radius: 20px;
   box-shadow: 0 0 8px hsl(0, 0%, 76%);
-  width: 100%;
 }
 
 .trip .colorButton {
@@ -91,6 +81,16 @@
   .carousel-box {
     height: 400px;
   }
+
+  .trip-infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: justify;
+    width: 100%;
+    margin: 0 auto var(--spacing) auto;
+  }
+
   .description {
     width: 42%;
     margin-top: calc(var(--spacing) * 6);

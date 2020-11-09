@@ -44,6 +44,7 @@ const SearchBar = ({ history }) => {
           id="searchInput"
           onKeyPress={(event) => event.key === 'Enter' && history.push('/Trip')}
           placeholder="Entrez le titre du voyage"
+          autoComplete="off"
           value={search}
           onChange={handleInputChange}
         />
