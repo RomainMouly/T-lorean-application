@@ -35,12 +35,12 @@ const Trip = ({ match }) => {
     <div className="trip">
       {' '}
       <TripTitle travelTitle={travel.title} />
-
       <CarouselDetail pictures={pictures} />
       <Description
         travelDescription={travel.description}
         travelPrice={travel.price}
         travelCountry={travel.country}
+        travelLevel={travel.level}
       />
       <BookingButton travelId={travel.id} />
     </div>
