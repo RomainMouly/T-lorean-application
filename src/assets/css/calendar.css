@@ -7,8 +7,11 @@
   color: #999 !important;
 }
 
+.nice-dates-navigation {
+  height: 50px !important;
+}
 .nice-dates-day.-disabled {
-  coslor: #999 !important;
+  color: #999 !important;
 }
 
 .nice-dates-day:before {

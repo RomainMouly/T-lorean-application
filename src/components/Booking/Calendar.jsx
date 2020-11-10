@@ -13,6 +13,16 @@ const Calendar = () => {
   };
   return (
     <div className="calendar">
+      <form>
+        <select name="peopleNumber" type="number" min="1" max="5">
+          <option value="">Combien de voyageurs seront de la partie ?</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </form>
       <p>
         Arrivée{' '}
         {startDate ? format(startDate, 'dd MMM yyyy', { locale: fr }) : 'none'}{' '}
