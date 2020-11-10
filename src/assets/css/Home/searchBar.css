@@ -47,6 +47,7 @@ form {
   color: var(--second-color);
   font-weight: bolder;
   border-radius: 5px;
+  
 }
 
 #searchInput:focus::placeholder {

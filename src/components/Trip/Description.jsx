@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TripCard from '../Results/TripCard';
 import pin from '../../assets/images/location-pin.png';
 import Calendar from '../Booking/Calendar';
 

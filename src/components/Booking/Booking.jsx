@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Description from '../Trip/Description';
+import Form from './Form';
 
 const Booking = ({ match }) => {
   const { id } = match.params;
@@ -22,6 +23,7 @@ const Booking = ({ match }) => {
         travelTitle={travel.title}
         travelDescription={travel.description}
       />
+      <Form />
     </div>
   );
 };
