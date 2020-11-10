@@ -96,10 +96,11 @@ const Form = () => {
               value={form.email}
             />
           </div>
-          <hr />
-          <button className="button" onClick={handleSubmit}>
-            Réserver
-          </button>
+          <div className="form-data">
+            <button className="colorButton form-button" onClick={handleSubmit}>
+              Réserver
+            </button>
+          </div>
         </fieldset>
       </form>
     </div>

@@ -1,6 +1,9 @@
 .form {
-  width: 400px;
+  width: 800px;
   margin: 0 auto;
+  align-items: center;
+  /* à modifier dès que la page se remplit ! */
+  height: 90vh;
 }
 
 .form h1 {
@@ -8,7 +11,10 @@
 }
 
 .form .form-data {
+  width: 800px;
   margin: 30px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .form .form-data label {
@@ -16,4 +22,10 @@
   width: 70px;
   margin-right: 20px;
   text-align: right;
+}
+
+.form-button {
+  display: inline-block;
+  justify-items: center;
+  text-transform: uppercase;
 }
