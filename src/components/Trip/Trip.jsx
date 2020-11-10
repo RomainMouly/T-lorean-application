@@ -11,20 +11,14 @@ const Trip = ({ match }) => {
   const { id } = match.params;
   const [travel, setTravel] = useState({});
   const [pictures, setPictures] = useState([]);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
 
   useEffect(() => {
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}`)
       .then((result) => result.data[0])
       .then((data) => setTravel(data));
-
-    /*(async () => {
-      const picturesArr = await axios
-        .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}/pictures`)
-        .then((result) => result.data)
-        .catch((err) => console.log(`${err}`));
-      setPictures(picturesArr);
-    })();*/
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}/pictures`)
       .then((responses) => responses.data)
@@ -41,8 +35,16 @@ const Trip = ({ match }) => {
         travelPrice={travel.price}
         travelCountry={travel.country}
         travelLevel={travel.level}
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
       />
-      <BookingButton travelId={travel.id} />
+      <BookingButton
+        travelId={travel.id}
+        startDate={startDate}
+        endDate={endDate}
+      />
     </div>
   );
 };

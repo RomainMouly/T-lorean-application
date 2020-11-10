@@ -94,12 +94,12 @@ const Form = () => {
               name="email"
               onChange={handleChange}
               value={form.email}
+              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+              isRequired
             />
           </div>
           <div className="form-data">
-            <button className="colorButton form-button" onClick={handleSubmit}>
-              Réserver
-            </button>
+            <button className="colorButton form-button">Réserver</button>
           </div>
         </fieldset>
       </form>

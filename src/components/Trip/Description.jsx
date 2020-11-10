@@ -4,7 +4,16 @@ import pin from '../../assets/images/location-pin.png';
 import Calendar from '../Booking/Calendar';
 
 const Description = (props) => {
-  const { travelCountry, travelPrice, travelDescription, travelLevel } = props;
+  const {
+    travelCountry,
+    travelPrice,
+    travelDescription,
+    travelLevel,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
+  } = props;
   const levelName = {
     1: 'Détente',
     2: 'Aventure',
@@ -48,7 +57,13 @@ const Description = (props) => {
             complémentaire, nos conseillers seront ravis de vous répondre !
           </p>{' '}
         </div>
-        <Calendar className="calendar" />
+        <Calendar
+          className="calendar"
+          startDate={startDate}
+          endDate={endDate}
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+        />
       </div>
     </div>
   );
