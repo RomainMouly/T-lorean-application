@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../../assets/css/trip.css';
 import CarouselDetail from './CarouselDetail';
 import Description from './Description';
+import TripTitle from './TripTitle';
 import BookingButton from './BookingButton';
 
 const Trip = ({ match }) => {
@@ -33,12 +34,13 @@ const Trip = ({ match }) => {
   return (
     <div className="trip">
       {' '}
+      <TripTitle travelTitle={travel.title} />
       <CarouselDetail pictures={pictures} />
       <Description
-        travelTitle={travel.title}
         travelDescription={travel.description}
         travelPrice={travel.price}
         travelCountry={travel.country}
+        travelLevel={travel.level}
       />
       <BookingButton travelId={travel.id} />
     </div>

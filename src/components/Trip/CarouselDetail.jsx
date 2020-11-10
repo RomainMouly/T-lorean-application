@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const CarouselDetail = ({ pictures }) => {
-  console.log(pictures[0]);
   return (
     <div>
       {/* {pictures.map((picture) => (
