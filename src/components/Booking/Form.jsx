@@ -21,14 +21,15 @@ const Form = () => {
     //     ...form,
     //     email: e.target.value,
     //   });
-    // }
+    // } ou :
     setForm({
       ...form,
       [e.target.name]: e.target.value, //crochet car valeur dynamique (rien à voir avec un tableau)
+      // Attention :
       // lastname: e.target.value,
       // firstname: e.target.value,
       // email: e.target.value,
-    }); /*si on fait ceci : tous les champs on la même valeur*/
+    }); /*si on fait ceci : tous les champs ont la même valeur*/
   };
 
   const handleSubmit = (e) => {
