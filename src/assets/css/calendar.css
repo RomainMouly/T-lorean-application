@@ -8,7 +8,7 @@
 }
 
 .nice-dates-day.-disabled {
-  coslor: #999 !important;
+  color: #999 !important;
 }
 
 .nice-dates-day:before {
@@ -26,6 +26,7 @@
 
 .nice-dates-navigation {
   color: var(--dark) !important;
+  height: 40px;
 }
 
 .calendar {
