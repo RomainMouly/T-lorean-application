@@ -4,9 +4,12 @@ import axios from 'axios';
 import Description from '../Trip/Description';
 import Form from './Form';
 
-const Booking = ({ match }) => {
+const Booking = ({ match, location }) => {
   const { id } = match.params;
+  const { startDate, endDate } = location.state;
   const [travel, setTravel] = useState({});
+
+  console.log(startDate, endDate);
 
   useEffect(() => {
     axios
