@@ -40,7 +40,7 @@ const Form = () => {
         .then((res) => res.data)
         .then((data) => {
           alert(
-            `Félicitation ${form.firstname}, votre réservation a bien été prise en compte. Préparez vous pour l'aventure!`
+            `Félicitation ${form.firstname}, votre réservation a bien été prise en compte. Préparez-vous pour l'aventure!`
           );
         })
         .catch((e) => {
