@@ -13,6 +13,8 @@ const Description = (props) => {
     setStartDate,
     endDate,
     setEndDate,
+    peopleNumber,
+    setPeopleNumber,
   } = props;
   const levelName = {
     1: 'Détente',
@@ -63,6 +65,8 @@ const Description = (props) => {
           endDate={endDate}
           setStartDate={setStartDate}
           setEndDate={setEndDate}
+          peopleNumber={peopleNumber}
+          setPeopleNumber={setPeopleNumber}
         />
       </div>
     </div>
@@ -70,7 +74,16 @@ const Description = (props) => {
 };
 
 Description.propTypes = {
-  travel: PropTypes.shape({}).isRequired,
+  travelCountry: PropTypes.string.isRequired,
+  travelPrice: PropTypes.number.isRequired,
+  travelDescription: PropTypes.string.isRequired,
+  travelLevel: PropTypes.number.isRequired,
+  startDate: PropTypes.string.isRequired,
+  setStartDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  setEndDate: PropTypes.string.isRequired,
+  peopleNumber: PropTypes.number.isRequired,
+  setPeopleNumber: PropTypes.number.isRequired,
 };
 
 export default Description;

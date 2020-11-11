@@ -1,110 +1,101 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import '../../assets/css/form.css';
+// import React, { useState } from 'react';
+// import axios from 'axios';
+// import '../../assets/css/form.css';
 
-const Form = () => {
-  const [form, setForm] = useState({ lastname: '', firstname: '', email: '' });
+// const Form = () => {
+//   const [form, setForm] = useState({ lastname: '', firstname: '', email: '' });
+//   const [validForm, setValidForm] = useState('');
+//   const [errorForm, setErrorForm] = useState('');
 
-  const handleChange = (e) => {
-    // if (e.target.id === 'lastname') {
-    //   setForm({
-    //     ...form,
-    //     lastname: e.target.value,
-    //   });
-    // } else if (e.target.id === 'firstname') {
-    //   setForm({
-    //     ...form,
-    //     firstname: e.target.value,
-    //   });
-    // } else {
-    //   setForm({
-    //     ...form,
-    //     email: e.target.value,
-    //   });
-    // } ou :
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value, //crochet car valeur dynamique (rien à voir avec un tableau)
-      // Attention :
-      // lastname: e.target.value,
-      // firstname: e.target.value,
-      // email: e.target.value,
-    }); /*si on fait ceci : tous les champs ont la même valeur*/
-  };
+//   const handleChange = (e) => {
+//     setForm({
+//       ...form,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (form.firstname != '' && form.lastname != '' && form.email != '') {
-      axios
-        .post('https://api-airbnb-node.herokuapp.com/api/users', form)
-        .then((res) => res.data)
-        .then((data) => {
-          alert(
-            `Félicitation ${form.firstname}, votre réservation a bien été prise en compte. Préparez vous pour l'aventure!`
-          );
-        })
-        .catch((e) => {
-          console.error(e);
-          alert(
-            `Erreur lors de votre réservation : ${e.message}, veuillez réessayer`
-          );
-        });
-    } else {
-      alert(
-        'Erreur. Pour finaliser votre réservation, veuillez remplir tous les champs'
-      );
-    }
-    setForm({ ...form, lastname: '', firstname: '', email: '' });
-  };
+//   const handleValidForm = () => {
+//     setValidForm(
+//       `Félicitation ${form.firstname}, votre réservation a bien été prise en compte. Préparez-vous pour l'aventure !`
+//     );
+//   };
 
-  return (
-    <div className="form">
-      <h1>Réserver votre voyage</h1>
+//   const handleErrorForm = (e) => {
+//     setErrorForm(
+//       `Erreur lors de votre réservation : ${e.message}, veuillez réessayer`
+//     );
+//   };
 
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>Vos Informations</legend>
-          <div className="form-data">
-            <label htmlFor="lastname">Nom</label>
-            <input
-              type="text"
-              id="lastname"
-              name="lastname"
-              onChange={handleChange}
-              value={form.lastname}
-            />
-          </div>
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     axios
+//       .post('https://api-airbnb-node.herokuapp.com/api/users', form)
+//       .then((res) => res.data)
+//       .then((data) => {
+//         handleValidForm();
+//       })
+//       .catch(() => {
+//         handleErrorForm(e);
+//       });
 
-          <div className="form-data">
-            <label htmlFor="firstname">Prénom</label>
-            <input
-              type="text"
-              id="firstname"
-              name="firstname"
-              onChange={handleChange}
-              value={form.firstname}
-            />
-          </div>
+//     setForm({ ...form, lastname: '', firstname: '', email: '' });
+//   };
 
-          <div className="form-data">
-            <label htmlFor="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              onChange={handleChange}
-              value={form.email}
-              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-              isRequired
-            />
-          </div>
-          <div className="form-data">
-            <button className="colorButton form-button">Réserver</button>
-          </div>
-        </fieldset>
-      </form>
-    </div>
-  );
-};
+//   return (
+//     <div className="form">
+//       <h1>Réserver votre voyage</h1>
 
-export default Form;
+//       <form onSubmit={handleSubmit}>
+//         <fieldset>
+//           <legend>Vos Informations</legend>
+//           <div className="form-data">
+//             <label htmlFor="lastname">Nom</label>
+//             <input
+//               type="text"
+//               id="lastname"
+//               name="lastname"
+//               onChange={handleChange}
+//               value={form.lastname}
+//               required
+//             />
+//           </div>
+
+//           <div className="form-data">
+//             <label htmlFor="firstname">Prénom</label>
+//             <input
+//               type="text"
+//               id="firstname"
+//               name="firstname"
+//               onChange={handleChange}
+//               value={form.firstname}
+//               required
+//             />
+//           </div>
+
+//           <div className="form-data">
+//             <label htmlFor="email">E-mail</label>
+//             <input
+//               type="email"
+//               id="email"
+//               name="email"
+//               onChange={handleChange}
+//               value={form.email}
+//               required
+//             />
+//           </div>
+//           <div className="form-data">
+//             <button type="button" className="colorButton form-button">
+//               Réserver
+//             </button>
+//           </div>
+//           <p>
+//             {validForm}
+//             {errorForm}
+//           </p>
+//         </fieldset>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Form;
