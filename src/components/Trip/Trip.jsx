@@ -13,6 +13,7 @@ const Trip = ({ match }) => {
   const [pictures, setPictures] = useState([]);
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
+  const [peopleNumber, setPeopleNumber] = useState();
 
   useEffect(() => {
     axios
@@ -39,18 +40,25 @@ const Trip = ({ match }) => {
         endDate={endDate}
         setStartDate={setStartDate}
         setEndDate={setEndDate}
+        peopleNumber={peopleNumber}
+        setPeopleNumber={setPeopleNumber}
       />
       <BookingButton
         travelId={travel.id}
         startDate={startDate}
         endDate={endDate}
+        peopleNumber={peopleNumber}
       />
     </div>
   );
 };
 
-Description.propTypes = {
-  match: PropTypes.shape({}).isRequired,
+Trip.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default Trip;

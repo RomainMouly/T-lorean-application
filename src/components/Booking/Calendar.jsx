@@ -2,17 +2,34 @@ import React, { useState } from 'react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { DateRangePickerCalendar, START_DATE } from 'react-nice-dates';
+import PropTypes from 'prop-types';
 import 'react-nice-dates/build/style.css';
 
-const Calendar = ({ startDate, endDate, setEndDate, setStartDate }) => {
+const Calendar = ({
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate,
+  setPeopleNumber,
+}) => {
   const [focus, setFocus] = useState(START_DATE);
   const handleFocusChange = (newFocus) => {
     setFocus(newFocus || START_DATE);
   };
+
+  const HandlePeople = (e) => {
+    setPeopleNumber(e.target.value);
+  };
   return (
     <div className="calendar">
       <form>
-        <select name="peopleNumber" type="number" min="1" max="5">
+        <select
+          name="peopleNumber"
+          type="number"
+          min="1"
+          max="5"
+          onChange={HandlePeople}
+        >
           <option value="">Combien de voyageurs seront de la partie ?</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -38,6 +55,14 @@ const Calendar = ({ startDate, endDate, setEndDate, setStartDate }) => {
       />
     </div>
   );
+};
+
+Calendar.propTypes = {
+  startDate: PropTypes.string.isRequired,
+  setStartDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  setEndDate: PropTypes.string.isRequired,
+  setPeopleNumber: PropTypes.number.isRequired,
 };
 
 export default Calendar;
