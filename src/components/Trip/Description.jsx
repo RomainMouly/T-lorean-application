@@ -4,7 +4,18 @@ import pin from '../../assets/images/location-pin.png';
 import Calendar from '../Booking/Calendar';
 
 const Description = (props) => {
-  const { travelCountry, travelPrice, travelDescription, travelLevel } = props;
+  const {
+    travelCountry,
+    travelPrice,
+    travelDescription,
+    travelLevel,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
+    peopleNumber,
+    setPeopleNumber,
+  } = props;
   const levelName = {
     1: 'Détente',
     2: 'Aventure',
@@ -48,14 +59,31 @@ const Description = (props) => {
             complémentaire, nos conseillers seront ravis de vous répondre !
           </p>{' '}
         </div>
-        <Calendar className="calendar" />
+        <Calendar
+          className="calendar"
+          startDate={startDate}
+          endDate={endDate}
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+          peopleNumber={peopleNumber}
+          setPeopleNumber={setPeopleNumber}
+        />
       </div>
     </div>
   );
 };
 
 Description.propTypes = {
-  travel: PropTypes.shape({}).isRequired,
+  travelCountry: PropTypes.string.isRequired,
+  travelPrice: PropTypes.number.isRequired,
+  travelDescription: PropTypes.string.isRequired,
+  travelLevel: PropTypes.number.isRequired,
+  startDate: PropTypes.string.isRequired,
+  setStartDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  setEndDate: PropTypes.string.isRequired,
+  peopleNumber: PropTypes.number.isRequired,
+  setPeopleNumber: PropTypes.number.isRequired,
 };
 
 export default Description;

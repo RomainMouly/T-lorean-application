@@ -36,12 +36,11 @@
   object-position: center;
   overflow: hidden;
   border-radius: 8px;
-  margin: calc(var(--spacing) * 1);
 }
 .subfilter-card > h4 {
   position: absolute;
+  vertical-align: center;
   text-align: center;
   top: 50%;
-  right: 50%;
   color: var(--light);
 }
