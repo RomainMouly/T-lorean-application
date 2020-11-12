@@ -72,22 +72,47 @@ const FilterBanner = (props) => {
         />
         <h3 className="subfiltering">Trier par sensations</h3>
         <div className="subfilter-list">
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={level1} alt="Détente" />
-            <h4>Détente</h4>
+            <div className="subfilter-name">
+              <h4>Détente</h4>
+            </div>
           </div>
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={level2} alt="Aventure" />
-            <h4>Aventure</h4>
+            <div className="subfilter-name">
+              <h4>Aventure</h4>
+            </div>
           </div>
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={level3} alt="Extrême" />
-            <h4>Extrême</h4>
+            <div className="subfilter-name">
+              <h4>Extrême</h4>
+            </div>
           </div>
         </div>
       </div>
     );
-  } else if (filterType === '1' || filterType === '2' || filterType === '3') {
+  }
+  if (filterType === '1' || filterType === '2' || filterType === '3') {
     return (
       <div>
         <div className="nav-filter">
@@ -100,29 +125,77 @@ const FilterBanner = (props) => {
         />
         <h3 className="subfiltering">Trier par époques</h3>
         <div className="subfilter-list">
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={era1} alt="Préhistoire" />
-            <h4>Préhistoire</h4>
+            <div className="subfilter-name">
+              <h4>Préhistoire</h4>
+            </div>
           </div>
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={era2} alt="Antiquité" />
-            <h4>Antiquité</h4>
+            <div className="subfilter-name">
+              <h4>Antiquité</h4>
+            </div>
           </div>
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={era3} alt="Moyen-Âge" />
-            <h4>Moyen-Âge</h4>
+            <div className="subfilter-name">
+              <h4>Moyen-Âge</h4>
+            </div>
           </div>
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={era4} alt="Renaissance" />
-            <h4>Renaissance</h4>
+            <div className="subfilter-name">
+              <h4>Renaissance</h4>
+            </div>
           </div>
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={era5} alt="Temps modernes" />
-            <h4>Temps modernes</h4>
+            <div className="subfilter-name">
+              <h4>Temps modernes</h4>
+            </div>
           </div>
-          <div className="subfilter-card" onClick={handleSubfiltering}>
+          <div
+            className="subfilter-card"
+            role="button"
+            tabIndex="0"
+            onClick={handleSubfiltering}
+            onKeyDown={handleSubfiltering}
+          >
             <img className="subfilter" src={era6} alt="Futur" />
-            <h4>Futur</h4>
+            <div className="subfilter-name">
+              <h4>Futur</h4>
+            </div>
           </div>
         </div>
       </div>
