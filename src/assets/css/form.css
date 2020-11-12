@@ -17,13 +17,6 @@
   justify-content: center;
 }
 
-.form .form-data label {
-  display: inline-block;
-  width: 70px;
-  margin-right: 20px;
-  text-align: right;
-}
-
 .form-button {
   display: inline-block;
   justify-items: center;
