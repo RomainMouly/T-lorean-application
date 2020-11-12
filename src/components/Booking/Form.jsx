@@ -52,7 +52,8 @@ const Form = () => {
                 type="text"
                 id="firstname"
                 name="firstname"
-                placeholder="Prénom"
+                placeholder="Votre prénom"
+
                 onChange={handleChange}
                 value={form.firstname}
                 required
@@ -66,7 +67,8 @@ const Form = () => {
                 type="text"
                 id="lastname"
                 name="lastname"
-                placeholder="Nom"
+                placeholder="Votre nom"
+
                 onChange={handleChange}
                 value={form.lastname}
                 required
@@ -80,7 +82,7 @@ const Form = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="e-mail"
+                placeholder="Votre e-mail"
                 onChange={handleChange}
                 value={form.email}
                 required
