@@ -45,6 +45,7 @@ const Form = () => {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Vos Informations</legend>
+
           <div className="form-data">
             <label htmlFor="firstname">
               <input
@@ -52,6 +53,7 @@ const Form = () => {
                 id="firstname"
                 name="firstname"
                 placeholder="Votre prénom"
+
                 onChange={handleChange}
                 value={form.firstname}
                 required
@@ -66,6 +68,7 @@ const Form = () => {
                 id="lastname"
                 name="lastname"
                 placeholder="Votre nom"
+
                 onChange={handleChange}
                 value={form.lastname}
                 required
