@@ -22,25 +22,34 @@
 .subfilter-list {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .subfilter-card {
-  width: 15%;
+  width: 300px;
   height: 100px;
   margin: calc(var(--spacing) * 1);
   position: relative;
 }
 .subfilter {
-  width: 100%;
+  width: 300px;
   height: 100px;
   object-fit: cover;
   object-position: center;
   overflow: hidden;
   border-radius: 8px;
 }
-.subfilter-card > h4 {
+.subfilter-name {
+  width: 200px;
+  height: 100px;
   position: absolute;
-  vertical-align: center;
-  text-align: center;
-  top: 50%;
+  right: 50px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: grayscale(60%);
+}
+.subfilter-name h4 {
   color: var(--light);
+  text-shadow: 1.5px 1.5px 3px var(--dark);
 }
