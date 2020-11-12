@@ -13,8 +13,6 @@ import '../../assets/css/Results/Results.css';
 const Results = ({ match }) => {
   const { type, name } = match.params;
   const [travels, setTravels] = useState([]);
-  const [subfilter, setSubfilter] = useState(false);
-  const [subfilterName, setFilterName] = useState(null);
   const [isFilter, setIsFilter] = useState(false);
   const [filter, setFilter] = useState([]);
 
@@ -46,9 +44,10 @@ const Results = ({ match }) => {
 
   const handleSubfilterByLevel = (numberSubFilter) => {
     setIsFilter(true);
-
     setFilter(travels.filter((travel) => travel.level === numberSubFilter));
   };
+
+  const handleRemoveSubfilter = () => setIsFilter(false);
 
   return (
     <div className="results">
@@ -57,14 +56,10 @@ const Results = ({ match }) => {
         filterName={type}
         handleSubfilterByEra={handleSubfilterByEra}
         handleSubfilterByLevel={handleSubfilterByLevel}
-        // subfilterOne={subfilterOne}
-        // subfilterTwo={subfilterTwo}
-        // subfilterThree={subfilterThree}
-        // subfilterFour={subfilterFour}
-        // subfilterFive={subfilterFive}
-        // subfilterSix={subfilterSix}
+        handleRemoveSubfilter={handleRemoveSubfilter}
       />
-      <ResultNumber filterList={travels} />
+      {!isFilter && travels && <ResultNumber filterList={travels} />}
+      {isFilter && filter && <ResultNumber filterList={filter} />}
       <div className="results-list">
         {!isFilter &&
           travels &&
@@ -93,6 +88,12 @@ const Results = ({ match }) => {
 Results.propTypes = {
   location: PropTypes.shape({
     query: PropTypes.shape({ filter: PropTypes.shape({}) }).isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 };
 
