@@ -29,3 +29,13 @@
   justify-items: center;
   text-transform: uppercase;
 }
+
+fieldset{
+  border-radius: 16px;
+  border: solid black;
+}
+
+input {
+  
+  width: 200px;
+}

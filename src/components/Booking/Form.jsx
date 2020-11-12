@@ -45,19 +45,6 @@ const Form = () => {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Vos Informations</legend>
-          <div className="form-data">
-            <label htmlFor="lastname">
-              <input
-                type="text"
-                id="lastname"
-                name="lastname"
-                placeholder="Nom"
-                onChange={handleChange}
-                value={form.lastname}
-                required
-              />
-            </label>
-          </div>
 
           <div className="form-data">
             <label htmlFor="firstname">
@@ -68,6 +55,20 @@ const Form = () => {
                 placeholder="Prénom"
                 onChange={handleChange}
                 value={form.firstname}
+                required
+              />
+            </label>
+          </div>
+
+          <div className="form-data">
+            <label htmlFor="lastname">
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                placeholder="Nom"
+                onChange={handleChange}
+                value={form.lastname}
                 required
               />
             </label>
