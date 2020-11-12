@@ -37,3 +37,20 @@
   height: 400px !important;
   margin-top: calc(var(--spacing) * 10) !important;
 }
+
+#people {
+  color: var(--dark);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  padding: 2px;
+  border: none;
+  background-color: var(--light);
+  outline: none;
+  font-size: 13px;
+  text-align: center;
+  border-bottom: solid 1px var(--dark);
+}
+
+select {
+  font-size: 20px;
+}
