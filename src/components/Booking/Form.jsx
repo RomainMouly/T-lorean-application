@@ -46,28 +46,28 @@ const Form = () => {
         <fieldset>
           <legend>Vos Informations</legend>
           <div className="form-data">
-            <label htmlFor="lastname">
+            <label htmlFor="firstname">
               <input
                 type="text"
-                id="lastname"
-                name="lastname"
-                placeholder="Nom"
+                id="firstname"
+                name="firstname"
+                placeholder="Votre prénom"
                 onChange={handleChange}
-                value={form.lastname}
+                value={form.firstname}
                 required
               />
             </label>
           </div>
 
           <div className="form-data">
-            <label htmlFor="firstname">
+            <label htmlFor="lastname">
               <input
                 type="text"
-                id="firstname"
-                name="firstname"
-                placeholder="Prénom"
+                id="lastname"
+                name="lastname"
+                placeholder="Votre nom"
                 onChange={handleChange}
-                value={form.firstname}
+                value={form.lastname}
                 required
               />
             </label>
@@ -79,7 +79,7 @@ const Form = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="e-mail"
+                placeholder="Votre e-mail"
                 onChange={handleChange}
                 value={form.email}
                 required
