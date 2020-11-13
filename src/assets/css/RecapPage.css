@@ -2,44 +2,38 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 150px;
-  font-weight: bolder;
+  margin: 3rem auto;
+}
+.cardTitle {
+  margin: calc(var(--spacing) * 2) auto;
+  font-size: 20px;
+  font-weight: 900;
 }
 
-.recap h2,
-.recap h3 {
-  text-align: center;
-  margin-bottom: 70px;
+.cardDetail {
+  margin: calc(var(--spacing) * 2) auto;
+  padding-left: calc(var(--spacing) * 4);
 }
 
-.recap h4 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.factureCard {
-  width: 600px;
-  height: 100%;
-  border: solid black;
-  border-radius: 16px;
+.travelCard {
+  justify-content: center;
   padding: 10px;
+  width: max-content;
+  border-radius: 20px;
+  border: solid 3px;
+  border-image: linear-gradient(
+    var(--third-color), var(--main-color), var(--second-color)) 10
+  );
+}
+
+.factureCard {
+  padding: 10px;
+  width: max-content;
 }
 
 .pricePerDay {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
-}
-
-.date {
-  display: flex;
-  justify-content: space-around;
-  margin: 10px;
-}
-
-.oneLine {
-  display: flex;
-  justify-content: center;
   margin: 10px;
 }
 
@@ -51,4 +45,25 @@
   display: flex;
   justify-content: flex-end;
   margin: 10px;
+}
+
+#bookingOk {
+  width: max-content;
+  margin: 0 auto;
+  height: calc(var(--spacing) * 2);
+}
+
+@media screen and (min-width: 992px) {
+  .recap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .travelCard {
+    width: 600px;
+  }
+  .factureCard {
+    width: 600px;
+  }
 }

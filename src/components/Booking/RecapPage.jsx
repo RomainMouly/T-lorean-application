@@ -19,47 +19,56 @@ const RecapPage = ({ travel, startDate, endDate, peopleNumber }) => {
   const priceByDay = travel.price * daysNumber;
 
   return (
-    <div className="recap">
-      <h2>Récapitulatif de votre voyage</h2>
-      <h3>Vous avez sélectionné l'expérience "{travel.title}"</h3>
-      <h4>
-        Vous serez {peopleNumber} personne{peopleNumber > 1 && 's'} à voyager du{' '}
-        {format(startDate, 'dd MMMM yyyy', { locale: fr })} au{' '}
-        {format(endDate, 'dd MMMM yyyy', { locale: fr })} soit {daysNumber} jour
-        {daysNumber > 1 && 's'} sur place
-      </h4>
-      <h4> Tarif pour votre séjour</h4>
-      <div className="factureCard">
-        <div className="oneLine"> {travel.price}€/pers la journée</div>
-        <hr />
-        <div className="date">
-          <div>
-            arrivée le {format(startDate, 'dd MMMM yyyy', { locale: fr })}
+    <div>
+      <div className="recap">
+        <div className="travelCard">
+          <div className="underlineLarge" />
+          <div className="cardTitle"> Votre voyage </div>
+
+          <p className="cardDetail">
+            Vous avez sélectionné l'expérience "{travel.title}"
+          </p>
+          <p className="cardDetail">
+            Vous serez {peopleNumber} personne{peopleNumber > 1 && 's'} à
+            voyager{' '}
+          </p>
+          <p className="cardDetail">
+            Vous partirez {format(startDate, 'dd MMMM yyyy', { locale: fr })} au{' '}
+            {format(endDate, 'dd MMMM yyyy', { locale: fr })}{' '}
+          </p>
+          <p className="cardDetail">
+            {' '}
+            soit {daysNumber} jour
+            {daysNumber > 1 && 's'} sur place
+          </p>
+        </div>
+
+        <div className="factureCard">
+          <div className="underlineLarge" />
+          <div className="cardTitle"> Détails du prix </div>
+          <div className="CardDetail">
+            Nombre de voyageur{peopleNumber > 1 && 's'} : {peopleNumber}
           </div>
-          <div>/</div>
-          <div>départ le {format(endDate, 'dd MMMM yyyy', { locale: fr })}</div>
-        </div>
-        <hr />
-        <div className="oneLine">
-          Nombre de voyageur{peopleNumber > 1 && 's'} : {peopleNumber}
-        </div>
-        <hr />
-        <div className="factureCalcul">
-          <div className="pricePerDay">
-            <div>
-              {travel.price}€ X {daysNumber} jour{daysNumber > 1 && 's'} ={' '}
+
+          <div className="factureCalcul">
+            <div className="pricePerDay">
+              <div>
+                {travel.price}€ x {daysNumber} jour{daysNumber > 1 && 's'}{' '}
+              </div>
+              <div> {priceByDay}€</div>
             </div>
-            <div> soit {priceByDay}€</div>
-          </div>
-          <hr />
-          <div className="priceWithPeople">
-            <div className="finalCalc">
-              {priceByDay}€ X {peopleNumber} voyageur{peopleNumber > 1 && 's'}
+
+            <div className="priceWithPeople">
+              <div className="finalCalc">
+                {priceByDay}€ x {peopleNumber} voyageur{peopleNumber > 1 && 's'}
+              </div>
+              <div className="total">Total TTC {facture()}€ </div>
             </div>
-            <hr />
-            <div className="total">Total : {facture()}€ TTC</div>
           </div>
         </div>
+      </div>
+      <div className="colorButton" id="bookingOk">
+        Valider et payer
       </div>
     </div>
   );
