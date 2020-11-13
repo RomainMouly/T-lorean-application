@@ -58,7 +58,7 @@ const Home = ({ history }) => {
         <SearchBar history={history} />
       </div>
       <div className="home-filters">
-        <h2>Quand voulez-vous aller ?</h2>
+        <h2>Choisissez votre époque</h2>
         <div className="home-filter-era">
           <FilterTravel
             data={filterTravelEraPrehistoire}
