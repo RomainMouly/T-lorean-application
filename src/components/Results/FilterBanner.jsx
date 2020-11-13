@@ -93,16 +93,18 @@ const FilterBanner = (props) => {
           src={filterNameSource}
           alt={filterNameTitle}
         />
-        <h3 className="subfiltering">
-          Trier par sensations{' '}
-          <button
-            className="cancel-filter"
-            type="button"
-            onClick={handleRemoveSubfilter}
-          >
-            Annuler
-          </button>
-        </h3>{' '}
+        <div className="subfilter-management">
+          <h3 className="subfiltering">
+            Trier par degré de sensation{' '}
+            <button
+              className="cancel-filter"
+              type="button"
+              onClick={handleRemoveSubfilter}
+            >
+              Annuler
+            </button>
+          </h3>
+        </div>{' '}
         <div className="subfilter-list">
           <div
             className="subfilter-card"
@@ -156,7 +158,7 @@ const FilterBanner = (props) => {
           alt={filterNameTitle}
         />
         <div className="subfilter-management">
-          <h3 className="subfiltering">Trier par époques </h3>
+          <h3 className="subfiltering">Trier par époque</h3>
           <button
             className="cancel-filter"
             type="button"
