@@ -15,9 +15,38 @@
   object-position: center;
   overflow: hidden;
 }
+
+.subfilter-management {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(var(--spacing) * 3);
+}
 .subfiltering {
   text-align: center;
-  margin-top: calc(var(--spacing) * 3);
+}
+
+.cancel-filter {
+  background-color: var(--dark);
+  margin-left: 1em;
+  border-radius: 20px;
+  border-color: var(--light);
+  color: var(--light);
+  padding: var(--spacing);
+  font-family: 'Montserrat', sans-serif;
+  width: auto;
+  text-decoration: none;
+  display: inline;
+  align-items: center;
+  text-transform: uppercase;
+}
+.cancel-filter:hover {
+  background-color: var(--light);
+  border-color: var(--dark);
+  color: var(--dark);
+}
+.cancel-filter:focus {
+  outline: none;
 }
 .subfilter-list {
   display: flex;
@@ -28,7 +57,15 @@
   width: 300px;
   height: 100px;
   margin: calc(var(--spacing) * 1);
+  border-radius: 8px;
   position: relative;
+}
+.subfilter-card:hover {
+  box-shadow: 3px 5px 10px var(--dark);
+}
+.subfilter-card:focus {
+  outline: none;
+  box-shadow: 3px 5px 10px var(--dark);
 }
 .subfilter {
   width: 300px;
