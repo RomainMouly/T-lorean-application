@@ -5,7 +5,7 @@ const Welcome = () => {
   return (
     <section className="banner">
       <img className="logo" src={logo} alt="logo" />
-      <h1>T-Lorean</h1>
+      <h1>T-LOREAN</h1>
       <h2 className="slogan">Voyagez n'importe quand.</h2>
       <div className="presentation">
         <p>
