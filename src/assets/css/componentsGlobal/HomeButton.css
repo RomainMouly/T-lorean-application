@@ -1,10 +1,9 @@
-.homeButton{
-    position: fixed;
-    top:2%;
-    left:2%;
-    
+.homeButton {
+  position: fixed;
+  top: 2%;
+  left: 2%;
 }
 
-img {
-    width:2rem;
+.homeButton a img {
+  width: 2rem;
 }
