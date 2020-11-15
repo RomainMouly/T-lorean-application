@@ -1,11 +1,10 @@
 :root {
-  --light: white;
-  --dark: #111d62;
+  --light-true: white;
+  --dark-true: #111d62;
   --main-color: #c13636;
   --second-color: #780e5a;
   --third-color: #fc9972;
   --spacing: 8px;
-
 }
 
 * {
@@ -14,7 +13,7 @@
 }
 
 html,
-body,
+#body,
 #root {
   height: 100%;
 }
@@ -23,10 +22,10 @@ body,
   flex-direction: column;
 }
 
-body {
+#body {
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--light);
-  color: var(--dark);
+  background-color: var(--light-true);
+  color: var(--dark-true);
 }
 .App {
   min-height: 100vh;

@@ -1,7 +1,7 @@
 footer {
   padding: var(--spacing);
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: var(--dark-true);
+  color: var(--light-true);
   position: relative;
   bottom: 0;
   left: 0;

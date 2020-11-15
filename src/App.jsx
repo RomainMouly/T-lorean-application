@@ -10,6 +10,7 @@ import Admin from './components/Admin/Admin';
 import HomeButton from './components/componentsGlobal/HomeButton';
 
 import './assets/css/styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
