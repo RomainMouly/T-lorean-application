@@ -1,6 +1,6 @@
 .nice-dates-day {
   height: 40px !important;
-  color: var(--dark) !important;
+  color: var(--dark-true) !important;
 }
 
 .nice-dates-day.-outside {
@@ -15,20 +15,20 @@
 }
 
 .nice-dates-day:before {
-  background-color: var(--dark) !important;
+  background-color: var(--dark-true) !important;
 }
 
 .nice-dates-day:after {
-  border: 2px solid var(--dark) !important;
+  border: 2px solid var(--dark-true) !important;
 }
 
 .nice-dates-navigation_previous:hover:before,
 .nice-dates-navigation_next:hover:before {
-  border-color: var(--dark) !important;
+  border-color: var(--dark-true) !important;
 }
 
 .nice-dates-navigation {
-  color: var(--dark) !important;
+  color: var(--dark-true) !important;
   height: 40px;
 }
 
@@ -39,16 +39,16 @@
 }
 
 #people {
-  color: var(--dark);
+  color: var(--dark-true);
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
   padding: 2px;
   border: none;
-  background-color: var(--light);
+  background-color: var(--light-true);
   outline: none;
   font-size: 13px;
   text-align: center;
-  border-bottom: solid 1px var(--dark);
+  border-bottom: solid 1px var(--dark-true);
 }
 
 select {

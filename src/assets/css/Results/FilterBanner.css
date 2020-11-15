@@ -1,12 +1,12 @@
 .nav-filter {
   width: 100%;
   height: calc(var(--spacing) * 8);
-  background-color: var(--dark);
+  background-color: var(--dark-true);
 }
 .nav-filter h2 {
   text-align: center;
   line-height: calc(var(--spacing) * 8);
-  color: var(--light);
+  color: var(--light-true);
 }
 .filter-banner {
   height: 600px;
@@ -27,11 +27,11 @@
 }
 
 .cancel-filter {
-  background-color: var(--dark);
+  background-color: var(--dark-true);
   margin-left: 1em;
   border-radius: 20px;
-  border-color: var(--light);
-  color: var(--light);
+  border-color: var(--light-true);
+  color: var(--light-true);
   padding: var(--spacing);
   font-family: 'Montserrat', sans-serif;
   width: auto;
@@ -41,9 +41,9 @@
   text-transform: uppercase;
 }
 .cancel-filter:hover {
-  background-color: var(--light);
-  border-color: var(--dark);
-  color: var(--dark);
+  background-color: var(--light-true);
+  border-color: var(--dark-true);
+  color: var(--dark-true);
 }
 .cancel-filter:focus {
   outline: none;
@@ -61,11 +61,11 @@
   position: relative;
 }
 .subfilter-card:hover {
-  box-shadow: 3px 5px 10px var(--dark);
+  box-shadow: 3px 5px 10px var(--dark-true);
 }
 .subfilter-card:focus {
   outline: none;
-  box-shadow: 3px 5px 10px var(--dark);
+  box-shadow: 3px 5px 10px var(--dark-true);
 }
 .subfilter {
   width: 300px;
@@ -87,6 +87,6 @@
   filter: grayscale(60%);
 }
 .subfilter-name h4 {
-  color: var(--light);
-  text-shadow: 1.5px 1.5px 3px var(--dark);
+  color: var(--light-true);
+  text-shadow: 1.5px 1.5px 3px var(--dark-true);
 }

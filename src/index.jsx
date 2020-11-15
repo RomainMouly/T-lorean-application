@@ -5,9 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import ScrollToTop from './components/componentsGlobal/ScrollToTop';
 
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
