@@ -1,7 +1,6 @@
 .form {
-  width: 800px;
-  margin: 0 auto;
-  align-items: center;
+  display: flex;
+  text-align: center;
 }
 
 .form h1 {
@@ -22,8 +21,7 @@
 
 fieldset {
   border-radius: 16px;
-  border: solid var(--dark-true);
-  width: ;
+  border: 1px solid lightgrey;
 }
 
 input {

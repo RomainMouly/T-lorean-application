@@ -74,9 +74,6 @@ const RecapPage = ({ travel, startDate, endDate, peopleNumber }) => {
           </div>
         </div>
       </div>
-      <div className="colorButton" id="bookingOk">
-        Valider et payer
-      </div>
     </div>
   );
 };
