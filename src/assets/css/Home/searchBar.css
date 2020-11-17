@@ -32,6 +32,11 @@ form {
   text-decoration: none;
 }
 
+a.colorButton:hover {
+  text-decoration: none;
+  color: var(--light-true);
+}
+
 #go {
   letter-spacing: 2px;
 }

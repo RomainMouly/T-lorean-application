@@ -83,6 +83,10 @@
   box-shadow: 0 0 8px hsl(0, 0%, 76%);
 }
 
+.calendar .nice-dates-day_month {
+  display: none;
+}
+
 .alertDates {
   color: var(--main-color);
   padding-bottom: var(--spacing);

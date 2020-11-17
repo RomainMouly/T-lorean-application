@@ -46,9 +46,13 @@ const Calendar = ({
       </form>
       <p>
         Arrivée{' '}
-        {startDate ? format(startDate, 'dd MMM yyyy', { locale: fr }) : 'none'}{' '}
+        {startDate
+          ? format(startDate, 'dd MMM yyyy', { locale: fr })
+          : 'JJ/MM/AAAA'}{' '}
         - Départ{' '}
-        {endDate ? format(endDate, 'dd MMM yyyy', { locale: fr }) : 'none'}
+        {endDate
+          ? format(endDate, 'dd MMM yyyy', { locale: fr })
+          : 'JJ/MM/AAAA'}
       </p>
       <DateRangePickerCalendar
         startDate={startDate}
