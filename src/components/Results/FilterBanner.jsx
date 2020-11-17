@@ -86,7 +86,9 @@ const FilterBanner = (props) => {
     return (
       <div>
         <div className="nav-filter">
+          <div className="underline" />
           <h2>{filterNameTitle}</h2>
+          <div className="underline" />
         </div>
         <img
           className="filter-banner"
@@ -94,16 +96,14 @@ const FilterBanner = (props) => {
           alt={filterNameTitle}
         />
         <div className="subfilter-management">
-          <h3 className="subfiltering">
-            Trier par degré de sensation{' '}
-            <button
-              className="cancel-filter"
-              type="button"
-              onClick={handleRemoveSubfilter}
-            >
-              Annuler
-            </button>
-          </h3>
+          <h3 className="subfiltering">Trier par degré de sensation </h3>
+          <button
+            className="cancel-filter"
+            type="button"
+            onClick={handleRemoveSubfilter}
+          >
+            Annuler
+          </button>
         </div>{' '}
         <div className="subfilter-list">
           <div
@@ -150,7 +150,9 @@ const FilterBanner = (props) => {
     return (
       <div>
         <div className="nav-filter">
+          <div className="underline" />
           <h2>{filterNameTitle}</h2>
+          <div className="underline" />
         </div>
         <img
           className="filter-banner"
