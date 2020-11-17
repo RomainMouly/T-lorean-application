@@ -40,8 +40,6 @@ const Form = () => {
 
   return (
     <div className="form">
-      <h1>Réserver votre voyage</h1>
-
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Vos Informations</legend>
@@ -53,7 +51,6 @@ const Form = () => {
                 id="firstname"
                 name="firstname"
                 placeholder="Votre prénom"
-
                 onChange={handleChange}
                 value={form.firstname}
                 required
@@ -68,7 +65,6 @@ const Form = () => {
                 id="lastname"
                 name="lastname"
                 placeholder="Votre nom"
-
                 onChange={handleChange}
                 value={form.lastname}
                 required

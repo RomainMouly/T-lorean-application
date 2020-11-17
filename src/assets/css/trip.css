@@ -28,6 +28,21 @@
   width: 85%;
   margin: var(--spacing) auto;
 }
+
+.underlineLarge {
+  background: linear-gradient(
+    to right,
+    var(--light-true),
+    var(--third-color),
+    var(--main-color),
+    var(--third-color),
+    var(--light-true)
+  );
+  height: 1px;
+  width: 100%;
+  margin: var(--spacing) auto;
+}
+
 .carousel-box {
   background-position: center;
   background-size: cover;
