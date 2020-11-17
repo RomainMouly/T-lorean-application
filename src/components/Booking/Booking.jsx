@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Form from './Form';
 import RecapPage from './RecapPage';
+import Confirm from './Confirm';
 
 const Booking = ({ match, location }) => {
   const { id } = match.params;
@@ -17,15 +17,17 @@ const Booking = ({ match, location }) => {
   }, [id]);
 
   return (
-    <div>
+    <div className="bookingTitle">
+      <div className="underline" />
       <h2>Confirmation et paiement</h2>
+      <div className="underline" />
       <RecapPage
         startDate={startDate}
         endDate={endDate}
         travel={travel}
         peopleNumber={peopleNumber}
       />
-      <Form />
+      <Confirm />
     </div>
   );
 };

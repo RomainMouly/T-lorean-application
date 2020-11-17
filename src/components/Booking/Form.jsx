@@ -85,6 +85,20 @@ const Form = () => {
               />
             </label>
           </div>
+
+          <div className="form-data">
+            <label htmlFor="payment">
+              <input
+                type="text"
+                id="payment"
+                name="payment"
+                placeholder="Carte Bancaire"
+                onChange={handleChange}
+                value={form.payment}
+                required
+              />
+            </label>
+          </div>
           <div className="form-data">
             <button type="submit" className="colorButton form-button">
               Réserver
