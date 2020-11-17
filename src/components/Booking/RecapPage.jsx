@@ -12,57 +12,64 @@ const RecapPage = ({ travel, startDate, endDate, peopleNumber }) => {
   };
   const daysNumber = calcDays(startDate, endDate);
 
+  const transportFees = 200;
+  const additionalFees = 50;
   const facture = () => {
     return peopleNumber * daysNumber * travel.price;
   };
-
-  const priceByDay = travel.price * daysNumber;
+  const totalCost = () => {
+    return (
+      peopleNumber * daysNumber * travel.price + transportFees + additionalFees
+    );
+  };
 
   return (
     <div>
       <div className="recap">
         <div className="travelCard">
-          <div className="underlineLarge" />
           <div className="cardTitle"> Votre voyage </div>
+          <div className="underlineLarge" />
+          <p className="cardDetail">
+            Vous avez sélectionné l&apos;expérience &quot;{travel.title}&quots;
+            .
+          </p>
 
           <p className="cardDetail">
-            Vous avez sélectionné l'expérience "{travel.title}"
-          </p>
-          <p className="cardDetail">
             Vous serez {peopleNumber} personne{peopleNumber > 1 && 's'} à
-            voyager{' '}
-          </p>
-          <p className="cardDetail">
-            Vous partirez {format(startDate, 'dd MMMM yyyy', { locale: fr })} au{' '}
-            {format(endDate, 'dd MMMM yyyy', { locale: fr })}{' '}
+            voyager, du {format(startDate, 'dd MMMM yyyy', { locale: fr })} au{' '}
+            {format(endDate, 'dd MMMM yyyy', { locale: fr })} soit {daysNumber}{' '}
+            jour{daysNumber > 1 && 's'} sur place.
           </p>
           <p className="cardDetail">
             {' '}
-            soit {daysNumber} jour
-            {daysNumber > 1 && 's'} sur place
+            Avant de partir, n&apos;oubliez pas de consulter la charte du
+            voyageur temporel !
           </p>
         </div>
 
         <div className="factureCard">
-          <div className="underlineLarge" />
           <div className="cardTitle"> Détails du prix </div>
-          <div className="CardDetail">
-            Nombre de voyageur{peopleNumber > 1 && 's'} : {peopleNumber}
-          </div>
-
+          <div className="underlineLarge" />
           <div className="factureCalcul">
-            <div className="pricePerDay">
+            <div className="facture">
               <div>
-                {travel.price}€ x {daysNumber} jour{daysNumber > 1 && 's'}{' '}
+                {travel.price}€ x {daysNumber} jour{daysNumber > 1 && 's'} x{' '}
+                {peopleNumber} voyageur{peopleNumber > 1 && 's'}
               </div>
-              <div> {priceByDay}€</div>
+              <div> {facture()}€</div>
             </div>
-
-            <div className="priceWithPeople">
-              <div className="finalCalc">
-                {priceByDay}€ x {peopleNumber} voyageur{peopleNumber > 1 && 's'}
-              </div>
-              <div className="total">Total TTC {facture()}€ </div>
+            <div className="facture">
+              <div>Frais de transports</div>
+              <div> {transportFees}€</div>
+            </div>
+            <div className="facture">
+              <div>Frais de service</div>
+              <div> {additionalFees}€</div>
+            </div>
+            <div className="underlineLarge" />
+            <div className="facture" id="total">
+              <div>Prix total</div>
+              <div> {totalCost()}€</div>
             </div>
           </div>
         </div>
@@ -72,6 +79,16 @@ const RecapPage = ({ travel, startDate, endDate, peopleNumber }) => {
       </div>
     </div>
   );
+};
+
+RecapPage.propTypes = {
+  travel: PropTypes.shape({
+    price: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  startDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  peopleNumber: PropTypes.number.isRequired,
 };
 
 export default RecapPage;

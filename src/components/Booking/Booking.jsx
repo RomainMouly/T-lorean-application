@@ -17,8 +17,10 @@ const Booking = ({ match, location }) => {
   }, [id]);
 
   return (
-    <div>
+    <div className="bookingTitle">
+      <div className="underline" />
       <h2>Confirmation et paiement</h2>
+      <div className="underline" />
       <RecapPage
         startDate={startDate}
         endDate={endDate}
