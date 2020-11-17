@@ -18,11 +18,11 @@
 .underline {
   background: linear-gradient(
     to right,
-    var(--light),
+    var(--light-true),
     var(--third-color),
     var(--main-color),
     var(--third-color),
-    var(--light)
+    var(--light-true)
   );
   height: 1px;
   width: 85%;
@@ -32,11 +32,11 @@
 .underlineLarge {
   background: linear-gradient(
     to right,
-    var(--light),
+    var(--light-true),
     var(--third-color),
     var(--main-color),
     var(--third-color),
-    var(--light)
+    var(--light-true)
   );
   height: 1px;
   width: 100%;
