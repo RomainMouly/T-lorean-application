@@ -22,7 +22,7 @@
 
 fieldset {
   border-radius: 16px;
-  border: solid var(--dark);
+  border: solid var(--dark-true);
   width: ;
 }
 
