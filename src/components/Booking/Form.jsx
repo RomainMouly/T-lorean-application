@@ -3,7 +3,11 @@ import axios from 'axios';
 import '../../assets/css/form.css';
 
 const Form = () => {
-  const [form, setForm] = useState({ lastname: '', firstname: '', email: '' });
+  const [form, setForm] = useState({
+    lastname: '',
+    firstname: '',
+    email: '',
+  });
   const [validForm, setValidForm] = useState('');
   const [errorForm, setErrorForm] = useState('');
 
@@ -86,19 +90,19 @@ const Form = () => {
             </label>
           </div>
 
-          <div className="form-data">
-            <label htmlFor="payment">
+          {/* <div className="form-data">
+            <label htmlFor="avatar">
               <input
                 type="text"
-                id="payment"
-                name="payment"
+                id="avatar"
+                name="avatar"
                 placeholder="Carte Bancaire"
                 onChange={handleChange}
-                value={form.payment}
+                value={form.avatar}
                 required
               />
             </label>
-          </div>
+          </div> */}
           <div className="form-data">
             <button type="submit" className="colorButton form-button">
               Réserver

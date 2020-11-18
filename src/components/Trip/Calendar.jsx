@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { DateRangePickerCalendar, START_DATE } from 'react-nice-dates';
-import PropTypes from 'prop-types';
+
+import PeopleNumberContext from '../../contexts/PeopleNumberContext';
+import StartDateContext from '../../contexts/StartDateContext';
+import EndDateContext from '../../contexts/EndDateContext';
+
 import 'react-nice-dates/build/style.css';
 
-const Calendar = ({
-  startDate,
-  setStartDate,
-  endDate,
-  setEndDate,
-  setPeopleNumber,
-}) => {
+const Calendar = () => {
   const [focus, setFocus] = useState(START_DATE);
   const handleFocusChange = (newFocus) => {
     setFocus(newFocus || START_DATE);
   };
 
+  const { updatePeopleNumber } = useContext(PeopleNumberContext);
+  const { startDate, updateStartDate } = useContext(StartDateContext);
+  const { endDate, updateEndDate } = useContext(EndDateContext);
+
   const HandlePeople = (e) => {
-    setPeopleNumber(e.target.value);
+    updatePeopleNumber(e.target.value);
   };
   return (
     <div className="calendar">
@@ -58,21 +60,13 @@ const Calendar = ({
         startDate={startDate}
         endDate={endDate}
         focus={focus}
-        onStartDateChange={setStartDate}
-        onEndDateChange={setEndDate}
+        onStartDateChange={updateStartDate}
+        onEndDateChange={updateEndDate}
         onFocusChange={handleFocusChange}
         locale={fr}
       />
     </div>
   );
-};
-
-Calendar.propTypes = {
-  startDate: PropTypes.string.isRequired,
-  setStartDate: PropTypes.string.isRequired,
-  endDate: PropTypes.string.isRequired,
-  setEndDate: PropTypes.string.isRequired,
-  setPeopleNumber: PropTypes.number.isRequired,
 };
 
 export default Calendar;

@@ -10,7 +10,7 @@ const RecapPage = ({ travel, startDate, endDate, peopleNumber }) => {
     const diffInTime = date1.getTime() - date2.getTime();
     return -(diffInTime / (1000 * 3600 * 24));
   };
-  const daysNumber = calcDays(startDate, endDate);
+  const daysNumber = calcDays(startDate, endDate) + 1;
 
   const transportFees = 200;
   const additionalFees = 50;
@@ -30,8 +30,7 @@ const RecapPage = ({ travel, startDate, endDate, peopleNumber }) => {
           <div className="cardTitle"> Votre voyage </div>
           <div className="underlineLarge" />
           <p className="cardDetail">
-            Vous avez sélectionné l&apos;expérience &quot;{travel.title}&quots;
-            .
+            Vous avez sélectionné l&apos;expérience &quot;{travel.title}&quot; .
           </p>
 
           <p className="cardDetail">
