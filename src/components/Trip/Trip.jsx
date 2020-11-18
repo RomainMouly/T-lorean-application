@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import '../../assets/css/trip.css';
+
 import CarouselDetail from './CarouselDetail';
 import Description from './Description';
 import TripTitle from './TripTitle';
 import BookingButton from './BookingButton';
+
+import '../../assets/css/trip.css';
 
 const Trip = ({ match }) => {
   const { id } = match.params;

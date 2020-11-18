@@ -1,0 +1,10 @@
+.carousel-item {
+  width: 100vh;
+  height: 400px;
+}
+
+.carousel-pic {
+  width: 100vh;
+  height: 400px;
+  object-fit: cover;
+}
