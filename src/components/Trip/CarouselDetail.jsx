@@ -36,7 +36,6 @@ const CarouselDetail = (props) => {
     pictures.map((picture) => {
       return (
         <CarouselItem
-          className="carousel-item"
           onExiting={() => setAnimating(true)}
           onExited={() => setAnimating(false)}
           key={picture.url}
