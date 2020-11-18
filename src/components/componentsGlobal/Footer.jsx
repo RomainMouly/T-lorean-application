@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import fb from '../../assets/images/facebook.png';
 import instagram from '../../assets/images/instagram.png';
 import twitter from '../../assets/images/twitter-sign.png';
@@ -53,9 +55,10 @@ const Footer = () => {
           <h4>Informations</h4>
           <ul>
             <li>CGU</li>
-            <li> Charte du voyageur </li>
-            <li> Mentions légales</li>
-            <li>RGPD</li>
+            <li>Charte du voyageur</li>
+            <li>
+              <Link to="/admin">Admin</Link>
+            </li>
           </ul>
         </div>
       </div>
