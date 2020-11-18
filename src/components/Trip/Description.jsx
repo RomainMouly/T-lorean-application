@@ -19,7 +19,7 @@ const Description = (props) => {
           {travelCountry} &nbsp;| &nbsp;
         </div>
         <div>{travelPrice} €/personne la journée | &nbsp; </div>
-        <div>{levelName[travelLevel]}</div>
+        <div>{levelName[travelLevel]} </div>
       </div>
       <div className="trip-infos">
         <div className="description">
