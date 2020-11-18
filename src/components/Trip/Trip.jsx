@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+
 import PeopleNumberContext from '../../contexts/PeopleNumberContext';
 import StartDateContext from '../../contexts/StartDateContext';
 import EndDateContext from '../../contexts/EndDateContext';
