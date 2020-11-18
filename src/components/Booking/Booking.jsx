@@ -27,7 +27,12 @@ const Booking = ({ match, location }) => {
         travel={travel}
         peopleNumber={peopleNumber}
       />
-      <Confirm />
+      <Confirm
+        startDate={startDate}
+        endDate={endDate}
+        travel={travel}
+        peopleNumber={peopleNumber}
+      />
     </div>
   );
 };
