@@ -9,7 +9,7 @@ footer {
   font-size: 14px;
   margin-top: auto;
 }
-a {
+a.other-pages {
   text-decoration: none !important;
   color: var(--light-true) !important;
 }
