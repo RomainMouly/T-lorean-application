@@ -57,7 +57,9 @@ const Footer = () => {
             <li>CGU</li>
             <li>Charte du voyageur</li>
             <li>
-              <Link to="/admin">Admin</Link>
+              <Link className="other-pages" to="/admin">
+                Admin
+              </Link>
             </li>
           </ul>
         </div>
