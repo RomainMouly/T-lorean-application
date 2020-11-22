@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Suggestions from './Suggestions';
 import SearchButton from './SearchButton';
 import { getTravels } from '../../interfaces/database/travel';
@@ -42,7 +43,9 @@ const SearchBar = ({ history }) => {
       <form>
         <input
           id="searchInput"
-          onKeyPress={(event) => event.key === 'Enter' && history.push('/Trip')}
+          onKeyPress={(event) =>
+            event.key === 'Enter' && history.push(`/Trip/${travelId}`)
+          }
           placeholder="Entrez le titre du voyage"
           autoComplete="off"
           value={search}
@@ -58,6 +61,10 @@ const SearchBar = ({ history }) => {
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.array.isRequired }).isRequired,
 };
 
 export default SearchBar;

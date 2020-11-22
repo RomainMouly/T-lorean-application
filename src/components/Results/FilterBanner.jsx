@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import '../../assets/css/global.css';
 import '../../assets/css/Results/FilterBanner.css';
@@ -12,6 +13,21 @@ import level1 from '../../assets/images/filters/level1.jpeg';
 import level2 from '../../assets/images/filters/level2.jpeg';
 import level3 from '../../assets/images/filters/level3.jpeg';
 
+const ERA_FILTERS = {
+  Préhistoire: `${era1}`,
+  Antiquité: `${era2}`,
+  'Moyen-Âge': `${era3}`,
+  Renaissance: `${era4}`,
+  'Temps modernes': `${era5}`,
+  Futur: `${era6}`,
+};
+
+const LEVEL_FILTERS = {
+  Détente: `${level1}`,
+  Aventure: `${level2}`,
+  Extrême: `${level3}`,
+};
+
 const FilterBanner = (props) => {
   const {
     filterType,
@@ -20,80 +36,24 @@ const FilterBanner = (props) => {
     handleSubfilterByEra,
     handleRemoveSubfilter,
   } = props;
-  let filterNameTitle;
-  let filterNameSource;
 
-  switch (filterType) {
-    case 'era':
-      switch (filterName) {
-        case 'Préhistoire':
-          filterNameTitle = 'Préhistoire';
-          filterNameSource = `${era1}`;
-          break;
-        case 'Antiquité':
-          filterNameTitle = 'Antiquité';
-          filterNameSource = `${era2}`;
-          break;
-        case 'Moyen-Âge':
-          filterNameTitle = 'Moyen-Âge';
-          filterNameSource = `${era3}`;
-          break;
-        case 'Renaissance':
-          filterNameTitle = 'Renaissance';
-          filterNameSource = `${era4}`;
-          break;
-        case 'Temps modernes':
-          filterNameTitle = 'Temps modernes';
-          filterNameSource = `${era5}`;
-          break;
-        case 'Futur':
-          filterNameTitle = 'Futur';
-          filterNameSource = `${era6}`;
-          break;
-        default:
-          filterNameTitle = 'Préhistoire';
-          filterNameSource = `${era1}`;
-      }
-      break;
-    case '1':
-    case '2':
-    case '3':
-      switch (filterName) {
-        case 'Détente':
-          filterNameTitle = 'Détente';
-          filterNameSource = `${level1}`;
-          break;
-        case 'Aventure':
-          filterNameTitle = 'Aventure';
-          filterNameSource = `${level2}`;
+  const isFilterTypeEra = filterType === 'era';
+  const filterNameSource = isFilterTypeEra
+    ? ERA_FILTERS[filterName]
+    : LEVEL_FILTERS[filterName];
 
-          break;
-        case 'Extrême':
-          filterNameTitle = 'Extrême';
-          filterNameSource = `${level3}`;
-          break;
-        default:
-          filterNameTitle = 'Détente';
-          filterNameSource = `${level1}`;
-      }
-      break;
-    default:
-      filterNameTitle = 'Try again!';
-      filterNameSource = `${era1}`;
-  }
-
-  if (filterType === 'era') {
+  if (isFilterTypeEra) {
     return (
       <div>
         <div className="nav-filter">
           <div className="underline" />
-          <h2>{filterNameTitle}</h2>
+          <h2>{filterName}</h2>
           <div className="underline" />
         </div>
         <img
           className="filter-banner"
           src={filterNameSource}
-          alt={filterNameTitle}
+          alt={filterName}
         />
         <div className="subfilter-management">
           <h3 className="subfiltering">Trier par degré de sensation </h3>
@@ -146,107 +106,108 @@ const FilterBanner = (props) => {
       </div>
     );
   }
-  if (filterType === '1' || filterType === '2' || filterType === '3') {
-    return (
-      <div>
-        <div className="nav-filter">
-          <div className="underline" />
-          <h2>{filterNameTitle}</h2>
-          <div className="underline" />
-        </div>
-        <img
-          className="filter-banner"
-          src={filterNameSource}
-          alt={filterNameTitle}
-        />
-        <div className="subfilter-management">
-          <h3 className="subfiltering">Trier par époque</h3>
-          <button
-            className="cancel-filter"
-            type="button"
-            onClick={handleRemoveSubfilter}
-          >
-            Annuler
-          </button>
-        </div>
+  return (
+    <div>
+      <div className="nav-filter">
+        <div className="underline" />
+        <h2>{filterName}</h2>
+        <div className="underline" />
+      </div>
+      <img className="filter-banner" src={filterNameSource} alt={filterName} />
+      <div className="subfilter-management">
+        <h3 className="subfiltering">Trier par époque</h3>
+        <button
+          className="cancel-filter"
+          type="button"
+          onClick={handleRemoveSubfilter}
+        >
+          Annuler
+        </button>
+      </div>
 
-        <div className="subfilter-list">
-          <div
-            className="subfilter-card"
-            role="button"
-            tabIndex="0"
-            onClick={() => handleSubfilterByEra('Préhistoire')}
-            onKeyDown={() => handleSubfilterByEra('Préhistoire')}
-          >
-            <img className="subfilter" src={era1} alt="Préhistoire" />
-            <div className="subfilter-name">
-              <h4>Préhistoire</h4>
-            </div>
+      <div className="subfilter-list">
+        <div
+          className="subfilter-card"
+          role="button"
+          tabIndex="0"
+          onClick={() => handleSubfilterByEra('Préhistoire')}
+          onKeyDown={() => handleSubfilterByEra('Préhistoire')}
+        >
+          <img className="subfilter" src={era1} alt="Préhistoire" />
+          <div className="subfilter-name">
+            <h4>Préhistoire</h4>
           </div>
-          <div
-            className="subfilter-card"
-            role="button"
-            tabIndex="0"
-            onClick={() => handleSubfilterByEra('Antiquité')}
-            onKeyDown={() => handleSubfilterByEra('Antiquité')}
-          >
-            <img className="subfilter" src={era2} alt="Antiquité" />
-            <div className="subfilter-name">
-              <h4>Antiquité</h4>
-            </div>
+        </div>
+        <div
+          className="subfilter-card"
+          role="button"
+          tabIndex="0"
+          onClick={() => handleSubfilterByEra('Antiquité')}
+          onKeyDown={() => handleSubfilterByEra('Antiquité')}
+        >
+          <img className="subfilter" src={era2} alt="Antiquité" />
+          <div className="subfilter-name">
+            <h4>Antiquité</h4>
           </div>
-          <div
-            className="subfilter-card"
-            role="button"
-            tabIndex="0"
-            onClick={() => handleSubfilterByEra('Moyen-Âge')}
-            onKeyDown={() => handleSubfilterByEra('Moyen-Âge')}
-          >
-            <img className="subfilter" src={era3} alt="Moyen-Âge" />
-            <div className="subfilter-name">
-              <h4>Moyen-Âge</h4>
-            </div>
+        </div>
+        <div
+          className="subfilter-card"
+          role="button"
+          tabIndex="0"
+          onClick={() => handleSubfilterByEra('Moyen-Âge')}
+          onKeyDown={() => handleSubfilterByEra('Moyen-Âge')}
+        >
+          <img className="subfilter" src={era3} alt="Moyen-Âge" />
+          <div className="subfilter-name">
+            <h4>Moyen-Âge</h4>
           </div>
-          <div
-            className="subfilter-card"
-            role="button"
-            tabIndex="0"
-            onClick={() => handleSubfilterByEra('Renaissance')}
-            onKeyDown={() => handleSubfilterByEra('Renaissance')}
-          >
-            <img className="subfilter" src={era4} alt="Renaissance" />
-            <div className="subfilter-name">
-              <h4>Renaissance</h4>
-            </div>
+        </div>
+        <div
+          className="subfilter-card"
+          role="button"
+          tabIndex="0"
+          onClick={() => handleSubfilterByEra('Renaissance')}
+          onKeyDown={() => handleSubfilterByEra('Renaissance')}
+        >
+          <img className="subfilter" src={era4} alt="Renaissance" />
+          <div className="subfilter-name">
+            <h4>Renaissance</h4>
           </div>
-          <div
-            className="subfilter-card"
-            role="button"
-            tabIndex="0"
-            onClick={() => handleSubfilterByEra('Temps modernes')}
-            onKeyDown={() => handleSubfilterByEra('Temps modernes')}
-          >
-            <img className="subfilter" src={era5} alt="Temps modernes" />
-            <div className="subfilter-name">
-              <h4>Temps modernes</h4>
-            </div>
+        </div>
+        <div
+          className="subfilter-card"
+          role="button"
+          tabIndex="0"
+          onClick={() => handleSubfilterByEra('Temps modernes')}
+          onKeyDown={() => handleSubfilterByEra('Temps modernes')}
+        >
+          <img className="subfilter" src={era5} alt="Temps modernes" />
+          <div className="subfilter-name">
+            <h4>Temps modernes</h4>
           </div>
-          <div
-            className="subfilter-card"
-            role="button"
-            tabIndex="0"
-            onClick={() => handleSubfilterByEra('Futur')}
-            onKeyDown={() => handleSubfilterByEra('Futur')}
-          >
-            <img className="subfilter" src={era6} alt="Futur" />
-            <div className="subfilter-name">
-              <h4>Futur</h4>
-            </div>
+        </div>
+        <div
+          className="subfilter-card"
+          role="button"
+          tabIndex="0"
+          onClick={() => handleSubfilterByEra('Futur')}
+          onKeyDown={() => handleSubfilterByEra('Futur')}
+        >
+          <img className="subfilter" src={era6} alt="Futur" />
+          <div className="subfilter-name">
+            <h4>Futur</h4>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
+FilterBanner.propTypes = {
+  filterType: PropTypes.string.isRequired,
+  filterName: PropTypes.string.isRequired,
+  handleRemoveSubfilter: PropTypes.func.isRequired,
+  handleSubfilterByEra: PropTypes.func.isRequired,
+  handleSubfilterByLevel: PropTypes.func.isRequired,
+};
 export default FilterBanner;

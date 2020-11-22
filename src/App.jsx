@@ -18,10 +18,10 @@ function App() {
       <HomeButton />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/Results/:name/:type" exact component={Results} />
-        <Route path="/Trip/:id" exact component={Trip} />
-        <Route path="/Booking/:id" exact component={Booking} />
-        <Route path="/Admin" exact component={Admin} />
+        <Route exact path="/Results/:name/:type" component={Results} />
+        <Route exact path="/Trip/:id" component={Trip} />
+        <Route exact path="/Booking/:id" component={Booking} />
+        <Route exact path="/Admin" component={Admin} />
       </Switch>
       <Footer />
     </div>
