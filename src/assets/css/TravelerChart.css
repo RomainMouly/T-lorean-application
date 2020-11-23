@@ -1,0 +1,22 @@
+.fullChart {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: 2rem auto;
+  font-size: 20px;
+  background: url(../images/test.jpg) no-repeat center;
+  color: var(--light);
+  border-radius: 20px;
+}
+
+.warning {
+  font-weight: bolder;
+  text-align: center;
+  padding: var(--spacing);
+}
+
+.chartArticle {
+  text-align: justify;
+  margin: var(--spacing) auto;
+  padding: 0 calc(var(--spacing) * 2);
+}

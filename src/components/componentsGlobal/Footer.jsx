@@ -55,7 +55,9 @@ const Footer = () => {
           <h4>Informations</h4>
           <ul>
             <li>CGU</li>
-            <li>Charte du voyageur</li>
+            <li>
+              <Link to="/Traveler-chart">Charte du voyageur</Link>
+            </li>
             <li>
               <Link to="/admin">Admin</Link>
             </li>

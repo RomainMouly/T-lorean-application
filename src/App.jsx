@@ -8,6 +8,7 @@ import Booking from './components/Booking/Booking';
 import Footer from './components/componentsGlobal/Footer';
 import Admin from './components/Admin/Admin';
 import HomeButton from './components/componentsGlobal/HomeButton';
+import TravelerChart from './components/componentsGlobal/TravelerChart';
 
 import './assets/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/Trip/:id" component={Trip} />
         <Route exact path="/Booking/:id" component={Booking} />
         <Route exact path="/Admin" component={Admin} />
+        <Route exact path="/Traveler-chart" component={TravelerChart} />
       </Switch>
       <Footer />
     </div>
