@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
+
 import '../../assets/css/form.css';
 
 const Form = ({ startDate, endDate, travel, peopleNumber }) => {
