@@ -7,7 +7,7 @@ import {
   NavItem,
   NavLink,
   //   Card,
-  Button,
+  // Button,
   //   CardTitle,
   //   CardText,
   Row,
@@ -15,11 +15,15 @@ import {
   Table,
 } from 'reactstrap';
 import classnames from 'classnames';
+import PostModal from './PostModal';
+import PutModal from './PutModal';
+import DeleteModal from './DeleteModal';
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState('1');
   const [travels, setTravels] = useState([]);
   const [users, setUsers] = useState([]);
+  const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
     axios
@@ -30,6 +34,10 @@ const Admin = () => {
       .get(`https://api-airbnb-node.herokuapp.com/api/users/`)
       .then((result) => result.data)
       .then((data) => setUsers(data));
+    axios
+      .get(`https://api-airbnb-node.herokuapp.com/api/reservations/`)
+      .then((result) => result.data)
+      .then((data) => setBookings(data));
   }, []);
 
   const toggle = (tab) => {
@@ -69,6 +77,16 @@ const Admin = () => {
             Users
           </NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink
+            className={classnames({ active: activeTab === '4' })}
+            onClick={() => {
+              toggle('4');
+            }}
+          >
+            Bookings
+          </NavLink>
+        </NavItem>
       </Nav>
 
       <TabContent activeTab={activeTab}>
@@ -83,7 +101,7 @@ const Admin = () => {
           <Row>
             <Col sm="12">
               <div className="text-center">
-                <Button>Ajouter un voyage</Button>
+                <PostModal />
               </div>
               <Table hover>
                 <thead>
@@ -95,9 +113,7 @@ const Admin = () => {
                     <th>prix</th>
                     <th>époque</th>
                     <th>pays</th>
-                    <th>photos</th>
-                    <th>modifier</th>
-                    <th>supprimer</th>
+                    <th colSpan="2">actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -111,8 +127,12 @@ const Admin = () => {
                       <td>{travel.era}</td>
                       <td>{travel.country}</td>
                       <td>{travel.id.url}</td>
-                      <td>hello</td>
-                      <td>goodbye</td>
+                      <td>
+                        <PutModal />
+                      </td>
+                      <td>
+                        <DeleteModal />
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -123,6 +143,9 @@ const Admin = () => {
         <TabPane tabId="3">
           <Row>
             <Col sm="12">
+              <div className="text-center">
+                <PostModal />
+              </div>
               <Table hover>
                 <thead>
                   <tr>
@@ -130,8 +153,7 @@ const Admin = () => {
                     <th>nom</th>
                     <th>prénom</th>
                     <th>e-mail</th>
-                    <th>modifier</th>
-                    <th>supprimer</th>
+                    <th colSpan="2">actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -141,8 +163,52 @@ const Admin = () => {
                       <td>{user.lastname}</td>
                       <td>{user.firstname}</td>
                       <td>{user.email}</td>
-                      <td>hello</td>
-                      <td>goodbye</td>
+                      <td>
+                        <PutModal />
+                      </td>
+                      <td>
+                        <DeleteModal />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </Col>
+          </Row>
+        </TabPane>
+        <TabPane tabId="4">
+          <Row>
+            <Col sm="12">
+              <div className="text-center">
+                <PostModal />
+              </div>
+              <Table hover>
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>départ</th>
+                    <th>retour</th>
+                    <th>voyage</th>
+                    <th>user</th>
+                    <th>pax</th>
+                    <th colSpan="2">actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bookings.map((booking) => (
+                    <tr>
+                      <th scope="row">{booking.id}</th>
+                      <td>{booking.date_begin}</td>
+                      <td>{booking.date_end}</td>
+                      <td>{booking.id_travel}</td>
+                      <td>{booking.id_user}</td>
+                      <td>{booking.numberPerson}</td>
+                      <td>
+                        <PutModal />
+                      </td>
+                      <td>
+                        <DeleteModal />
+                      </td>
                     </tr>
                   ))}
                 </tbody>
