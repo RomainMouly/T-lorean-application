@@ -1,27 +1,74 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+} from 'reactstrap';
 
-const CarouselDetail = ({ pictures }) => {
+import '../../assets/css/CarouselDetail.css';
+
+const CarouselDetail = (props) => {
+  const { pictures } = props;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === pictures.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? pictures.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const goToIndex = (newIndex) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
+
+  const slides =
+    pictures &&
+    pictures.map((picture) => {
+      return (
+        <CarouselItem
+          onExiting={() => setAnimating(true)}
+          onExited={() => setAnimating(false)}
+          key={picture.url}
+        >
+          <img className="carousel-pic" src={picture.url} alt={picture.id} />
+        </CarouselItem>
+      );
+    });
+
   return (
-    <div>
-      {/* {pictures.map((picture) => (
-        <img src={picture.url} alt={picture.id} />
-      ))} pour avoir toutes les images avec le carousel, sinon pour une seule image voir ci dessous
-      on peut egalement enlever pictures*/}
-      <img
-        className="carousel-box"
-        src={pictures && pictures[1] && pictures[1].url}
-      />{' '}
-      {/*besoin de faire ca car les photos api mettent du temps à arriver
-      du coup : on luii dit: si tu as une pictures et que tu as picture[1] tu affiches pictures[1].url
-      si tu as une image ou pas tu m'affiche ou pas l'url de l'image
-      obligé de faire ca pour une seule image dès que tu as du axios*/}
-    </div>
+    <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+      <CarouselIndicators
+        items={pictures}
+        activeIndex={activeIndex}
+        onClickHandler={goToIndex}
+      />
+      {slides}
+      <CarouselControl
+        direction="prev"
+        directionText="Previous"
+        onClickHandler={previous}
+      />
+      <CarouselControl
+        direction="next"
+        directionText="Next"
+        onClickHandler={next}
+      />
+    </Carousel>
   );
 };
 
 CarouselDetail.propTypes = {
-  image: PropTypes.string.isRequired,
+  pictures: PropTypes.shape.isRequired,
 };
 
 export default CarouselDetail;

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import fb from '../../assets/images/facebook.png';
 import instagram from '../../assets/images/instagram.png';
 import twitter from '../../assets/images/twitter-sign.png';
@@ -52,18 +54,18 @@ const Footer = () => {
         <div className="infos">
           <h4>Informations</h4>
           <ul>
-            <li>Conditions générales d&apos;utilisation</li>
-            <li> Charte du voyageur dans le temps</li>
-            <li> Mentions légales</li>
-            <li>RGPD</li>
+            <li>CGU</li>
+            <li>Charte du voyageur</li>
+            <li>
+              <Link className="other-pages" to="/admin">
+                Admin
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
       <div className="credits">
-        <p>
-          &copy; Les gardiens de la Galaxie pour t-lorean et Wild Code School -
-          2020
-        </p>
+        <p>&copy;Les Gardiens de la Galaxie pour T-LOREAN - 2020</p>
       </div>
     </footer>
   );

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../../assets/css/componentsGlobal/FilterTravel.css';
 
-const FilterTravel = ({ data, type, image, name }) => {
+const FilterTravel = ({ type, image, name }) => {
   return (
     <ul>
       <li>
@@ -20,9 +20,9 @@ const FilterTravel = ({ data, type, image, name }) => {
 };
 
 FilterTravel.propTypes = {
-  data: PropTypes.shape({}).isRequired,
   type: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default FilterTravel;

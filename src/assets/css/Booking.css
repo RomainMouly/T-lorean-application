@@ -1,0 +1,6 @@
+.bookingTitle h2 {
+  width: 100%;
+  font-weight: bolder;
+  margin: calc(var(--spacing) * 2) auto calc(var(--spacing)) auto;
+  text-align: center;
+}

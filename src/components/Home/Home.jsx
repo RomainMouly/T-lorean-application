@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import FilterTravel from '../componentsGlobal/FilterTravel';
-import '../../assets/css/global.css';
-import '../../assets/css/Home/Home.css';
+import PropTypes from 'prop-types';
+
+import FilterTravel from './FilterTravel';
 import Welcome from './Welcome';
 import SearchBar from './SearchBar';
+import { getTravels } from '../../interfaces/database/travel';
+
+import '../../assets/css/global.css';
+import '../../assets/css/Home/Home.css';
+
 import era1 from '../../assets/images/filters/era1.jpg';
 import era2 from '../../assets/images/filters/era2.jpg';
 import era3 from '../../assets/images/filters/era3.jpg';
@@ -13,7 +18,6 @@ import era6 from '../../assets/images/filters/era6.png';
 import level1 from '../../assets/images/filters/level1.jpeg';
 import level2 from '../../assets/images/filters/level2.jpeg';
 import level3 from '../../assets/images/filters/level3.jpeg';
-import { getTravels } from '../../interfaces/database/travel';
 
 const Home = ({ history }) => {
   const [travels, setTravels] = useState([]);
@@ -58,7 +62,7 @@ const Home = ({ history }) => {
         <SearchBar history={history} />
       </div>
       <div className="home-filters">
-        <h2>Quand voulez-vous aller ?</h2>
+        <h2>Choisissez votre époque</h2>
         <div className="home-filter-era">
           <FilterTravel
             data={filterTravelEraPrehistoire}
@@ -97,7 +101,7 @@ const Home = ({ history }) => {
             name="era"
           />
         </div>
-        <h2>Degré de sensation </h2>
+        <h2>Choisissez votre degré de sensation </h2>
         <div className="home-filter-level">
           <FilterTravel
             data={filterTravelSensationOne}
@@ -121,6 +125,10 @@ const Home = ({ history }) => {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  history: PropTypes.shape().isRequired,
 };
 
 export default Home;

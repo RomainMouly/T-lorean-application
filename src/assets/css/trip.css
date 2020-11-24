@@ -18,16 +18,31 @@
 .underline {
   background: linear-gradient(
     to right,
-    var(--light),
+    var(--light-true),
     var(--third-color),
     var(--main-color),
     var(--third-color),
-    var(--light)
+    var(--light-true)
   );
   height: 1px;
   width: 85%;
   margin: var(--spacing) auto;
 }
+
+.underlineLarge {
+  background: linear-gradient(
+    to right,
+    var(--light-true),
+    var(--third-color),
+    var(--main-color),
+    var(--third-color),
+    var(--light-true)
+  );
+  height: 1px;
+  width: 100%;
+  margin: var(--spacing) auto;
+}
+
 .carousel-box {
   background-position: center;
   background-size: cover;
@@ -59,13 +74,17 @@
 .description-link-ext:visited,
 .description-link-ext:hover,
 .description-link-ext:active {
-  color: var(--dark);
+  color: var(--dark-true);
 }
 
 .calendar {
   margin: 10px;
   border-radius: 20px;
   box-shadow: 0 0 8px hsl(0, 0%, 76%);
+}
+
+.calendar .nice-dates-day_month {
+  display: none;
 }
 
 .alertDates {

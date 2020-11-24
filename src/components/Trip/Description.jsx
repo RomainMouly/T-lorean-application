@@ -1,21 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import pin from '../../assets/images/location-pin.png';
-import Calendar from '../Booking/Calendar';
+import Calendar from './Calendar';
 
 const Description = (props) => {
-  const {
-    travelCountry,
-    travelPrice,
-    travelDescription,
-    travelLevel,
-    startDate,
-    setStartDate,
-    endDate,
-    setEndDate,
-    peopleNumber,
-    setPeopleNumber,
-  } = props;
+  const { travelCountry, travelPrice, travelDescription, travelLevel } = props;
   const levelName = {
     1: 'Détente',
     2: 'Aventure',
@@ -30,7 +19,7 @@ const Description = (props) => {
           {travelCountry} &nbsp;| &nbsp;
         </div>
         <div>{travelPrice} €/personne la journée | &nbsp; </div>
-        <div>{levelName[travelLevel]}</div>
+        <div>{levelName[travelLevel]} </div>
       </div>
       <div className="trip-infos">
         <div className="description">
@@ -56,18 +45,10 @@ const Description = (props) => {
           <div className="underline" />
           <p>
             N’hésitez pas à nous contacter pour toute demande d’informations
-            complémentaire, nos conseillers seront ravis de vous répondre !
+            complémentaires, nos conseillers seront ravis de vous répondre !
           </p>{' '}
         </div>
-        <Calendar
-          className="calendar"
-          startDate={startDate}
-          endDate={endDate}
-          setStartDate={setStartDate}
-          setEndDate={setEndDate}
-          peopleNumber={peopleNumber}
-          setPeopleNumber={setPeopleNumber}
-        />
+        <Calendar className="calendar" />
       </div>
     </div>
   );
@@ -78,12 +59,6 @@ Description.propTypes = {
   travelPrice: PropTypes.number.isRequired,
   travelDescription: PropTypes.string.isRequired,
   travelLevel: PropTypes.number.isRequired,
-  startDate: PropTypes.string.isRequired,
-  setStartDate: PropTypes.string.isRequired,
-  endDate: PropTypes.string.isRequired,
-  setEndDate: PropTypes.string.isRequired,
-  peopleNumber: PropTypes.number.isRequired,
-  setPeopleNumber: PropTypes.number.isRequired,
 };
 
 export default Description;

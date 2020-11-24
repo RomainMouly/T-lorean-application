@@ -26,6 +26,8 @@ ul {
 .link-box:hover {
   background-color: rgb(163, 163, 163);
   filter: opacity(70%);
+  text-decoration: none;
+  color: var(--light-true);
 }
 
 @media screen and (min-width: 768px) {

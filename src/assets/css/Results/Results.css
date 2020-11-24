@@ -13,5 +13,5 @@
 .travel-card-link:hover,
 .travel-card-link:active {
   text-decoration: none;
-  color: var(--dark);
+  color: var(--dark-true);
 }
