@@ -56,10 +56,14 @@ const Footer = () => {
           <ul>
             <li>CGU</li>
             <li>
-              <Link to="/Traveler-chart">Charte du voyageur</Link>
+              <Link className="other-pages" to="/Traveler-chart">
+                Charte du voyageur
+              </Link>
             </li>
             <li>
-              <Link to="/admin">Admin</Link>
+              <Link className="other-pages" to="/admin">
+                Admin
+              </Link>
             </li>
           </ul>
         </div>
