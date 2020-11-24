@@ -16,9 +16,13 @@ const Description = (props) => {
       <div className="travel-info">
         <div>
           <img className="pin" src={pin} alt="pin" />
-          {travelCountry} &nbsp;| &nbsp;
+          {travelCountry} &nbsp; <span className="separation-trait">|</span>{' '}
+          &nbsp;
         </div>
-        <div>{travelPrice} €/personne la journée | &nbsp; </div>
+        <div>
+          {travelPrice} €/personne la journée{' '}
+          <span className="separation-trait">|</span> &nbsp;{' '}
+        </div>
         <div>{levelName[travelLevel]} </div>
       </div>
       <div className="trip-infos">
