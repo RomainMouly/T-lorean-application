@@ -7,10 +7,15 @@
 }
 
 .homeButton a img {
-  width: 2rem;
+  height: 24px;
   padding: 0 var(--spacing) 0 0;
 }
 
 .backButton {
   cursor: pointer;
+}
+
+.homeButton .backButton img {
+  height: 24px;
+  padding: 0 var(--spacing) 0 0;
 }
