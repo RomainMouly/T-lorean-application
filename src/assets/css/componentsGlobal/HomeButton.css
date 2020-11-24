@@ -3,8 +3,14 @@
   top: 2%;
   left: 2%;
   z-index: 1;
+  display: flex;
 }
 
 .homeButton a img {
   width: 2rem;
+  padding: 0 var(--spacing) 0 0;
+}
+
+.backButton {
+  cursor: pointer;
 }
