@@ -7,18 +7,27 @@ import Calendar from './Calendar';
 const Description = (props) => {
   const { travelCountry, travelPrice, travelDescription, travelLevel } = props;
   const levelName = {
-    1: <img src={flash} alt="flash" />,
+    1: 'Détente',
+    2: 'Aventure',
+    3: 'Extrême',
+  };
+  const levelSymbols = {
+    1: (
+      <div className="trip-flash-container">
+        <img src={flash} alt="flash" className="flash-description" />
+      </div>
+    ),
     2: (
-      <div>
-        <img src={flash} alt="flash" />
-        <img src={flash} alt="flash" />
+      <div className="trip-flash-container">
+        <img src={flash} alt="flash" className="flash-description" />
+        <img src={flash} alt="flash" className="flash-description" />
       </div>
     ),
     3: (
-      <div>
-        <img src={flash} alt="flash" />
-        <img src={flash} alt="flash" />
-        <img src={flash} alt="flash" />
+      <div className="trip-flash-container">
+        <img src={flash} alt="flash" className="flash-description" />
+        <img src={flash} alt="flash" className="flash-description" />
+        <img src={flash} alt="flash" className="flash-description" />
       </div>
     ),
   };
@@ -35,7 +44,10 @@ const Description = (props) => {
           {travelPrice} €/personne la journée{' '}
           <span className="separation-trait">|</span>&nbsp;{' '}
         </div>
-        <div className="travel-info-level">{levelName[travelLevel]}</div>
+        <div className="travel-info-level">
+          {levelName[travelLevel]}
+          {levelSymbols[travelLevel]}
+        </div>
       </div>
       <div className="trip-infos">
         <div className="description">
