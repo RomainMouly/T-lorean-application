@@ -12,7 +12,7 @@ const PutForm = () => {
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PutFormText">
+        <Label htmlFor="PutFormText">
           Description
           <Input
             type="textarea"
@@ -23,7 +23,7 @@ const PutForm = () => {
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PutFormSelect">
+        <Label htmlFor="PutFormSelect">
           Epoque
           <Input type="select" name="era" id="PutFormSelect">
             <option>Préhistoire</option>
@@ -36,7 +36,7 @@ const PutForm = () => {
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PutFormSelect">
+        <Label htmlFor="PutFormSelect">
           Sensation
           <Input type="select" name="level" id="PutFormSelect">
             <option>Détente</option>
@@ -46,13 +46,13 @@ const PutForm = () => {
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PutFormEmail">
+        <Label htmlFor="PutFormEmail">
           Lieu
           <Input type="text" name="country" id="PutFormEmail" placeholder="" />
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PutFormEmail">
+        <Label htmlFor="PutFormEmail">
           Price
           <Input type="number" name="price" id="PutFormEmail" placeholder="" />
         </Label>
