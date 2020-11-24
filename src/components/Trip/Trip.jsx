@@ -6,6 +6,7 @@ import PeopleNumberContext from '../../contexts/PeopleNumberContext';
 import StartDateContext from '../../contexts/StartDateContext';
 import EndDateContext from '../../contexts/EndDateContext';
 import CarouselDetail from './CarouselDetail';
+import SensationLevel from './SensationLevel';
 import Description from './Description';
 import TripTitle from './TripTitle';
 import BookingButton from './BookingButton';
@@ -49,7 +50,12 @@ const Trip = ({ match }) => {
     <div className="trip">
       {' '}
       <TripTitle travelTitle={travel.title} />
-      <CarouselDetail pictures={pictures} />
+      <div>
+        <div className="trip-carousel-level">
+          <SensationLevel />
+        </div>
+        <CarouselDetail pictures={pictures} />
+      </div>
       <PeopleNumberContext.Provider value={contextPeopleValue}>
         <StartDateContext.Provider value={contextStartDateValue}>
           <EndDateContext.Provider value={contextEndDateValue}>

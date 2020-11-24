@@ -43,6 +43,13 @@
   margin: var(--spacing) auto;
 }
 
+.trip-carousel-level {
+  position: absolute;
+  right: var(--spacing);
+  margin-top: var(--spacing);
+  z-index: 1;
+}
+
 .carousel-box {
   background-position: center;
   background-size: cover;
