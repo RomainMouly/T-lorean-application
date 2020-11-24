@@ -111,12 +111,16 @@
     height: 400px;
   }
 
-  .separation-trait {
-    display: inline;
-  }
-
   .travel-info {
     flex-direction: row;
+  }
+
+  .travel-info-level {
+    padding-top: 5px;
+  }
+
+  .separation-trait {
+    display: inline;
   }
 
   .trip-infos {
