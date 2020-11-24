@@ -126,12 +126,11 @@ const Admin = () => {
                       <td>{travel.price}</td>
                       <td>{travel.era}</td>
                       <td>{travel.country}</td>
-                      <td>{travel.id.url}</td>
                       <td>
-                        <PutModal travel={travel} travel_id={travel.id} />
+                        <PutModal travelId={travel.id} />
                       </td>
                       <td>
-                        <DeleteModal travel={travel} travel_id={travel.id} />
+                        <DeleteModal travelId={travel.id} />
                       </td>
                     </tr>
                   ))}
