@@ -18,14 +18,24 @@ import classnames from 'classnames';
 import PostModal from './PostModal';
 import PutModal from './PutModal';
 import DeleteModal from './DeleteModal';
+import { Button } from 'reactstrap';
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState('1');
   const [travels, setTravels] = useState([]);
   const [users, setUsers] = useState([]);
   const [bookings, setBookings] = useState([]);
+  const [isFilterPrice, setIsFilterPrice] = useState(false);
+  const [isFilterTitle, setIsFilterTitle] = useState(false);
+  const [isFilterEra, setIsFilterEra] = useState(false);
+  const [isFilterLevel, setIsFilterLevel] = useState(false);
+  const [isFilterCountry, setIsFilterCountry] = useState(false);
 
   useEffect(() => {
+    handleAxios();
+  }, []);
+
+  const handleAxios = () => {
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/`)
       .then((result) => result.data)
@@ -38,10 +48,79 @@ const Admin = () => {
       .get(`https://api-airbnb-node.herokuapp.com/api/reservations/`)
       .then((result) => result.data)
       .then((data) => setBookings(data));
-  }, []);
+  };
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
+  };
+
+  const handleFilterPrice = () => {
+    setIsFilterPrice(!isFilterPrice);
+    if (!isFilterPrice) {
+      setTravels(travels.sort((a, b) => a.price - b.price));
+    } else {
+      handleAxios();
+    }
+  };
+
+  const handleFilterLevel = () => {
+    setIsFilterLevel(!isFilterLevel);
+    if (!isFilterLevel) {
+      setTravels(travels.sort((a, b) => a.level - b.level));
+    } else {
+      handleAxios();
+    }
+  };
+
+  const handleFilterTitle = () => {
+    setIsFilterTitle(!isFilterTitle);
+    if (!isFilterTitle) {
+      setTravels(
+        travels.sort((a, b) => {
+          var A = a.title.toLowerCase(),
+            B = b.title.toLowerCase();
+          if (A < B) return -1;
+          if (A > B) return 1;
+          return 0;
+        })
+      );
+    } else {
+      handleAxios();
+    }
+  };
+
+  const handleFilterEra = () => {
+    setIsFilterEra(!isFilterEra);
+    if (!isFilterEra) {
+      setTravels(
+        travels.sort((a, b) => {
+          var A = a.era.toLowerCase(),
+            B = b.era.toLowerCase();
+          if (A < B) return -1;
+          if (A > B) return 1;
+          return 0;
+        })
+      );
+    } else {
+      handleAxios();
+    }
+  };
+
+  const handleFilterCountry = () => {
+    setIsFilterCountry(!isFilterCountry);
+    if (!isFilterCountry) {
+      setTravels(
+        travels.sort((a, b) => {
+          var A = a.country.toLowerCase(),
+            B = b.country.toLowerCase();
+          if (A < B) return -1;
+          if (A > B) return 1;
+          return 0;
+        })
+      );
+    } else {
+      handleAxios();
+    }
   };
 
   return (
@@ -107,12 +186,34 @@ const Admin = () => {
                 <thead>
                   <tr>
                     <th>id</th>
-                    <th>titre</th>
+                    <th>
+                      {' '}
+                      <Button color="info" onClick={handleFilterTitle}>
+                        {isFilterTitle ? 'Titre filtré' : 'Titre'}
+                      </Button>
+                    </th>
                     <th>description</th>
-                    <th>sensation</th>
-                    <th>prix</th>
-                    <th>époque</th>
-                    <th>pays</th>
+                    <th>
+                      <Button color="info" onClick={handleFilterLevel}>
+                        {isFilterLevel ? 'Sensation filtré' : 'Sensation'}
+                      </Button>
+                    </th>
+                    <th>
+                      <Button color="info" onClick={handleFilterPrice}>
+                        {isFilterPrice ? 'Prix filtré' : 'Prix'}
+                      </Button>
+                    </th>
+                    <th>
+                      <Button color="info" onClick={handleFilterEra}>
+                        {isFilterEra ? 'Epoque filtré' : 'Epoque'}
+                      </Button>
+                    </th>
+                    <th>
+                      {' '}
+                      <Button color="info" onClick={handleFilterCountry}>
+                        {isFilterCountry ? 'Pays filtré' : 'Pays'}
+                      </Button>
+                    </th>
                     <th colSpan="2">actions</th>
                   </tr>
                 </thead>
