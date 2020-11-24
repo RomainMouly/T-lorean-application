@@ -25,12 +25,11 @@ const PostModal = (props) => {
 
   const [formPartTwo, setFormPartTwo] = useState({
     url: '',
-    id_travel: 0,
   });
 
   const handleErrorForm = (e) => {
     setErrorForm(
-      `Erreur lors de votre réservation : ${e.message}, veuillez réessayer`
+      `Erreur lors de l'enregistrement du voyage : ${e.message}, veuillez réessayer.`
     );
   };
 
@@ -53,17 +52,12 @@ const PostModal = (props) => {
           .get('https://api-airbnb-node.herokuapp.com/api/travels')
           .then((result) => result.data[result.data.length - 1].id)
           .then((idTravel) =>
-            // setFormPartTwo({ ...formPartTwo, id_travel: idTravel }),
             axios
               .post('https://api-airbnb-node.herokuapp.com/api/pictures', {
                 url: formPartTwo.url,
                 id_travel: idTravel,
               })
-              .then(() =>
-                setValidForm(
-                  `Félicitations, votre réservation a bien été prise en compte. Préparez-vous pour l'aventure !`
-                )
-              )
+              .then(() => setValidForm(`Le voyage a bien été enregistré !`))
               .catch((err) => {
                 handleErrorForm(err);
               })
@@ -72,6 +66,11 @@ const PostModal = (props) => {
       .catch((err) => {
         handleErrorForm(err);
       });
+  };
+
+  const handleSubmit = (e) => {
+    toggleNested();
+    handleSubmitPartOne(e);
   };
 
   return (
@@ -110,7 +109,7 @@ const PostModal = (props) => {
           <Button color="secondary" onClick={toggle}>
             Annuler
           </Button>{' '}
-          <Button color="primary" onClick={handleSubmitPartOne}>
+          <Button color="primary" onClick={handleSubmit}>
             Confirmer
           </Button>
         </ModalFooter>
