@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import pin from '../../assets/images/location-pin.png';
+import flash from '../../assets/images/flash.png';
 import Calendar from './Calendar';
 
 const Description = (props) => {
   const { travelCountry, travelPrice, travelDescription, travelLevel } = props;
   const levelName = {
-    1: 'Détente',
-    2: 'Aventure',
-    3: 'Extrême',
+    1: <img src={flash} alt="flash" />,
+    2: (
+      <div>
+        <img src={flash} alt="flash" />
+        <img src={flash} alt="flash" />
+      </div>
+    ),
+    3: (
+      <div>
+        <img src={flash} alt="flash" />
+        <img src={flash} alt="flash" />
+        <img src={flash} alt="flash" />
+      </div>
+    ),
   };
 
   return (
