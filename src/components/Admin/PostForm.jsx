@@ -1,25 +1,19 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../assets/css/Admin/PostForm.css';
 
-const PostForm = () => {
-  const [addForm, setAddForm] = useState({
-    title: '',
-    description: '',
-    era: '',
-    level: '',
-    country: '',
-    price: '',
+const PostForm = (props) => {
+  const { formPartOne, setFormPartOne } = props;
+
+  const [formPartTwo, setFormPartTwo] = useState({
+    url: '',
+    id_travel: '',
   });
 
-  // const [addPic, setAddPic] = useState({
-  //   url: '',
-  //   id_travel: '',
-  // });
-
-  const handleChange = (e) => {
-    setAddForm({
-      ...addForm,
+  const handleChangePartOne = (e) => {
+    setFormPartOne({
+      ...Form,
       [e.target.name]: e.target.value,
     });
   };
@@ -33,8 +27,8 @@ const PostForm = () => {
             type="text"
             name="title"
             id="title"
-            onChange={handleChange}
-            value={addForm.title}
+            onChange={handleChangePartOne}
+            value={formPartOne.title}
             required
           />
         </Label>
@@ -46,8 +40,47 @@ const PostForm = () => {
             type="textarea"
             name="description"
             id="description"
-            onChange={handleChange}
-            value={addForm.description}
+            onChange={handleChangePartOne}
+            value={formPartOne.description}
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label for="PostFormText">
+          Photo 1
+          <Input
+            type="url"
+            name="photoOne"
+            id="photoOne"
+            onChange=""
+            value=""
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label for="PostFormText">
+          Photo 2
+          <Input
+            type="url"
+            name="photoTwo"
+            id="photoTwo"
+            onChange=""
+            value=""
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label for="PostFormText">
+          Photo 3
+          <Input
+            type="url"
+            name="photoThree"
+            id="photoThree"
+            onChange=""
+            value=""
             required
           />
         </Label>
@@ -60,15 +93,15 @@ const PostForm = () => {
             type="select"
             name="era"
             id="era"
-            onChange={handleChange}
+            onChange={handleChangePartOne}
             required
           >
-            <option value={addForm.era}>Préhistoire</option>
-            <option value={addForm.era}>Antiquité</option>
-            <option value={addForm.era}>Moyen-Âge</option>
-            <option value={addForm.era}>Renaissance</option>
-            <option value={addForm.era}>Temps modernes</option>
-            <option value={addForm.era}>Futur</option>
+            <option value={formPartOne.era}>Préhistoire</option>
+            <option value={formPartOne.era}>Antiquité</option>
+            <option value={formPartOne.era}>Moyen-Âge</option>
+            <option value={formPartOne.era}>Renaissance</option>
+            <option value={formPartOne.era}>Temps modernes</option>
+            <option value={formPartOne.era}>Futur</option>
           </Input>
         </Label>
       </FormGroup>
@@ -79,12 +112,12 @@ const PostForm = () => {
             type="select"
             name="level"
             id="level"
-            onChange={handleChange}
+            onChange={handleChangePartOne}
             required
           >
-            <option value={addForm.level}>Détente</option>
-            <option value={addForm.level}>Aventure</option>
-            <option value={addForm.level}>Extrême</option>
+            <option value={formPartOne.level}>Détente</option>
+            <option value={formPartOne.level}>Aventure</option>
+            <option value={formPartOne.level}>Extrême</option>
           </Input>
         </Label>
       </FormGroup>
@@ -95,8 +128,8 @@ const PostForm = () => {
             type="text"
             name="country"
             id="country"
-            onChange={handleChange}
-            value={addForm.country}
+            onChange={handleChangePartOne}
+            value={formPartOne.country}
             required
           />
         </Label>
@@ -108,14 +141,28 @@ const PostForm = () => {
             type="number"
             name="price"
             id="price"
-            onChange={handleChange}
-            value={addForm.price}
+            onChange={handleChangePartOne}
+            value={formPartOne.price}
             required
           />
         </Label>
       </FormGroup>
     </Form>
   );
+};
+
+PostForm.propTypes = {
+  formPartOne: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    era: PropTypes.string.isRequired,
+    level: PropTypes.number.isRequired,
+    country: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
+  setFormPartOne: PropTypes.func.isRequired,
+  formPartTwo: PropTypes.shape().isRequired,
+  setFormPartTwo: PropTypes.func.isRequired,
 };
 
 export default PostForm;
