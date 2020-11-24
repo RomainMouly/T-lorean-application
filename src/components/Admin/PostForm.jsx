@@ -4,13 +4,7 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../assets/css/Admin/PostForm.css';
 
 const PostForm = (props) => {
-  const {
-    formPartOne,
-    setFormPartOne,
-    formPartTwo,
-    setFormPartTwo,
-    // travelID,
-  } = props;
+  const { formPartOne, setFormPartOne, formPartTwo, setFormPartTwo } = props;
 
   const handleChangePartOne = (e) => {
     setFormPartOne({
@@ -22,7 +16,6 @@ const PostForm = (props) => {
   const handleChangePartTwo = (e) => {
     setFormPartTwo({
       url: e.target.value,
-      id_travel: '',
     });
   };
 
@@ -54,19 +47,7 @@ const PostForm = (props) => {
           />
         </Label>
       </FormGroup>
-      <FormGroup>
-        <Label htmlFor="url">
-          Photo 1
-          <Input
-            type="url"
-            name="url"
-            id="url"
-            onChange={handleChangePartTwo}
-            value={formPartTwo.url}
-            required
-          />
-        </Label>
-      </FormGroup>
+
       <FormGroup>
         <Label htmlFor="era">
           Epoque
@@ -124,6 +105,19 @@ const PostForm = (props) => {
             id="price"
             onChange={handleChangePartOne}
             value={formPartOne.price}
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="url">
+          Photo
+          <Input
+            type="text"
+            name="url"
+            id="url"
+            onChange={handleChangePartTwo}
+            value={formPartTwo.url}
             required
           />
         </Label>

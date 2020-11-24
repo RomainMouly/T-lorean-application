@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
@@ -11,15 +11,14 @@ const PostModal = (props) => {
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
   const [closeAll, setCloseAll] = useState(false);
-  const [travelID, setTravelID] = useState(0);
   const [validForm, setValidForm] = useState('');
   const [errorForm, setErrorForm] = useState('');
 
   const [formPartOne, setFormPartOne] = useState({
     title: '',
     description: '',
-    era: '',
-    level: '',
+    era: 'Préhistoire',
+    level: '1',
     country: '',
     price: '',
   });
@@ -45,19 +44,6 @@ const PostModal = (props) => {
     setCloseAll(true);
   };
 
-  // const handleSubmitPartTwo = () => {
-  //   axios
-  //     .post('https://api-airbnb-node.herokuapp.com/api/pictures', formPartTwo)
-  //     .then(() =>
-  //       setValidForm(
-  //         `Félicitations, votre réservation a bien été prise en compte. Préparez-vous pour l'aventure !`
-  //       )
-  //     )
-  //     .catch((err) => {
-  //       handleErrorForm(err);
-  //     });
-  // };
-
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
@@ -65,22 +51,28 @@ const PostModal = (props) => {
       .then(() =>
         axios
           .get('https://api-airbnb-node.herokuapp.com/api/travels')
-          .then((result) => setTravelID(result.data[result.data.length - 1].id))
-          .then(toggleNested())
-          .catch((err) => {
-            handleErrorForm(err);
-          })
+          .then((result) => result.data[result.data.length - 1].id)
+          .then((idTravel) =>
+            // setFormPartTwo({ ...formPartTwo, id_travel: idTravel }),
+            axios
+              .post('https://api-airbnb-node.herokuapp.com/api/pictures', {
+                url: formPartTwo.url,
+                id_travel: idTravel,
+              })
+              .then(() =>
+                setValidForm(
+                  `Félicitations, votre réservation a bien été prise en compte. Préparez-vous pour l'aventure !`
+                )
+              )
+              .catch((err) => {
+                handleErrorForm(err);
+              })
+          )
       )
       .catch((err) => {
         handleErrorForm(err);
       });
   };
-
-  // useEffect(() => {
-  //   if (travelID !== 0) {
-  //     handleSubmitPartTwo();
-  //   }
-  // }, [travelID]);
 
   return (
     <div>
@@ -95,7 +87,6 @@ const PostModal = (props) => {
             setFormPartOne={setFormPartOne}
             formPartTwo={formPartTwo}
             setFormPartTwo={setFormPartTwo}
-            travelID={travelID}
           />
           <br />
           <Modal
