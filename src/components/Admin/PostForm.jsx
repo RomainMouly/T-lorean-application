@@ -1,27 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../assets/css/Admin/PostForm.css';
 
 const PostForm = (props) => {
-  const { formPartOne, setFormPartOne } = props;
-
-  const [formPartTwo, setFormPartTwo] = useState({
-    url: '',
-    id_travel: '',
-  });
+  const {
+    formPartOne,
+    setFormPartOne,
+    formPartTwo,
+    setFormPartTwo,
+    // travelID,
+  } = props;
 
   const handleChangePartOne = (e) => {
     setFormPartOne({
-      ...Form,
+      ...formPartOne,
       [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleChangePartTwo = (e) => {
+    setFormPartTwo({
+      url: e.target.value,
+      id_travel: '',
     });
   };
 
   return (
     <Form className="travel-form">
       <FormGroup>
-        <Label for="PostFormText">
+        <Label htmlFor="title">
           Nom du voyage
           <Input
             type="text"
@@ -34,7 +42,7 @@ const PostForm = (props) => {
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PostFormText">
+        <Label htmlFor="description">
           Description
           <Input
             type="textarea"
@@ -47,47 +55,20 @@ const PostForm = (props) => {
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PostFormText">
+        <Label htmlFor="url">
           Photo 1
           <Input
             type="url"
-            name="photoOne"
-            id="photoOne"
-            onChange=""
-            value=""
+            name="url"
+            id="url"
+            onChange={handleChangePartTwo}
+            value={formPartTwo.url}
             required
           />
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PostFormText">
-          Photo 2
-          <Input
-            type="url"
-            name="photoTwo"
-            id="photoTwo"
-            onChange=""
-            value=""
-            required
-          />
-        </Label>
-      </FormGroup>
-      <FormGroup>
-        <Label for="PostFormText">
-          Photo 3
-          <Input
-            type="url"
-            name="photoThree"
-            id="photoThree"
-            onChange=""
-            value=""
-            required
-          />
-        </Label>
-      </FormGroup>
-
-      <FormGroup>
-        <Label for="PostFormSelect">
+        <Label htmlFor="era">
           Epoque
           <Input
             type="select"
@@ -96,17 +77,17 @@ const PostForm = (props) => {
             onChange={handleChangePartOne}
             required
           >
-            <option value={formPartOne.era}>Préhistoire</option>
-            <option value={formPartOne.era}>Antiquité</option>
-            <option value={formPartOne.era}>Moyen-Âge</option>
-            <option value={formPartOne.era}>Renaissance</option>
-            <option value={formPartOne.era}>Temps modernes</option>
-            <option value={formPartOne.era}>Futur</option>
+            <option value="Préhistoire">Préhistoire</option>
+            <option value="Antiquité">Antiquité</option>
+            <option value="Moyen-Âge">Moyen-Âge</option>
+            <option value="Renaissance">Renaissance</option>
+            <option value="Temps modernes">Temps modernes</option>
+            <option value="Futur">Futur</option>
           </Input>
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PostFormSelect">
+        <Label htmlFor="level">
           Sensation
           <Input
             type="select"
@@ -115,14 +96,14 @@ const PostForm = (props) => {
             onChange={handleChangePartOne}
             required
           >
-            <option value={formPartOne.level}>Détente</option>
-            <option value={formPartOne.level}>Aventure</option>
-            <option value={formPartOne.level}>Extrême</option>
+            <option value="1">Détente</option>
+            <option value="2">Aventure</option>
+            <option value="3">Extrême</option>
           </Input>
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PostFormText">
+        <Label htmlFor="country">
           Lieu
           <Input
             type="text"
@@ -135,7 +116,7 @@ const PostForm = (props) => {
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label for="PostFormText">
+        <Label htmlFor="price">
           Price
           <Input
             type="number"

@@ -24,6 +24,11 @@ const PostModal = (props) => {
     price: '',
   });
 
+  const [formPartTwo, setFormPartTwo] = useState({
+    url: '',
+    id_travel: 0,
+  });
+
   const handleErrorForm = (e) => {
     setErrorForm(
       `Erreur lors de votre réservation : ${e.message}, veuillez réessayer`
@@ -40,23 +45,18 @@ const PostModal = (props) => {
     setCloseAll(true);
   };
 
-  const HandleSubmitPartTwo = () => {
-    const pictures = {
-      url: '',
-      id_travel: travelID,
-    };
-
-    axios
-      .post('https://api-airbnb-node.herokuapp.com/api/pictures', pictures)
-      .then(() =>
-        setValidForm(
-          `Félicitations, votre réservation a bien été prise en compte. Préparez-vous pour l'aventure !`
-        )
-      )
-      .catch((err) => {
-        handleErrorForm(err);
-      });
-  };
+  // const handleSubmitPartTwo = () => {
+  //   axios
+  //     .post('https://api-airbnb-node.herokuapp.com/api/pictures', formPartTwo)
+  //     .then(() =>
+  //       setValidForm(
+  //         `Félicitations, votre réservation a bien été prise en compte. Préparez-vous pour l'aventure !`
+  //       )
+  //     )
+  //     .catch((err) => {
+  //       handleErrorForm(err);
+  //     });
+  // };
 
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
@@ -66,6 +66,7 @@ const PostModal = (props) => {
         axios
           .get('https://api-airbnb-node.herokuapp.com/api/travels')
           .then((result) => setTravelID(result.data[result.data.length - 1].id))
+          .then(toggleNested())
           .catch((err) => {
             handleErrorForm(err);
           })
@@ -75,11 +76,11 @@ const PostModal = (props) => {
       });
   };
 
-  useEffect(() => {
-    if (travelID !== 0) {
-      HandleSubmitPartTwo();
-    }
-  }, [travelID]);
+  // useEffect(() => {
+  //   if (travelID !== 0) {
+  //     handleSubmitPartTwo();
+  //   }
+  // }, [travelID]);
 
   return (
     <div>
@@ -89,7 +90,13 @@ const PostModal = (props) => {
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Ajout de donnée</ModalHeader>
         <ModalBody>
-          <PostForm formPartOne={formPartOne} setFormPartOne={setFormPartOne} />
+          <PostForm
+            formPartOne={formPartOne}
+            setFormPartOne={setFormPartOne}
+            formPartTwo={formPartTwo}
+            setFormPartTwo={setFormPartTwo}
+            travelID={travelID}
+          />
           <br />
           <Modal
             isOpen={nestedModal}
@@ -97,7 +104,10 @@ const PostModal = (props) => {
             onClosed={closeAll ? toggle : undefined}
           >
             <ModalHeader>Donnée ajoutée</ModalHeader>
-            <ModalBody>Votre donnée a bien été ajoutée.</ModalBody>
+            <ModalBody>
+              {validForm}
+              {errorForm}
+            </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={toggleAll}>
                 OK
