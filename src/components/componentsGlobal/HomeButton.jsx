@@ -12,15 +12,18 @@ const HomeButton = () => {
       <Link to="/">
         <img src={home} alt="home" />
       </Link>
-      <div>
-        <div
-          className="backButton"
-          onClick={() => {
-            history.goBack();
-          }}
-        >
-          <img src={backarrow} alt="return to previous page" />
-        </div>
+      <div
+        className="backButton"
+        role="button"
+        tabIndex="0"
+        onClick={() => {
+          history.goBack();
+        }}
+        onKeyDown={() => {
+          history.goBack();
+        }}
+      >
+        <img src={backarrow} alt="return to previous page" />
       </div>
     </div>
   );
