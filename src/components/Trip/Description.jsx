@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import pin from '../../assets/images/location-pin.png';
+import flash from '../../assets/images/flash.png';
 import Calendar from './Calendar';
 
 const Description = (props) => {
   const { travelCountry, travelPrice, travelDescription, travelLevel } = props;
   const levelName = {
-    1: 'Détente',
-    2: 'Aventure',
-    3: 'Extrême',
+    1: <img src={flash} alt="flash" />,
+    2: (
+      <div>
+        <img src={flash} alt="flash" />
+        <img src={flash} alt="flash" />
+      </div>
+    ),
+    3: (
+      <div>
+        <img src={flash} alt="flash" />
+        <img src={flash} alt="flash" />
+        <img src={flash} alt="flash" />
+      </div>
+    ),
   };
 
   return (
@@ -16,10 +28,14 @@ const Description = (props) => {
       <div className="travel-info">
         <div>
           <img className="pin" src={pin} alt="pin" />
-          {travelCountry} &nbsp;| &nbsp;
+          {travelCountry}&nbsp;<span className="separation-trait">|</span>{' '}
+          &nbsp;
         </div>
-        <div>{travelPrice} €/personne la journée | &nbsp; </div>
-        <div>{levelName[travelLevel]} </div>
+        <div>
+          {travelPrice} €/personne la journée{' '}
+          <span className="separation-trait">|</span>&nbsp;{' '}
+        </div>
+        <div className="travel-info-level">{levelName[travelLevel]}</div>
       </div>
       <div className="trip-infos">
         <div className="description">

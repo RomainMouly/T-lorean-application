@@ -43,6 +43,13 @@
   margin: var(--spacing) auto;
 }
 
+.trip-carousel-level {
+  position: absolute;
+  right: var(--spacing);
+  margin-top: var(--spacing);
+  z-index: 1;
+}
+
 .carousel-box {
   background-position: center;
   background-size: cover;
@@ -56,9 +63,14 @@
 }
 
 .travel-info {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   margin-bottom: calc(var(--spacing) * 2);
+}
+
+.separation-trait {
+  display: none;
 }
 
 .api-description {
@@ -104,6 +116,18 @@
 @media screen and (min-width: 768px) {
   .carousel-box {
     height: 400px;
+  }
+
+  .travel-info {
+    flex-direction: row;
+  }
+
+  .travel-info-level {
+    padding-top: 5px;
+  }
+
+  .separation-trait {
+    display: inline;
   }
 
   .trip-infos {
