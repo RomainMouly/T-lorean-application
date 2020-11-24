@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const DeleteModal = (props) => {
-  const { className } = props;
+  const { className, travel, travel_id } = props;
 
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
@@ -17,6 +18,17 @@ const DeleteModal = (props) => {
   const toggleAll = () => {
     setNestedModal(!nestedModal);
     setCloseAll(true);
+  };
+
+  const deleteTravel = (travel_id) => {
+    axios.delete(
+      `https://api-airbnb-node.herokuapp.com/api/travels/${travel_id}`
+    );
+  };
+
+  const handleDelete = () => {
+    toggleNested();
+    deleteTravel(travel_id);
   };
 
   return (
@@ -47,7 +59,7 @@ const DeleteModal = (props) => {
           <Button color="secondary" onClick={toggle}>
             Annuler
           </Button>{' '}
-          <Button color="primary" onClick={toggleNested}>
+          <Button color="primary" onClick={handleDelete}>
             Confirmer
           </Button>
         </ModalFooter>
