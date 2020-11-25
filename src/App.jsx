@@ -15,6 +15,7 @@ import './assets/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const adminPath = process.env.REACT_APP_ADMIN_URL;
   return (
     <div className="App">
       <HomeButton />
@@ -24,7 +25,7 @@ function App() {
         <Route exact path="/Trip/:id" component={Trip} />
         <Route exact path="/Booking/:id" component={Booking} />
         <Route exact path="/Login" component={Login} />
-        <Route exact path="/Admin" component={Admin} />
+        <Route exact path={`/admin/${adminPath}`} component={Admin} />
         <Route exact path="/Traveler-chart" component={TravelerChart} />
       </Switch>
       <Footer />
