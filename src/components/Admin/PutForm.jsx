@@ -10,8 +10,13 @@ const PutForm = (props) => {
     setFormPartOne,
     formPartTwo,
     setFormPartTwo,
-    travel,
-    travel_id,
+    travelId,
+    travelDescription,
+    travelTitle,
+    travelLevel,
+    travelEra,
+    travelCountry,
+    travelPrice,
   } = props;
 
   const [travelPut, setTravelPut] = useState('');
@@ -30,7 +35,7 @@ const PutForm = (props) => {
   };
   useEffect(() => {
     axios
-      .get(`https://api-airbnb-node.herokuapp.com/api/travels/1`)
+      .get(`https://api-airbnb-node.herokuapp.com/api/travels/${travel_id}`)
       .then((result) => result.data)
       .then((data) => console.log(data));
   }, []);
@@ -46,7 +51,7 @@ const PutForm = (props) => {
             name="title"
             id="title"
             onChange={handleChangePartOne}
-            value={travel.title}
+            defaultValue="coucou"
             required
           />
         </Label>
@@ -59,8 +64,8 @@ const PutForm = (props) => {
             name="description"
             id="description"
             onChange={handleChangePartOne}
-            value={formPartOne.description}
-            body={travel.description}
+            defaultValue={travelDescription}
+            body={travelDescription}
             required
           ></Input>
         </Label>
@@ -109,7 +114,7 @@ const PutForm = (props) => {
             name="country"
             id="country"
             onChange={handleChangePartOne}
-            value={formPartOne.country}
+            value={travelCountry}
             required
           />
         </Label>
@@ -122,7 +127,7 @@ const PutForm = (props) => {
             name="price"
             id="price"
             onChange={handleChangePartOne}
-            value={formPartOne.price}
+            value={travelPrice}
             required
           />
         </Label>
@@ -156,6 +161,13 @@ PustForm.propTypes = {
   setFormPartOne: PropTypes.func.isRequired,
   formPartTwo: PropTypes.shape().isRequired,
   setFormPartTwo: PropTypes.func.isRequired,
+  className: PropTypes.shape.isRequired,
+  travelId: PropTypes.number.isRequired,
+  travelDescription: PropTypes.string.isRequired,
+  travelTitle: PropTypes.string.isRequired,
+  travelPrice: PropTypes.number.isRequired,
+  travelCountry: PropTypes.string.isRequired,
+  travelLevel: PropTypes.number.isRequired,
 };
 
 export default PutForm;

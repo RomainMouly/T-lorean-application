@@ -127,7 +127,15 @@ const Admin = () => {
                       <td>{travel.era}</td>
                       <td>{travel.country}</td>
                       <td>
-                        <PutModal travelId={travel.id} />
+                        <PutModal
+                          travelId={travel.id}
+                          travelTitle={travel.title}
+                          travelDescription={travel.description}
+                          travelLevel={travel.level}
+                          travelPrice={travel.price}
+                          travelEra={travel.era}
+                          travelCountry={travel.country}
+                        />
                       </td>
                       <td>
                         <DeleteModal travelId={travel.id} />
