@@ -6,7 +6,16 @@ import PropTypes from 'prop-types';
 import PutForm from './PostForm';
 
 const PutModal = (props) => {
-  const { className, travel, travel_id } = props;
+  const {
+    className,
+    travelId,
+    travelDescription,
+    travelTitle,
+    travelEra,
+    travelPrice,
+    travelCountry,
+    travelLevel,
+  } = props;
 
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
@@ -46,23 +55,14 @@ const PutModal = (props) => {
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
-      .post('https://api-airbnb-node.herokuapp.com/api/travels', formPartOne)
-      .then(() =>
-        axios
-          .get('https://api-airbnb-node.herokuapp.com/api/travels')
-          .then((result) => result.data[result.data.length - 1].id)
-          .then((idTravel) =>
-            axios
-              .post('https://api-airbnb-node.herokuapp.com/api/pictures', {
-                url: formPartTwo.url,
-                id_travel: idTravel,
-              })
-              .then(() => setValidForm(`Le voyage a bien été enregistré !`))
-              .catch((err) => {
-                handleErrorForm(err);
-              })
-          )
+      .put(
+        `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
+        formPartOne
       )
+      .then(() => setValidForm(`Le voyage a bien été enregistré !`))
+      .catch((err) => {
+        handleErrorForm(err);
+      })
       .catch((err) => {
         handleErrorForm(err);
       });
@@ -86,8 +86,13 @@ const PutModal = (props) => {
             setFormPartOne={setFormPartOne}
             formPartTwo={formPartTwo}
             setFormPartTwo={setFormPartTwo}
-            travel={travel}
-            travel_id={travel_id}
+            travelId={travelId}
+            travelTitle={travelTitle}
+            travelDescription={travelDescription}
+            travelEra={travelEra}
+            travelLevel={travelLevel}
+            travelCountry={travelCountry}
+            travelPrice={travelPrice}
           />
           <br />
           <Modal
@@ -122,6 +127,13 @@ const PutModal = (props) => {
 
 PutModal.propTypes = {
   className: PropTypes.shape.isRequired,
+  travelId: PropTypes.number.isRequired,
+  travelDescription: PropTypes.string.isRequired,
+  travelTitle: PropTypes.string.isRequired,
+  travelPrice: PropTypes.number.isRequired,
+  travelCountry: PropTypes.string.isRequired,
+  travelLevel: PropTypes.number.isRequired,
+  travelEra: PropTypes.string.isRequired,
 };
 
 export default PutModal;

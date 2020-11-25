@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const DeleteModal = (props) => {
-  const { className, travel, travel_id } = props;
-
+  const { className, travelId } = props;
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
   const [closeAll, setCloseAll] = useState(false);
@@ -20,21 +19,20 @@ const DeleteModal = (props) => {
     setCloseAll(true);
   };
 
-  const deleteTravel = (travel_id) => {
-    axios.delete(
-      `https://api-airbnb-node.herokuapp.com/api/travels/${travel_id}`
-    );
-  };
-
   const handleDelete = () => {
+    axios.delete(
+      `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
+      {
+        headers: { Accept: '*/*' },
+      }
+    );
     toggleNested();
-    deleteTravel(travel_id);
   };
 
   return (
     <div>
       <Button color="danger" onClick={toggle}>
-        x
+        {travelId}
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Suppression de donnée</ModalHeader>
@@ -70,6 +68,7 @@ const DeleteModal = (props) => {
 
 DeleteModal.propTypes = {
   className: PropTypes.shape.isRequired,
+  travelId: PropTypes.number.isRequired,
 };
 
 export default DeleteModal;
