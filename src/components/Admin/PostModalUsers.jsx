@@ -22,7 +22,7 @@ const PostModalUsers = (props) => {
 
   const handleErrorForm = (e) => {
     setErrorForm(
-      `Erreur lors de l'enregistrement du voyage : ${e.message}, veuillez réessayer.`
+      `Erreur lors de l'enregistrement de l'utilisateur : ${e.message}, veuillez réessayer.`
     );
   };
 
@@ -40,7 +40,7 @@ const PostModalUsers = (props) => {
     e.preventDefault();
     axios
       .post(`https://api-airbnb-node.herokuapp.com/api/users/${userId}`, form)
-      .then(() => setValidForm(`Le voyage a bien été enregistré !`))
+      .then(() => setValidForm(`L'utilisateur' a bien été enregistré !`))
       .catch((err) => {
         handleErrorForm(err);
       });

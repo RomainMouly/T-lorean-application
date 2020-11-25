@@ -38,7 +38,7 @@ const PutModal = (props) => {
 
   const handleErrorForm = (e) => {
     setErrorForm(
-      `Erreur lors de l'enregistrement du voyage : ${e.message}, veuillez réessayer.`
+      `Erreur lors de la modification du voyage : ${e.message}, veuillez réessayer.`
     );
   };
 
@@ -60,7 +60,7 @@ const PutModal = (props) => {
         formPartOne
       )
       .then(() => {
-        setValidForm(`Le voyage a bien été enregistré !`);
+        setValidForm(`Le voyage a bien été modifié !`);
       })
       .catch((err) => {
         handleErrorForm(err);
@@ -81,7 +81,7 @@ const PutModal = (props) => {
         Modifier
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Ajout d&apos;un voyage</ModalHeader>
+        <ModalHeader toggle={toggle}>Modification d&apos;un voyage</ModalHeader>
         <ModalBody>
           <PutForm
             formPartOne={formPartOne}
@@ -102,7 +102,7 @@ const PutModal = (props) => {
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Voyage ajouté</ModalHeader>
+            <ModalHeader>Voyage modifié</ModalHeader>
             <ModalBody>
               {validForm}
               {errorForm}

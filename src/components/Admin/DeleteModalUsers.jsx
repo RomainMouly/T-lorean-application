@@ -44,7 +44,7 @@ const DeleteModalUsers = (props) => {
             onClosed={closeAll ? toggle : undefined}
           >
             <ModalHeader>Utilisateur supprimé</ModalHeader>
-            <ModalBody>Votre utilisateur a bien été supprimé.</ModalBody>
+            <ModalBody>L&apos;utilisateur a bien été supprimé.</ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={toggleAll}>
                 OK

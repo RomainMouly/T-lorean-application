@@ -18,6 +18,9 @@ import DeleteModal from './DeleteModal';
 import PostModalUsers from './PostModalUsers';
 import PutModalUsers from './PutModalUsers';
 import DeleteModalUsers from './DeleteModalUsers';
+import PostModalBooking from './PostModalBooking';
+import PutModalBooking from './PutModalBooking';
+import DeleteModalBooking from './DeleteModalBooking';
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState('1');
@@ -284,12 +287,7 @@ const Admin = () => {
                         />
                       </td>
                       <td>
-                        <DeleteModalUsers
-                          userId={user.id}
-                          userFirstname={user.firstname}
-                          userLastname={user.lastname}
-                          userEmail={user.email}
-                        />
+                        <DeleteModalUsers userId={user.id} />
                       </td>
                     </tr>
                   ))}
@@ -302,7 +300,7 @@ const Admin = () => {
           <Row>
             <Col sm="12">
               <div className="text-center">
-                <PostModal />
+                <PostModalBooking />
               </div>
               <Table hover>
                 <thead>
@@ -326,10 +324,17 @@ const Admin = () => {
                       <td>{booking.id_user}</td>
                       <td>{booking.numberPerson}</td>
                       <td>
-                        <PutModal />
+                        <PutModalBooking
+                          bookingId={booking.id}
+                          bookingDateB={booking.date_begin}
+                          bookingDateE={booking.date_end}
+                          bookingTravel={booking.id_travel}
+                          bookingUser={booking.id_user}
+                          bookingPax={booking.numberPerson}
+                        />
                       </td>
                       <td>
-                        <DeleteModal />
+                        <DeleteModalBooking bookingId={booking.id} />
                       </td>
                     </tr>
                   ))}

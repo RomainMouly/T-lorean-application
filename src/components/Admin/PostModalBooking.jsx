@@ -3,10 +3,10 @@ import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import PutFormUsers from './PostFormUsers';
+import PostFormBooking from './PostFormBooking';
 
-const PutModalUsers = (props) => {
-  const { className, userId, userFirstname, userLastname, userEmail } = props;
+const PostModalBooking = (props) => {
+  const { className } = props;
 
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
@@ -15,14 +15,16 @@ const PutModalUsers = (props) => {
   const [errorForm, setErrorForm] = useState('');
 
   const [form, setForm] = useState({
-    firstname: userFirstname,
-    lastname: userLastname,
-    email: userEmail,
+    date_begin: '',
+    date_end: '',
+    id_travel: '',
+    id_user: '',
+    numberPerson: '',
   });
 
   const handleErrorForm = (e) => {
     setErrorForm(
-      `Erreur lors de la modification de l'utilisateur : ${e.message}, veuillez réessayer.`
+      `Erreur lors de l'enregistrement du voyage : ${e.message}, veuillez réessayer.`
     );
   };
 
@@ -39,8 +41,8 @@ const PutModalUsers = (props) => {
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
-      .put(`https://api-airbnb-node.herokuapp.com/api/users/${userId}`, form)
-      .then(() => setValidForm(`L'utilisateur' a bien été modifié !`))
+      .post(`https://api-airbnb-node.herokuapp.com/api/reservations`, form)
+      .then(() => setValidForm(`La réservation a bien été enregistrée !`))
       .catch((err) => {
         handleErrorForm(err);
       });
@@ -54,27 +56,19 @@ const PutModalUsers = (props) => {
   return (
     <div>
       <Button color="primary" onClick={toggle}>
-        Modifier
+        Ajouter
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>
-          Modification d&apos;un utilisateur
-        </ModalHeader>
+        <ModalHeader toggle={toggle}>Ajout d&apos;un utilisateur</ModalHeader>
         <ModalBody>
-          <PutFormUsers
-            form={form}
-            setForm={setForm}
-            userFirstname={userFirstname}
-            userLastname={userLastname}
-            userEmail={userEmail}
-          />
+          <PostFormBooking form={form} setForm={setForm} />
           <br />
           <Modal
             isOpen={nestedModal}
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Utilisateur modifié</ModalHeader>
+            <ModalHeader>Utilisateur ajouté</ModalHeader>
             <ModalBody>
               {validForm}
               {errorForm}
@@ -99,12 +93,8 @@ const PutModalUsers = (props) => {
   );
 };
 
-PutModalUsers.propTypes = {
+PostModalBooking.propTypes = {
   className: PropTypes.shape.isRequired,
-  userId: PropTypes.number.isRequired,
-  userFirstname: PropTypes.string.isRequired,
-  userLastname: PropTypes.string.isRequired,
-  userEmail: PropTypes.string.isRequired,
 };
 
-export default PutModalUsers;
+export default PostModalBooking;
