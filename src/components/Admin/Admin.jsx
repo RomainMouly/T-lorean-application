@@ -272,7 +272,7 @@ const Admin = () => {
                       <td>{user.email}</td>
                       <td>{/* <PutModalUsers /> */}</td>
                       <td>
-                        <DeleteModalUsers />
+                        <DeleteModalUsers userId={user.id} />
                       </td>
                     </tr>
                   ))}
