@@ -61,7 +61,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link className="other-pages" to="/admin">
+              <Link className="other-pages" to="/Login">
                 Admin
               </Link>
             </li>
