@@ -6,10 +6,7 @@ import {
   Nav,
   NavItem,
   NavLink,
-  //   Card,
-  // Button,
-  //   CardTitle,
-  //   CardText,
+  Button,
   Row,
   Col,
   Table,
@@ -18,7 +15,9 @@ import classnames from 'classnames';
 import PostModal from './PostModal';
 import PutModal from './PutModal';
 import DeleteModal from './DeleteModal';
-import { Button } from 'reactstrap';
+import PostModalUsers from './PostModalUsers';
+import PutModalUsers from './PutModalUsers';
+import DeleteModalUsers from './DeleteModalUsers';
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState('1');
@@ -31,9 +30,14 @@ const Admin = () => {
   const [isFilterLevel, setIsFilterLevel] = useState(false);
   const [isFilterCountry, setIsFilterCountry] = useState(false);
 
+
   useEffect(() => {
     handleAxios();
   }, []);
+
+  const useForceUpdateAdmin = () => useState()[1];
+
+  const forceUpdate = useForceUpdateAdmin();
 
   const handleAxios = () => {
     axios
@@ -49,6 +53,10 @@ const Admin = () => {
       .then((result) => result.data)
       .then((data) => setBookings(data));
   };
+
+  useEffect(() => {
+    handleAxios();
+  }, []);
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
@@ -77,8 +85,8 @@ const Admin = () => {
     if (!isFilterTitle) {
       setTravels(
         travels.sort((a, b) => {
-          var A = a.title.toLowerCase(),
-            B = b.title.toLowerCase();
+          const A = a.title.toLowerCase();
+          const B = b.title.toLowerCase();
           if (A < B) return -1;
           if (A > B) return 1;
           return 0;
@@ -94,8 +102,8 @@ const Admin = () => {
     if (!isFilterEra) {
       setTravels(
         travels.sort((a, b) => {
-          var A = a.era.toLowerCase(),
-            B = b.era.toLowerCase();
+          const A = a.era.toLowerCase();
+          const B = b.era.toLowerCase();
           if (A < B) return -1;
           if (A > B) return 1;
           return 0;
@@ -111,8 +119,8 @@ const Admin = () => {
     if (!isFilterCountry) {
       setTravels(
         travels.sort((a, b) => {
-          var A = a.country.toLowerCase(),
-            B = b.country.toLowerCase();
+          const A = a.country.toLowerCase();
+          const B = b.country.toLowerCase();
           if (A < B) return -1;
           if (A > B) return 1;
           return 0;
@@ -229,6 +237,7 @@ const Admin = () => {
                       <td>{travel.country}</td>
                       <td>
                         <PutModal
+                          refresh={forceUpdate}
                           travelId={travel.id}
                           travelTitle={travel.title}
                           travelDescription={travel.description}
@@ -252,7 +261,7 @@ const Admin = () => {
           <Row>
             <Col sm="12">
               <div className="text-center">
-                <PostModal />
+                <PostModalUsers />
               </div>
               <Table hover>
                 <thead>
@@ -272,10 +281,15 @@ const Admin = () => {
                       <td>{user.firstname}</td>
                       <td>{user.email}</td>
                       <td>
-                        <PutModal />
+                        <PutModalUsers />
                       </td>
                       <td>
-                        <DeleteModal />
+                        <DeleteModalUsers
+                          userId={user.id}
+                          userFirstname={user.firstname}
+                          userLastname={user.lastname}
+                          userEmail={user.email}
+                        />
                       </td>
                     </tr>
                   ))}

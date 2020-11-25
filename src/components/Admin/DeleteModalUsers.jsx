@@ -3,8 +3,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-const DeleteModal = (props) => {
-  const { className, travelId } = props;
+const DeleteModalUsers = (props) => {
+  const { className, userId } = props;
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
   const [closeAll, setCloseAll] = useState(false);
@@ -20,32 +20,31 @@ const DeleteModal = (props) => {
   };
 
   const handleDelete = () => {
-    axios.delete(
-      `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
-      {
-        headers: { Accept: '*/*' },
-      }
-    );
+    axios.delete(`https://api-airbnb-node.herokuapp.com/api/users/${userId}`, {
+      headers: { Accept: '*/*' },
+    });
     toggleNested();
   };
 
   return (
     <div>
       <Button color="danger" onClick={toggle}>
-        x
+        {userId}
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Suppression d&apos;un voyage</ModalHeader>
+        <ModalHeader toggle={toggle}>
+          Suppression d&apos;un utilisateur
+        </ModalHeader>
         <ModalBody>
-          Êtes-vous sûr de vouloir supprimer ce voyage ?
+          Êtes-vous sûr de vouloir supprimer cet utilisateur ?
           <br />
           <Modal
             isOpen={nestedModal}
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Voyage supprimé</ModalHeader>
-            <ModalBody>Votre voyage a bien été supprimé.</ModalBody>
+            <ModalHeader>Utilisateur supprimé</ModalHeader>
+            <ModalBody>Votre utilisateur a bien été supprimé.</ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={toggleAll}>
                 OK
@@ -66,9 +65,9 @@ const DeleteModal = (props) => {
   );
 };
 
-DeleteModal.propTypes = {
+DeleteModalUsers.propTypes = {
   className: PropTypes.shape.isRequired,
-  travelId: PropTypes.number.isRequired,
+  userId: PropTypes.number.isRequired,
 };
 
-export default DeleteModal;
+export default DeleteModalUsers;

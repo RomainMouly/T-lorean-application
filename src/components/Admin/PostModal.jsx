@@ -79,7 +79,7 @@ const PostModal = (props) => {
         Ajouter
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Ajout de donnée</ModalHeader>
+        <ModalHeader toggle={toggle}>Ajout d&apos;un voyage</ModalHeader>
         <ModalBody>
           <PostForm
             formPartOne={formPartOne}
@@ -93,7 +93,7 @@ const PostModal = (props) => {
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Donnée ajoutée</ModalHeader>
+            <ModalHeader>Voyage ajouté</ModalHeader>
             <ModalBody>
               {validForm}
               {errorForm}
