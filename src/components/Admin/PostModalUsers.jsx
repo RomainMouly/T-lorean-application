@@ -57,7 +57,7 @@ const PostModalUsers = (props) => {
         Ajouter
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Ajout de donnée</ModalHeader>
+        <ModalHeader toggle={toggle}>Ajout d&apos;un utilisateur</ModalHeader>
         <ModalBody>
           <PostFormUsers form={form} setForm={setForm} />
           <br />
@@ -66,7 +66,7 @@ const PostModalUsers = (props) => {
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Donnée ajoutée</ModalHeader>
+            <ModalHeader>Utilisateur ajouté</ModalHeader>
             <ModalBody>
               {validForm}
               {errorForm}

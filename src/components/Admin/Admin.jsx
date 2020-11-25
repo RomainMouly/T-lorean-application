@@ -16,7 +16,7 @@ import PostModal from './PostModal';
 import PutModal from './PutModal';
 import DeleteModal from './DeleteModal';
 import PostModalUsers from './PostModalUsers';
-// import PutModalUsers from './PutModalUsers';
+import PutModalUsers from './PutModalUsers';
 import DeleteModalUsers from './DeleteModalUsers';
 
 const Admin = () => {
@@ -270,9 +270,16 @@ const Admin = () => {
                       <td>{user.lastname}</td>
                       <td>{user.firstname}</td>
                       <td>{user.email}</td>
-                      <td>{/* <PutModalUsers /> */}</td>
                       <td>
-                        <DeleteModalUsers userId={user.id} />
+                        <PutModalUsers />
+                      </td>
+                      <td>
+                        <DeleteModalUsers
+                          userId={user.id}
+                          userFirstname={user.firstname}
+                          userLastname={user.lastname}
+                          userEmail={user.email}
+                        />
                       </td>
                     </tr>
                   ))}

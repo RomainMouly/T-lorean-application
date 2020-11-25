@@ -3,19 +3,10 @@ import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import PutForm from './PostForm';
+import PutFormUsers from './PostFormUsers';
 
-const PutModal = (props) => {
-  const {
-    className,
-    travelId,
-    travelDescription,
-    travelTitle,
-    travelEra,
-    travelPrice,
-    travelCountry,
-    travelLevel,
-  } = props;
+const PutModalUsers = (props) => {
+  const { className, userId, userFirstname, userLastname, userEmail } = props;
 
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
@@ -23,17 +14,10 @@ const PutModal = (props) => {
   const [validForm, setValidForm] = useState('');
   const [errorForm, setErrorForm] = useState('');
 
-  const [formPartOne, setFormPartOne] = useState({
-    title: '',
-    description: '',
-    era: '',
-    level: '',
-    country: '',
-    price: '',
-  });
-
-  const [formPartTwo, setFormPartTwo] = useState({
-    url: '',
+  const [form, setForm] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
   });
 
   const handleErrorForm = (e) => {
@@ -55,10 +39,7 @@ const PutModal = (props) => {
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
-      .put(
-        `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
-        formPartOne
-      )
+      .put(`https://api-airbnb-node.herokuapp.com/api/travels/${userId}`, form)
       .then(() => setValidForm(`Le voyage a bien été enregistré !`))
       .catch((err) => {
         handleErrorForm(err);
@@ -79,20 +60,17 @@ const PutModal = (props) => {
         Modifier
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Ajout d&apos;un voyage</ModalHeader>
+        <ModalHeader toggle={toggle}>
+          Modification d&apos;un utilisateur
+        </ModalHeader>
         <ModalBody>
-          <PutForm
-            formPartOne={formPartOne}
-            setFormPartOne={setFormPartOne}
-            formPartTwo={formPartTwo}
-            setFormPartTwo={setFormPartTwo}
-            travelId={travelId}
-            travelTitle={travelTitle}
-            travelDescription={travelDescription}
-            travelEra={travelEra}
-            travelLevel={travelLevel}
-            travelCountry={travelCountry}
-            travelPrice={travelPrice}
+          <PutFormUsers
+            form={form}
+            setForm={setForm}
+            userId={userId}
+            userFirstname={userFirstname}
+            userLastname={userLastname}
+            userEmail={userEmail}
           />
           <br />
           <Modal
@@ -100,7 +78,7 @@ const PutModal = (props) => {
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Voyage ajouté</ModalHeader>
+            <ModalHeader>Utilisateur modifié</ModalHeader>
             <ModalBody>
               {validForm}
               {errorForm}
@@ -125,15 +103,12 @@ const PutModal = (props) => {
   );
 };
 
-PutModal.propTypes = {
+PutModalUsers.propTypes = {
   className: PropTypes.shape.isRequired,
-  travelId: PropTypes.number.isRequired,
-  travelDescription: PropTypes.string.isRequired,
-  travelTitle: PropTypes.string.isRequired,
-  travelPrice: PropTypes.number.isRequired,
-  travelCountry: PropTypes.string.isRequired,
-  travelLevel: PropTypes.number.isRequired,
-  travelEra: PropTypes.string.isRequired,
+  userId: PropTypes.number.isRequired,
+  userFirstname: PropTypes.string.isRequired,
+  userLastname: PropTypes.string.isRequired,
+  userEmail: PropTypes.string.isRequired,
 };
 
-export default PutModal;
+export default PutModalUsers;

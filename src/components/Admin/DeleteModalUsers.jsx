@@ -32,17 +32,19 @@ const DeleteModalUsers = (props) => {
         {userId}
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Suppression de donnée</ModalHeader>
+        <ModalHeader toggle={toggle}>
+          Suppression d&apos;un utilisateur
+        </ModalHeader>
         <ModalBody>
-          Êtes-vous sûr de vouloir supprimer cette donnée ?
+          Êtes-vous sûr de vouloir supprimer cet utilisateur ?
           <br />
           <Modal
             isOpen={nestedModal}
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Donnée supprimée</ModalHeader>
-            <ModalBody>Votre donnée a bien été supprimée.</ModalBody>
+            <ModalHeader>Utilisateur supprimé</ModalHeader>
+            <ModalBody>Votre utilisateur a bien été supprimé.</ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={toggleAll}>
                 OK
