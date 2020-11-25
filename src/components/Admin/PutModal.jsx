@@ -15,6 +15,7 @@ const PutModal = (props) => {
     travelPrice,
     travelCountry,
     travelLevel,
+    refresh,
   } = props;
 
   const [modal, setModal] = useState(false);
@@ -24,12 +25,12 @@ const PutModal = (props) => {
   const [errorForm, setErrorForm] = useState('');
 
   const [formPartOne, setFormPartOne] = useState({
-    title: '',
-    description: '',
-    era: '',
-    level: '',
-    country: '',
-    price: '',
+    title: travelTitle,
+    description: travelDescription,
+    era: travelEra,
+    level: travelLevel,
+    country: travelCountry,
+    price: travelPrice,
   });
 
   const [formPartTwo, setFormPartTwo] = useState({
@@ -59,7 +60,10 @@ const PutModal = (props) => {
         `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
         formPartOne
       )
-      .then(() => setValidForm(`Le voyage a bien été enregistré !`))
+      .then(() => {
+        setValidForm(`Le voyage a bien été enregistré !`);
+        refresh();
+      })
       .catch((err) => {
         handleErrorForm(err);
       })
