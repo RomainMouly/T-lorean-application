@@ -15,7 +15,6 @@ const PutModal = (props) => {
     travelPrice,
     travelCountry,
     travelLevel,
-    refresh,
   } = props;
 
   const [modal, setModal] = useState(false);
@@ -62,7 +61,6 @@ const PutModal = (props) => {
       )
       .then(() => {
         setValidForm(`Le voyage a bien été enregistré !`);
-        refresh();
       })
       .catch((err) => {
         handleErrorForm(err);
@@ -130,7 +128,7 @@ const PutModal = (props) => {
 };
 
 PutModal.propTypes = {
-  className: PropTypes.shape.isRequired,
+  className: PropTypes.string.isRequired,
   travelId: PropTypes.number.isRequired,
   travelDescription: PropTypes.string.isRequired,
   travelTitle: PropTypes.string.isRequired,
