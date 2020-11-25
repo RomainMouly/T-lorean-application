@@ -4,7 +4,16 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../assets/css/Admin/PostForm.css';
 
 const PutForm = (props) => {
-  const { formPartOne, setFormPartOne, setFormPartTwo } = props;
+  const {
+    formPartOne,
+    setFormPartOne,
+    pictureOne,
+    setPictureOne,
+    pictureTwo,
+    setPictureTwo,
+    pictureThree,
+    setPictureThree,
+  } = props;
 
   const handleChangePartOne = (e) => {
     setFormPartOne({
@@ -13,10 +22,16 @@ const PutForm = (props) => {
     });
   };
 
-  const handleChangePartTwo = (e) => {
-    setFormPartTwo({
-      url: e.target.value,
-    });
+  const handleChangePictureOne = (e) => {
+    setPictureOne(e.target.value);
+  };
+
+  const handleChangePictureTwo = (e) => {
+    setPictureTwo(e.target.value);
+  };
+
+  const handleChangePictureThree = (e) => {
+    setPictureThree(e.target.value);
   };
 
   return (
@@ -29,7 +44,7 @@ const PutForm = (props) => {
             name="title"
             id="title"
             onChange={handleChangePartOne}
-            value="title"
+            value={formPartOne.title}
             required
           />
         </Label>
@@ -42,12 +57,50 @@ const PutForm = (props) => {
             name="description"
             id="description"
             onChange={handleChangePartOne}
-            value="description"
+            value={formPartOne.description}
             required
           />
         </Label>
       </FormGroup>
-
+      <FormGroup>
+        <Label htmlFor="url">
+          Photo 1
+          <Input
+            type="text"
+            name="url"
+            id="url"
+            onChange={handleChangePictureOne}
+            value={pictureOne}
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="url">
+          Photo 2
+          <Input
+            type="text"
+            name="url"
+            id="url"
+            onChange={handleChangePictureTwo}
+            value={pictureTwo}
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="url">
+          Photo 3
+          <Input
+            type="text"
+            name="url"
+            id="url"
+            onChange={handleChangePictureThree}
+            value={pictureThree}
+            required
+          />
+        </Label>
+      </FormGroup>
       <FormGroup>
         <Label htmlFor="era">
           Epoque
@@ -91,7 +144,7 @@ const PutForm = (props) => {
             name="country"
             id="country"
             onChange={handleChangePartOne}
-            value="country"
+            value={formPartOne.country}
             required
           />
         </Label>
@@ -104,20 +157,7 @@ const PutForm = (props) => {
             name="price"
             id="price"
             onChange={handleChangePartOne}
-            value="price"
-            required
-          />
-        </Label>
-      </FormGroup>
-      <FormGroup>
-        <Label htmlFor="url">
-          Photo
-          <Input
-            type="text"
-            name="url"
-            id="url"
-            onChange={handleChangePartTwo}
-            value="url"
+            value={formPartOne.price}
             required
           />
         </Label>
@@ -136,7 +176,12 @@ PutForm.propTypes = {
     price: PropTypes.number.isRequired,
   }).isRequired,
   setFormPartOne: PropTypes.func.isRequired,
-  setFormPartTwo: PropTypes.func.isRequired,
+  pictureOne: PropTypes.string.isRequired,
+  setPictureOne: PropTypes.func.isRequired,
+  pictureTwo: PropTypes.string.isRequired,
+  setPictureTwo: PropTypes.func.isRequired,
+  pictureThree: PropTypes.string.isRequired,
+  setPictureThree: PropTypes.func.isRequired,
 };
 
 export default PutForm;

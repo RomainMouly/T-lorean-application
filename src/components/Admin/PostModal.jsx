@@ -23,9 +23,9 @@ const PostModal = (props) => {
     price: '',
   });
 
-  const [formPartTwo, setFormPartTwo] = useState({
-    url: '',
-  });
+  const [pictureOne, setPictureOne] = useState('');
+  const [pictureTwo, setPictureTwo] = useState('');
+  const [pictureThree, setPictureThree] = useState('');
 
   const handleErrorForm = (e) => {
     setErrorForm(
@@ -54,9 +54,27 @@ const PostModal = (props) => {
           .then((idTravel) =>
             axios
               .post('https://api-airbnb-node.herokuapp.com/api/pictures', {
-                url: formPartTwo.url,
+                url: pictureOne,
                 id_travel: idTravel,
               })
+              .then(() =>
+                axios.post(
+                  'https://api-airbnb-node.herokuapp.com/api/pictures',
+                  {
+                    url: pictureTwo,
+                    id_travel: idTravel,
+                  }
+                )
+              )
+              .then(() =>
+                axios.post(
+                  'https://api-airbnb-node.herokuapp.com/api/pictures',
+                  {
+                    url: pictureThree,
+                    id_travel: idTravel,
+                  }
+                )
+              )
               .then(() => setValidForm(`Le voyage a bien été enregistré !`))
               .catch((err) => {
                 handleErrorForm(err);
@@ -84,8 +102,12 @@ const PostModal = (props) => {
           <PostForm
             formPartOne={formPartOne}
             setFormPartOne={setFormPartOne}
-            formPartTwo={formPartTwo}
-            setFormPartTwo={setFormPartTwo}
+            pictureOne={pictureOne}
+            setPictureOne={setPictureOne}
+            pictureTwo={pictureTwo}
+            setPictureTwo={setPictureTwo}
+            pictureThree={pictureThree}
+            setPictureThree={setPictureThree}
           />
           <br />
           <Modal

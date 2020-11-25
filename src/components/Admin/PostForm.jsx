@@ -4,7 +4,16 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../assets/css/Admin/PostForm.css';
 
 const PostForm = (props) => {
-  const { formPartOne, setFormPartOne, formPartTwo, setFormPartTwo } = props;
+  const {
+    formPartOne,
+    setFormPartOne,
+    pictureOne,
+    setPictureOne,
+    pictureTwo,
+    setPictureTwo,
+    pictureThree,
+    setPictureThree,
+  } = props;
 
   const handleChangePartOne = (e) => {
     setFormPartOne({
@@ -13,10 +22,16 @@ const PostForm = (props) => {
     });
   };
 
-  const handleChangePartTwo = (e) => {
-    setFormPartTwo({
-      url: e.target.value,
-    });
+  const handleChangePictureOne = (e) => {
+    setPictureOne(e.target.value);
+  };
+
+  const handleChangePictureTwo = (e) => {
+    setPictureTwo(e.target.value);
+  };
+
+  const handleChangePictureThree = (e) => {
+    setPictureThree(e.target.value);
   };
 
   return (
@@ -47,7 +62,45 @@ const PostForm = (props) => {
           />
         </Label>
       </FormGroup>
-
+      <FormGroup>
+        <Label htmlFor="url">
+          Photo 1
+          <Input
+            type="text"
+            name="url"
+            id="url"
+            onChange={handleChangePictureOne}
+            value={pictureOne}
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="url">
+          Photo 2
+          <Input
+            type="text"
+            name="url"
+            id="url"
+            onChange={handleChangePictureTwo}
+            value={pictureTwo}
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="url">
+          Photo 3
+          <Input
+            type="text"
+            name="url"
+            id="url"
+            onChange={handleChangePictureThree}
+            value={pictureThree}
+            required
+          />
+        </Label>
+      </FormGroup>
       <FormGroup>
         <Label htmlFor="era">
           Epoque
@@ -109,19 +162,6 @@ const PostForm = (props) => {
           />
         </Label>
       </FormGroup>
-      <FormGroup>
-        <Label htmlFor="url">
-          Photo
-          <Input
-            type="text"
-            name="url"
-            id="url"
-            onChange={handleChangePartTwo}
-            value={formPartTwo.url}
-            required
-          />
-        </Label>
-      </FormGroup>
     </Form>
   );
 };
@@ -136,8 +176,12 @@ PostForm.propTypes = {
     price: PropTypes.number.isRequired,
   }).isRequired,
   setFormPartOne: PropTypes.func.isRequired,
-  formPartTwo: PropTypes.shape().isRequired,
-  setFormPartTwo: PropTypes.func.isRequired,
+  pictureOne: PropTypes.string.isRequired,
+  setPictureOne: PropTypes.func.isRequired,
+  pictureTwo: PropTypes.string.isRequired,
+  setPictureTwo: PropTypes.func.isRequired,
+  pictureThree: PropTypes.string.isRequired,
+  setPictureThree: PropTypes.func.isRequired,
 };
 
 export default PostForm;
