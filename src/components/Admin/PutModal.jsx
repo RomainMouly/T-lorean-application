@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import PutForm from './PostForm';
+import PutForm from './PutForm';
 
 const PutModal = (props) => {
   const {
@@ -32,9 +32,9 @@ const PutModal = (props) => {
     price: travelPrice,
   });
 
-  const [formPartTwo, setFormPartTwo] = useState({
-    url: '',
-  });
+  const [pictureOne, setPictureOne] = useState('');
+  const [pictureTwo, setPictureTwo] = useState('');
+  const [pictureThree, setPictureThree] = useState('');
 
   const handleErrorForm = (e) => {
     setErrorForm(
@@ -59,12 +59,45 @@ const PutModal = (props) => {
         `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
         formPartOne
       )
+      // .then(() =>
+      //   axios
+      //     .get(
+      //       `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}/pictures`
+      //     )
+      //     .then((result) => result.data[0].id)
+      //     .then((idPicOne) =>
+      //       axios
+      //         .put(
+      //           `https://api-airbnb-node.herokuapp.com/api/pictures/${idPicOne}`,
+      //           {
+      //             url: pictureOne,
+      //           }
+      //         )
+      //         .then(() =>
+      //           axios.put(
+      //             `https://api-airbnb-node.herokuapp.com/api/pictures/${idPicTwo}`,
+      //             {
+      //               url: pictureTwo,
+      //             }
+      //           )
+      //         )
+      //         .then(() =>
+      //           axios.put(
+      //             `https://api-airbnb-node.herokuapp.com/api/pictures/${idPicThree}`,
+      //             {
+      //               url: pictureThree,
+      //             }
+      //           )
+      //         )
+      //     )
+      // )
       .then(() => {
         setValidForm(`Le voyage a bien été modifié !`);
       })
       .catch((err) => {
         handleErrorForm(err);
       })
+
       .catch((err) => {
         handleErrorForm(err);
       });
@@ -86,8 +119,6 @@ const PutModal = (props) => {
           <PutForm
             formPartOne={formPartOne}
             setFormPartOne={setFormPartOne}
-            formPartTwo={formPartTwo}
-            setFormPartTwo={setFormPartTwo}
             travelId={travelId}
             travelTitle={travelTitle}
             travelDescription={travelDescription}
@@ -95,6 +126,12 @@ const PutModal = (props) => {
             travelLevel={travelLevel}
             travelCountry={travelCountry}
             travelPrice={travelPrice}
+            pictureOne={pictureOne}
+            setPictureOne={setPictureOne}
+            pictureTwo={pictureTwo}
+            setPictureTwo={setPictureTwo}
+            pictureThree={pictureThree}
+            setPictureThree={setPictureThree}
           />
           <br />
           <Modal
