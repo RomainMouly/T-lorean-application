@@ -16,13 +16,14 @@
 
 .form input {
   width: 80vw;
+  padding-left: var(--spacing);
 }
 
 .form-button {
   display: inline-block;
   justify-self: center;
   text-transform: uppercase;
-  padding-left: 16px;
+  margin-left: none;
 }
 
 fieldset {
