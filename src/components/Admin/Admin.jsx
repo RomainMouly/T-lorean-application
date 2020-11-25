@@ -6,21 +6,19 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Button,
+  //   Card,
+  // Button,
+  //   CardTitle,
+  //   CardText,
   Row,
   Col,
   Table,
+  Button,
 } from 'reactstrap';
 import classnames from 'classnames';
 import PostModal from './PostModal';
 import PutModal from './PutModal';
 import DeleteModal from './DeleteModal';
-import PostModalUsers from './PostModalUsers';
-import PutModalUsers from './PutModalUsers';
-import DeleteModalUsers from './DeleteModalUsers';
-import PostModalBooking from './PostModalBooking';
-import PutModalBooking from './PutModalBooking';
-import DeleteModalBooking from './DeleteModalBooking';
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState('1');
@@ -32,11 +30,11 @@ const Admin = () => {
   const [isFilterEra, setIsFilterEra] = useState(false);
   const [isFilterLevel, setIsFilterLevel] = useState(false);
   const [isFilterCountry, setIsFilterCountry] = useState(false);
+  const [reservationsPerTravel, setReservationsPerTravel] = useState([]);
 
   const useForceUpdateAdmin = () => useState()[1];
 
   const forceUpdate = useForceUpdateAdmin();
-
   const handleAxios = () => {
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/`)
@@ -55,6 +53,55 @@ const Admin = () => {
   useEffect(() => {
     handleAxios();
   }, []);
+
+  useEffect(() => {
+    const newReservationsPerTravel = [];
+    // we should probably make a dedicated endpoint for this
+    const refreshCallbacks = travels.map(
+      (travel) =>
+        new Promise((resolve) => {
+          axios
+            .get(
+              `https://api-airbnb-node.herokuapp.com/api/travels/${travel.id}/reservations`
+            )
+            .then((response) => {
+              const bookingCount = response.data.length;
+              if (bookingCount > 0) {
+                newReservationsPerTravel.push({ [travel.title]: bookingCount });
+              }
+              resolve();
+            });
+        })
+    );
+    Promise.all(refreshCallbacks).then(() => {
+      setReservationsPerTravel(newReservationsPerTravel);
+    });
+  }, [travels]);
+
+  const makeReservationGrid = () => {
+    const toBeDisplayed = [];
+    if (reservationsPerTravel.length > 0) {
+      reservationsPerTravel.sort(
+        (x, y) => Object.values(y)[0] - Object.values(x)[0]
+      );
+      reservationsPerTravel.forEach((reservationForTravel) =>
+        toBeDisplayed.push(
+          <div>
+            {Object.keys(reservationForTravel)[0]}:{' '}
+            {Object.values(reservationForTravel)[0]}
+          </div>
+        )
+      );
+    } else {
+      toBeDisplayed.push(
+        <img
+          src="https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"
+          alt="loader"
+        />
+      );
+    }
+    return <div>{toBeDisplayed}</div>;
+  };
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
@@ -179,6 +226,7 @@ const Admin = () => {
           <Row>
             <Col sm="12">
               <h4>Welcome Marty!</h4>
+              {makeReservationGrid()}
             </Col>
           </Row>
         </TabPane>
@@ -259,7 +307,7 @@ const Admin = () => {
           <Row>
             <Col sm="12">
               <div className="text-center">
-                <PostModalUsers />
+                <PostModal />
               </div>
               <Table hover>
                 <thead>
@@ -279,15 +327,10 @@ const Admin = () => {
                       <td>{user.firstname}</td>
                       <td>{user.email}</td>
                       <td>
-                        <PutModalUsers
-                          userId={user.id}
-                          userFirstname={user.firstname}
-                          userLastname={user.lastname}
-                          userEmail={user.email}
-                        />
+                        <PutModal />
                       </td>
                       <td>
-                        <DeleteModalUsers userId={user.id} />
+                        <DeleteModal />
                       </td>
                     </tr>
                   ))}
@@ -300,7 +343,7 @@ const Admin = () => {
           <Row>
             <Col sm="12">
               <div className="text-center">
-                <PostModalBooking />
+                <PostModal />
               </div>
               <Table hover>
                 <thead>
@@ -324,17 +367,10 @@ const Admin = () => {
                       <td>{booking.id_user}</td>
                       <td>{booking.numberPerson}</td>
                       <td>
-                        <PutModalBooking
-                          bookingId={booking.id}
-                          bookingDateB={booking.date_begin}
-                          bookingDateE={booking.date_end}
-                          bookingTravel={booking.id_travel}
-                          bookingUser={booking.id_user}
-                          bookingPax={booking.numberPerson}
-                        />
+                        <PutModal />
                       </td>
                       <td>
-                        <DeleteModalBooking bookingId={booking.id} />
+                        <DeleteModal />
                       </td>
                     </tr>
                   ))}
