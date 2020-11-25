@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import PostFormUsers from './PostFormUsers';
 
 const PostModalUsers = (props) => {
-  const { className } = props;
+  const { className, userId, userFirstname, userLastname, userEmail } = props;
 
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
@@ -15,9 +15,9 @@ const PostModalUsers = (props) => {
   const [errorForm, setErrorForm] = useState('');
 
   const [form, setForm] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
+    firstname: userFirstname,
+    lastname: userLastname,
+    email: userEmail,
   });
 
   const handleErrorForm = (e) => {
@@ -39,7 +39,7 @@ const PostModalUsers = (props) => {
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
-      .post('https://api-airbnb-node.herokuapp.com/api/users', form)
+      .post(`https://api-airbnb-node.herokuapp.com/api/users/${userId}`, form)
       .then(() => setValidForm(`Le voyage a bien été enregistré !`))
       .catch((err) => {
         handleErrorForm(err);
@@ -93,6 +93,10 @@ const PostModalUsers = (props) => {
 
 PostModalUsers.propTypes = {
   className: PropTypes.shape.isRequired,
+  userId: PropTypes.number.isRequired,
+  userFirstname: PropTypes.number.isRequired,
+  userLastname: PropTypes.number.isRequired,
+  userEmail: PropTypes.number.isRequired,
 };
 
 export default PostModalUsers;

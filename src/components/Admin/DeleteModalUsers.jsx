@@ -29,7 +29,7 @@ const DeleteModalUsers = (props) => {
   return (
     <div>
       <Button color="danger" onClick={toggle}>
-        {userId}
+        x
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>

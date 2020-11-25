@@ -30,11 +30,6 @@ const Admin = () => {
   const [isFilterLevel, setIsFilterLevel] = useState(false);
   const [isFilterCountry, setIsFilterCountry] = useState(false);
 
-
-  useEffect(() => {
-    handleAxios();
-  }, []);
-
   const useForceUpdateAdmin = () => useState()[1];
 
   const forceUpdate = useForceUpdateAdmin();
@@ -281,7 +276,12 @@ const Admin = () => {
                       <td>{user.firstname}</td>
                       <td>{user.email}</td>
                       <td>
-                        <PutModalUsers />
+                        <PutModalUsers
+                          userId={user.id}
+                          userFirstname={user.firstname}
+                          userLastname={user.lastname}
+                          userEmail={user.email}
+                        />
                       </td>
                       <td>
                         <DeleteModalUsers

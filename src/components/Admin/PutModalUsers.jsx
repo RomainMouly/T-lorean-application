@@ -15,9 +15,9 @@ const PutModalUsers = (props) => {
   const [errorForm, setErrorForm] = useState('');
 
   const [form, setForm] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
+    firstname: userFirstname,
+    lastname: userLastname,
+    email: userEmail,
   });
 
   const handleErrorForm = (e) => {
@@ -39,11 +39,8 @@ const PutModalUsers = (props) => {
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
-      .put(`https://api-airbnb-node.herokuapp.com/api/travels/${userId}`, form)
+      .put(`https://api-airbnb-node.herokuapp.com/api/users/${userId}`, form)
       .then(() => setValidForm(`Le voyage a bien été enregistré !`))
-      .catch((err) => {
-        handleErrorForm(err);
-      })
       .catch((err) => {
         handleErrorForm(err);
       });
@@ -67,7 +64,6 @@ const PutModalUsers = (props) => {
           <PutFormUsers
             form={form}
             setForm={setForm}
-            userId={userId}
             userFirstname={userFirstname}
             userLastname={userLastname}
             userEmail={userEmail}
