@@ -1,22 +1,28 @@
 .form {
   display: flex;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 }
 
-.form h1 {
-  text-align: center;
+.form legend {
+  font-weight: bolder;
 }
 
 .form .form-data {
   margin: 1rem 0;
-  display: flex;
-  justify-content: center;
+}
+
+.form input {
+  width: 80vw;
 }
 
 .form-button {
   display: inline-block;
-  justify-items: center;
+  justify-self: center;
   text-transform: uppercase;
+  padding-left: 16px;
 }
 
 fieldset {
@@ -26,4 +32,21 @@ fieldset {
 
 input {
   width: 90%;
+}
+
+@media screen and (min-width: 768px) {
+  .form .form-data {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form input {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .form input {
+    width: 50vw;
+  }
 }
