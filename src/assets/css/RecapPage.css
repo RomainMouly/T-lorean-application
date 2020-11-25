@@ -48,17 +48,19 @@
   text-transform: uppercase;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
+  .travelCard {
+    width: 500px;
+  }
+  .factureCard {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .recap {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-  }
-
-  .travelCard {
-    width: 600px;
-  }
-  .factureCard {
-    width: 600px;
+    justify-content: space-around;
   }
 }

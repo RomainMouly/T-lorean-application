@@ -6,6 +6,8 @@ import PeopleNumberContext from '../../contexts/PeopleNumberContext';
 import StartDateContext from '../../contexts/StartDateContext';
 import EndDateContext from '../../contexts/EndDateContext';
 
+import '../../assets/css/BookingButton.css';
+
 const BookingButton = ({ travelId }) => {
   const [alertCalendar, setAlertCalendar] = useState('');
 
