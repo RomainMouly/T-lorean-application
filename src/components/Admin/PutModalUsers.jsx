@@ -40,7 +40,7 @@ const PutModalUsers = (props) => {
     e.preventDefault();
     axios
       .put(`https://api-airbnb-node.herokuapp.com/api/users/${userId}`, form)
-      .then(() => setValidForm(`L'utilisateur' a bien été modifié !`))
+      .then(() => setValidForm(`L'utilisateur a bien été modifié !`))
       .catch((err) => {
         handleErrorForm(err);
       });

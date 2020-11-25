@@ -40,7 +40,7 @@ const PostModalUsers = (props) => {
     e.preventDefault();
     axios
       .post(`https://api-airbnb-node.herokuapp.com/api/users/${userId}`, form)
-      .then(() => setValidForm(`L'utilisateur' a bien été enregistré !`))
+      .then(() => setValidForm(`L'utilisateur a bien été enregistré !`))
       .catch((err) => {
         handleErrorForm(err);
       });

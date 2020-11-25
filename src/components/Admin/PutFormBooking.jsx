@@ -16,42 +16,73 @@ const PutFormUsers = (props) => {
   return (
     <Form className="travel-form">
       <FormGroup>
-        <Label htmlFor="firstname">
-          Prénom
+        <Label htmlFor="date_begin">
+          Départ
           <Input
-            type="text"
-            name="firstname"
-            id="firstname"
+            type="date"
+            name="date_begin"
+            id="date_begin"
             onChange={handleChange}
-            value="firstname"
+            value={form.date_begin}
             required
           />
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label htmlFor="lastname">
-          Nom
+        <Label htmlFor="date_end">
+          Retour
           <Input
-            type="text"
-            name="lastname"
-            id="lastname"
+            type="date"
+            name="date_end"
+            id="date_end"
             onChange={handleChange}
-            value="lastname"
+            value={form.date_end}
             required
           />
         </Label>
       </FormGroup>
       <FormGroup>
-        <Label htmlFor="email">
-          E-mail
+        <Label htmlFor="id_travel">
+          ID du voyage
           <Input
-            type="email"
-            name="email"
-            id="email"
+            type="number"
+            name="id_travel"
+            id="id_travel"
             onChange={handleChange}
-            value="email"
+            value={form.id_travel}
             required
           />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="id_user">
+          ID de l&apos;utilisateur
+          <Input
+            type="number"
+            name="id_user"
+            id="id_user"
+            onChange={handleChange}
+            value={form.id_user}
+            required
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="numberPerson">
+          Nombre de personne(s)
+          <Input
+            type="select"
+            name="numberPerson"
+            id="numberPerson"
+            onChange={handleChange}
+            required
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </Input>
         </Label>
       </FormGroup>
     </Form>
@@ -60,9 +91,10 @@ const PutFormUsers = (props) => {
 
 PutFormUsers.propTypes = {
   form: PropTypes.shape({
-    firstname: PropTypes.string.isRequired,
-    lastname: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    date_begin: PropTypes.string.isRequired,
+    date_end: PropTypes.string.isRequired,
+    id_travel: PropTypes.number.isRequired,
+    id_user: PropTypes.number.isRequired,
   }).isRequired,
   setForm: PropTypes.func.isRequired,
 };

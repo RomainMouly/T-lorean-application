@@ -24,7 +24,7 @@ const PostModalBooking = (props) => {
 
   const handleErrorForm = (e) => {
     setErrorForm(
-      `Erreur lors de l'enregistrement du voyage : ${e.message}, veuillez réessayer.`
+      `Erreur lors de l'enregistrement de la réservation : ${e.message}, veuillez réessayer.`
     );
   };
 
@@ -59,7 +59,7 @@ const PostModalBooking = (props) => {
         Ajouter
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Ajout d&apos;un utilisateur</ModalHeader>
+        <ModalHeader toggle={toggle}>Ajout d&apos;une réservation</ModalHeader>
         <ModalBody>
           <PostFormBooking form={form} setForm={setForm} />
           <br />
@@ -68,7 +68,7 @@ const PostModalBooking = (props) => {
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Utilisateur ajouté</ModalHeader>
+            <ModalHeader>Réservation ajoutée</ModalHeader>
             <ModalBody>
               {validForm}
               {errorForm}
