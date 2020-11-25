@@ -1,25 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../assets/css/Admin/PostForm.css';
 
 const PutForm = (props) => {
-  const {
-    formPartOne,
-    setFormPartOne,
-    formPartTwo,
-    setFormPartTwo,
-    travelId,
-    travelDescription,
-    travelTitle,
-    travelLevel,
-    travelEra,
-    travelCountry,
-    travelPrice,
-  } = props;
-
-  const [travelPut, setTravelPut] = useState('');
+  const { formPartOne, setFormPartOne, formPartTwo, setFormPartTwo } = props;
 
   const handleChangePartOne = (e) => {
     setFormPartOne({
@@ -33,14 +18,7 @@ const PutForm = (props) => {
       url: e.target.value,
     });
   };
-  useEffect(() => {
-    axios
-      .get(`https://api-airbnb-node.herokuapp.com/api/travels/${travel_id}`)
-      .then((result) => result.data)
-      .then((data) => console.log(data));
-  }, []);
 
-  console.log(travel_id);
   return (
     <Form className="travel-form">
       <FormGroup>
@@ -64,10 +42,9 @@ const PutForm = (props) => {
             name="description"
             id="description"
             onChange={handleChangePartOne}
-            defaultValue={travelDescription}
-            body={travelDescription}
+            value={handleChangePartOne}
             required
-          ></Input>
+          />
         </Label>
       </FormGroup>
 
@@ -80,14 +57,13 @@ const PutForm = (props) => {
             id="era"
             onChange={handleChangePartOne}
             required
-          >
-            <option value="Préhistoire">Préhistoire</option>
-            <option value="Antiquité">Antiquité</option>
-            <option value="Moyen-Âge">Moyen-Âge</option>
-            <option value="Renaissance">Renaissance</option>
-            <option value="Temps modernes">Temps modernes</option>
-            <option value="Futur">Futur</option>
-          </Input>
+          />
+          <option value="Préhistoire">Préhistoire</option>
+          <option value="Antiquité">Antiquité</option>
+          <option value="Moyen-Âge">Moyen-Âge</option>
+          <option value="Renaissance">Renaissance</option>
+          <option value="Temps modernes">Temps modernes</option>
+          <option value="Futur">Futur</option>
         </Label>
       </FormGroup>
       <FormGroup>
@@ -99,11 +75,10 @@ const PutForm = (props) => {
             id="level"
             onChange={handleChangePartOne}
             required
-          >
-            <option value="1">Détente</option>
-            <option value="2">Aventure</option>
-            <option value="3">Extrême</option>
-          </Input>
+          />
+          <option value="1">Détente</option>
+          <option value="2">Aventure</option>
+          <option value="3">Extrême</option>
         </Label>
       </FormGroup>
       <FormGroup>
@@ -114,7 +89,7 @@ const PutForm = (props) => {
             name="country"
             id="country"
             onChange={handleChangePartOne}
-            value={travelCountry}
+            value="country"
             required
           />
         </Label>
@@ -127,7 +102,7 @@ const PutForm = (props) => {
             name="price"
             id="price"
             onChange={handleChangePartOne}
-            value={travelPrice}
+            value="price"
             required
           />
         </Label>
@@ -140,7 +115,7 @@ const PutForm = (props) => {
             name="url"
             id="url"
             onChange={handleChangePartTwo}
-            value={formPartTwo.url}
+            value={formPartTwo}
             required
           />
         </Label>
@@ -149,7 +124,7 @@ const PutForm = (props) => {
   );
 };
 
-PustForm.propTypes = {
+PutForm.propTypes = {
   formPartOne: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -161,13 +136,6 @@ PustForm.propTypes = {
   setFormPartOne: PropTypes.func.isRequired,
   formPartTwo: PropTypes.shape().isRequired,
   setFormPartTwo: PropTypes.func.isRequired,
-  className: PropTypes.shape.isRequired,
-  travelId: PropTypes.number.isRequired,
-  travelDescription: PropTypes.string.isRequired,
-  travelTitle: PropTypes.string.isRequired,
-  travelPrice: PropTypes.number.isRequired,
-  travelCountry: PropTypes.string.isRequired,
-  travelLevel: PropTypes.number.isRequired,
 };
 
 export default PutForm;

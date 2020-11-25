@@ -32,7 +32,7 @@ const DeleteModal = (props) => {
   return (
     <div>
       <Button color="danger" onClick={toggle}>
-        {travelId}
+        x
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Suppression d&apos;un voyage</ModalHeader>

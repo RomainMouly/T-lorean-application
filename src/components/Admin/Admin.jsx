@@ -30,6 +30,15 @@ const Admin = () => {
   const [isFilterLevel, setIsFilterLevel] = useState(false);
   const [isFilterCountry, setIsFilterCountry] = useState(false);
 
+
+  useEffect(() => {
+    handleAxios();
+  }, []);
+
+  const useForceUpdateAdmin = () => useState()[1];
+
+  const forceUpdate = useForceUpdateAdmin();
+
   const handleAxios = () => {
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/`)
@@ -228,6 +237,7 @@ const Admin = () => {
                       <td>{travel.country}</td>
                       <td>
                         <PutModal
+                          refresh={forceUpdate}
                           travelId={travel.id}
                           travelTitle={travel.title}
                           travelDescription={travel.description}
