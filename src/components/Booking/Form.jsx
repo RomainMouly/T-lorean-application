@@ -82,7 +82,7 @@ const Form = ({ startDate, endDate, travel, peopleNumber }) => {
     <div className="form">
       <form onSubmit={handleSubmit}>
         <fieldset>
-          <legend>Vos Informations</legend>
+          <legend>Vos informations</legend>
 
           <div className="form-data">
             <label htmlFor="firstname">
