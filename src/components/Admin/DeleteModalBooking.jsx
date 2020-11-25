@@ -3,8 +3,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-const DeleteModal = (props) => {
-  const { className, travelId } = props;
+const DeleteModalBooking = (props) => {
+  const { className, bookingId } = props;
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
   const [closeAll, setCloseAll] = useState(false);
@@ -21,7 +21,7 @@ const DeleteModal = (props) => {
 
   const handleDelete = () => {
     axios.delete(
-      `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
+      `https://api-airbnb-node.herokuapp.com/api/reservations/${bookingId}`,
       {
         headers: { Accept: '*/*' },
       }
@@ -35,17 +35,19 @@ const DeleteModal = (props) => {
         x
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Suppression d&apos;un voyage</ModalHeader>
+        <ModalHeader toggle={toggle}>
+          Suppression d&apos;une réservation
+        </ModalHeader>
         <ModalBody>
-          Êtes-vous sûr de vouloir supprimer ce voyage ?
+          Êtes-vous sûr de vouloir supprimer cette réservation ?
           <br />
           <Modal
             isOpen={nestedModal}
             toggle={toggleNested}
             onClosed={closeAll ? toggle : undefined}
           >
-            <ModalHeader>Voyage supprimé</ModalHeader>
-            <ModalBody>Le voyage a bien été supprimé.</ModalBody>
+            <ModalHeader>Réservation supprimée</ModalHeader>
+            <ModalBody>La réservation a bien été supprimée.</ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={toggleAll}>
                 OK
@@ -66,9 +68,9 @@ const DeleteModal = (props) => {
   );
 };
 
-DeleteModal.propTypes = {
+DeleteModalBooking.propTypes = {
   className: PropTypes.shape.isRequired,
-  travelId: PropTypes.number.isRequired,
+  bookingId: PropTypes.number.isRequired,
 };
 
-export default DeleteModal;
+export default DeleteModalBooking;

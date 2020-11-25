@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../assets/css/Admin/PostForm.css';
 
 const PutFormUsers = (props) => {
-  const {
-    form,
-    setForm,
-    userId,
-    userFirstname,
-    userLastname,
-    userEmail,
-  } = props;
+  const { form, setForm } = props;
 
   const handleChange = (e) => {
     setForm({
@@ -20,13 +12,6 @@ const PutFormUsers = (props) => {
       [e.target.name]: e.target.value,
     });
   };
-
-  useEffect(() => {
-    axios
-      .get(`https://api-airbnb-node.herokuapp.com/api/travels/${userId}`)
-      .then((result) => result.data)
-      .then((data) => setForm(data));
-  }, []);
 
   return (
     <Form className="travel-form">
@@ -80,10 +65,6 @@ PutFormUsers.propTypes = {
     email: PropTypes.string.isRequired,
   }).isRequired,
   setForm: PropTypes.func.isRequired,
-  userId: PropTypes.number.isRequired,
-  userFirstname: PropTypes.string.isRequired,
-  userLastname: PropTypes.string.isRequired,
-  userEmail: PropTypes.string.isRequired,
 };
 
 export default PutFormUsers;

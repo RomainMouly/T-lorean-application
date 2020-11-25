@@ -4,7 +4,7 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../assets/css/Admin/PostForm.css';
 
 const PutForm = (props) => {
-  const { formPartOne, setFormPartOne, formPartTwo, setFormPartTwo } = props;
+  const { formPartOne, setFormPartOne, setFormPartTwo } = props;
 
   const handleChangePartOne = (e) => {
     setFormPartOne({
@@ -29,7 +29,7 @@ const PutForm = (props) => {
             name="title"
             id="title"
             onChange={handleChangePartOne}
-            defaultValue="coucou"
+            value="title"
             required
           />
         </Label>
@@ -42,7 +42,7 @@ const PutForm = (props) => {
             name="description"
             id="description"
             onChange={handleChangePartOne}
-            value={handleChangePartOne}
+            value="description"
             required
           />
         </Label>
@@ -57,13 +57,14 @@ const PutForm = (props) => {
             id="era"
             onChange={handleChangePartOne}
             required
-          />
-          <option value="Préhistoire">Préhistoire</option>
-          <option value="Antiquité">Antiquité</option>
-          <option value="Moyen-Âge">Moyen-Âge</option>
-          <option value="Renaissance">Renaissance</option>
-          <option value="Temps modernes">Temps modernes</option>
-          <option value="Futur">Futur</option>
+          >
+            <option value="Préhistoire">Préhistoire</option>
+            <option value="Antiquité">Antiquité</option>
+            <option value="Moyen-Âge">Moyen-Âge</option>
+            <option value="Renaissance">Renaissance</option>
+            <option value="Temps modernes">Temps modernes</option>
+            <option value="Futur">Futur</option>
+          </Input>
         </Label>
       </FormGroup>
       <FormGroup>
@@ -75,10 +76,11 @@ const PutForm = (props) => {
             id="level"
             onChange={handleChangePartOne}
             required
-          />
-          <option value="1">Détente</option>
-          <option value="2">Aventure</option>
-          <option value="3">Extrême</option>
+          >
+            <option value="1">Détente</option>
+            <option value="2">Aventure</option>
+            <option value="3">Extrême</option>
+          </Input>
         </Label>
       </FormGroup>
       <FormGroup>
@@ -115,7 +117,7 @@ const PutForm = (props) => {
             name="url"
             id="url"
             onChange={handleChangePartTwo}
-            value={formPartTwo}
+            value="url"
             required
           />
         </Label>
@@ -134,7 +136,6 @@ PutForm.propTypes = {
     price: PropTypes.number.isRequired,
   }).isRequired,
   setFormPartOne: PropTypes.func.isRequired,
-  formPartTwo: PropTypes.shape().isRequired,
   setFormPartTwo: PropTypes.func.isRequired,
 };
 
