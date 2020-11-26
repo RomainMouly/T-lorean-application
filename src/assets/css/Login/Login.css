@@ -15,10 +15,28 @@
   padding-bottom: 50px;
 }
 
+.disclaimer {
+  width: 70vw;
+  background-color: #c13636;
+  padding: 15px;
+}
+
+.disclaimer h2 {
+  text-transform: none;
+  font-size: 1rem;
+  color: white;
+}
+
 .legendLogin {
   color: white;
 }
 
 .colorButton.form-button {
   margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .disclaimer {
+    display: none;
+  }
 }
