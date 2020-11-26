@@ -1,7 +1,8 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import CanvasJSReact from '../../assets/canvasjs.react';
-const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+const { CanvasJSChart } = CanvasJSReact;
 
 const TravelGraph = ({ reservationsPerTravel }) => {
   const dataPoints = [];
@@ -19,10 +20,10 @@ const TravelGraph = ({ reservationsPerTravel }) => {
     animationEnabled: true,
     theme: 'light2',
     title: {
-      text: 'Trending travels',
+      text: 'Voyages les plus réservés',
     },
     axisX: {
-      title: 'Travels',
+      title: 'Voyages',
       reversed: true,
     },
     axisY: {
@@ -38,13 +39,16 @@ const TravelGraph = ({ reservationsPerTravel }) => {
   };
   return (
     <div className="graphics">
-      <CanvasJSChart
-        options={options}
-        /* onRef={ref => this.chart = ref} */
-      />
-      {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
+      <CanvasJSChart options={options} />
     </div>
   );
+};
+
+TravelGraph.propTypes = {
+  reservationsPerTravel: PropTypes.shape({
+    sort: PropTypes.func.isRequired,
+    forEach: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default TravelGraph;

@@ -37,7 +37,7 @@ const Login = ({ history }) => {
 
       <form onSubmit={handleLogin}>
         <fieldset>
-          <legend className="legendLogin">Vos Informations de connexion</legend>
+          <legend className="legendLogin">Vos informations de connexion</legend>
 
           <div className="form-data">
             <label htmlFor="email">
