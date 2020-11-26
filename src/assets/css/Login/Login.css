@@ -35,15 +35,13 @@
   margin: 0;
 }
 
-
 .formLogin input {
   width: 20vw;
   padding-left: calc(var(--spacing) * 2);
-
 }
-
 
 @media screen and (min-width: 1024px) {
   .disclaimer {
     display: none;
   }
+}
