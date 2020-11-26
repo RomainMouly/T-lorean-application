@@ -24,7 +24,7 @@ const Login = ({ history }) => {
   };
 
   return (
-    <div className="form">
+    <div className="form formLogin">
       <h1>T-LOREAN</h1>
 
       <form onSubmit={handleLogin}>
