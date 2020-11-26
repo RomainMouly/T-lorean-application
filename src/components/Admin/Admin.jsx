@@ -24,6 +24,8 @@ import DeleteModalUsers from './DeleteModalUsers';
 import PostModalBooking from './PostModalBooking';
 import PutModalBooking from './PutModalBooking';
 import DeleteModalBooking from './DeleteModalBooking';
+import TravelGraph from './TravelGraph';
+import '../../assets/css/Admin/admin.css';
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState('1');
@@ -84,21 +86,13 @@ const Admin = () => {
   }, [travels]);
 
   const makeReservationGrid = () => {
-    const toBeDisplayed = [];
+    let toBeDisplayed;
     if (reservationsPerTravel.length > 0) {
-      reservationsPerTravel.sort(
-        (x, y) => Object.values(y)[0] - Object.values(x)[0]
-      );
-      reservationsPerTravel.forEach((reservationForTravel) =>
-        toBeDisplayed.push(
-          <div>
-            {Object.keys(reservationForTravel)[0]}:{' '}
-            {Object.values(reservationForTravel)[0]}
-          </div>
-        )
+      toBeDisplayed = (
+        <TravelGraph reservationsPerTravel={reservationsPerTravel} />
       );
     } else {
-      toBeDisplayed.push(
+      toBeDisplayed = (
         <img
           src="https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"
           alt="loader"
@@ -231,7 +225,7 @@ const Admin = () => {
           <Row>
             <Col sm="12">
               <h4>Welcome Marty!</h4>
-              {makeReservationGrid()}
+              <div className="levelGraph"> {makeReservationGrid()}</div>
             </Col>
           </Row>
         </TabPane>
