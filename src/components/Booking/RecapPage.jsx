@@ -8,7 +8,7 @@ import '../../assets/css/RecapPage.css';
 const RecapPage = ({ travel, startDate, endDate, peopleNumber }) => {
   const calcDays = (date1, date2) => {
     const diffInTime = date1.getTime() - date2.getTime();
-    return -(diffInTime / (1000 * 3600 * 24));
+    return -Math.ceil(diffInTime / (1000 * 3600 * 24));
   };
   const daysNumber = calcDays(startDate, endDate) + 1;
 

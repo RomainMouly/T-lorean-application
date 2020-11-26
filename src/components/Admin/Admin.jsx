@@ -15,6 +15,8 @@ import {
   Button,
 } from 'reactstrap';
 import classnames from 'classnames';
+import AdminTitle from './AdminTitle';
+
 import PostModal from './PostModal';
 import PutModal from './PutModal';
 import DeleteModal from './DeleteModal';
@@ -25,6 +27,8 @@ import PostModalBooking from './PostModalBooking';
 import PutModalBooking from './PutModalBooking';
 import DeleteModalBooking from './DeleteModalBooking';
 import TravelGraph from './TravelGraph';
+import ScrollArrow from './ScrollArrow';
+
 import '../../assets/css/Admin/admin.css';
 
 const Admin = () => {
@@ -177,6 +181,7 @@ const Admin = () => {
 
   return (
     <div>
+      <AdminTitle />
       <Nav tabs>
         <NavItem>
           <NavLink
@@ -185,7 +190,7 @@ const Admin = () => {
               toggle('1');
             }}
           >
-            Dashboard
+            Accueil
           </NavLink>
         </NavItem>
         <NavItem>
@@ -195,7 +200,7 @@ const Admin = () => {
               toggle('2');
             }}
           >
-            Trips
+            Voyages
           </NavLink>
         </NavItem>
         <NavItem>
@@ -205,7 +210,7 @@ const Admin = () => {
               toggle('3');
             }}
           >
-            Users
+            Clients
           </NavLink>
         </NavItem>
         <NavItem>
@@ -215,7 +220,7 @@ const Admin = () => {
               toggle('4');
             }}
           >
-            Bookings
+            Réservations
           </NavLink>
         </NavItem>
       </Nav>
@@ -224,7 +229,7 @@ const Admin = () => {
         <TabPane tabId="1">
           <Row>
             <Col sm="12">
-              <h4>Welcome Marty!</h4>
+              <h5 className="welcomeAdmin">Bonjour, Marty!</h5>
               <div className="levelGraph"> {makeReservationGrid()}</div>
             </Col>
           </Row>
@@ -238,36 +243,36 @@ const Admin = () => {
               <Table hover>
                 <thead>
                   <tr>
-                    <th>id</th>
+                    <th>ID</th>
                     <th>
                       {' '}
                       <Button color="info" onClick={handleFilterTitle}>
-                        {isFilterTitle ? 'Titre filtré' : 'Titre'}
+                        {isFilterTitle ? 'Trié par titre' : 'Titre'}
                       </Button>
                     </th>
-                    <th>description</th>
+                    <th>Description</th>
                     <th>
                       <Button color="info" onClick={handleFilterLevel}>
-                        {isFilterLevel ? 'Sensation filtré' : 'Sensation'}
+                        {isFilterLevel ? 'Sensation croissante' : 'Sensation'}
                       </Button>
                     </th>
                     <th>
                       <Button color="info" onClick={handleFilterPrice}>
-                        {isFilterPrice ? 'Prix filtré' : 'Prix'}
+                        {isFilterPrice ? 'Prix croissant' : 'Prix'}
                       </Button>
                     </th>
                     <th>
                       <Button color="info" onClick={handleFilterEra}>
-                        {isFilterEra ? 'Epoque filtré' : 'Epoque'}
+                        {isFilterEra ? 'Trié par Epoque' : 'Epoque'}
                       </Button>
                     </th>
                     <th>
                       {' '}
                       <Button color="info" onClick={handleFilterCountry}>
-                        {isFilterCountry ? 'Pays filtré' : 'Pays'}
+                        {isFilterCountry ? 'Trié par pays' : 'Pays'}
                       </Button>
                     </th>
-                    <th colSpan="2">actions</th>
+                    <th colSpan="2">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -311,11 +316,11 @@ const Admin = () => {
               <Table hover>
                 <thead>
                   <tr>
-                    <th>id</th>
-                    <th>nom</th>
-                    <th>prénom</th>
-                    <th>e-mail</th>
-                    <th colSpan="2">actions</th>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>E-mail</th>
+                    <th colSpan="2">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -352,13 +357,13 @@ const Admin = () => {
               <Table hover>
                 <thead>
                   <tr>
-                    <th>id</th>
-                    <th>départ</th>
-                    <th>retour</th>
-                    <th>voyage</th>
-                    <th>user</th>
-                    <th>pax</th>
-                    <th colSpan="2">actions</th>
+                    <th>ID</th>
+                    <th>Départ</th>
+                    <th>Retour</th>
+                    <th>Voyage</th>
+                    <th>Utilisateur</th>
+                    <th>Nb voyageurs</th>
+                    <th colSpan="2">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -391,6 +396,7 @@ const Admin = () => {
           </Row>
         </TabPane>
       </TabContent>
+      <ScrollArrow />
     </div>
   );
 };
