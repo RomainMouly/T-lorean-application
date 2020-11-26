@@ -1,4 +1,4 @@
-.login-form {
+.formLogin {
   height: 90vh;
   background-image: url(../../images/loginpicture.jpg);
   background-repeat: no-repeat;
@@ -21,4 +21,9 @@
 
 .colorButton.form-button {
   margin: 0;
+}
+
+.formLogin input {
+  width: 20vw;
+  padding-left: calc(var(--spacing) * 2);
 }
