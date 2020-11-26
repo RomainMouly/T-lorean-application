@@ -47,7 +47,7 @@ const Login = ({ history }) => {
           <div className="form-data">
             <label htmlFor="password">
               <input
-                type="text"
+                type="password"
                 id="password"
                 name="password"
                 placeholder="Mot de passe"

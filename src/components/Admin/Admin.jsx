@@ -6,10 +6,13 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Button,
+  //   Card,
+  //   CardTitle,
+  //   CardText,
   Row,
   Col,
   Table,
+  Button,
 } from 'reactstrap';
 import classnames from 'classnames';
 import PostModal from './PostModal';
@@ -32,11 +35,11 @@ const Admin = () => {
   const [isFilterEra, setIsFilterEra] = useState(false);
   const [isFilterLevel, setIsFilterLevel] = useState(false);
   const [isFilterCountry, setIsFilterCountry] = useState(false);
+  const [reservationsPerTravel, setReservationsPerTravel] = useState([]);
 
   const useForceUpdateAdmin = () => useState()[1];
 
   const forceUpdate = useForceUpdateAdmin();
-
   const handleAxios = () => {
     axios
       .get(`https://api-airbnb-node.herokuapp.com/api/travels/`)
@@ -55,6 +58,55 @@ const Admin = () => {
   useEffect(() => {
     handleAxios();
   }, []);
+
+  useEffect(() => {
+    const newReservationsPerTravel = [];
+    // we should probably make a dedicated endpoint for this
+    const refreshCallbacks = travels.map(
+      (travel) =>
+        new Promise((resolve) => {
+          axios
+            .get(
+              `https://api-airbnb-node.herokuapp.com/api/travels/${travel.id}/reservations`
+            )
+            .then((response) => {
+              const bookingCount = response.data.length;
+              if (bookingCount > 0) {
+                newReservationsPerTravel.push({ [travel.title]: bookingCount });
+              }
+              resolve();
+            });
+        })
+    );
+    Promise.all(refreshCallbacks).then(() => {
+      setReservationsPerTravel(newReservationsPerTravel);
+    });
+  }, [travels]);
+
+  const makeReservationGrid = () => {
+    const toBeDisplayed = [];
+    if (reservationsPerTravel.length > 0) {
+      reservationsPerTravel.sort(
+        (x, y) => Object.values(y)[0] - Object.values(x)[0]
+      );
+      reservationsPerTravel.forEach((reservationForTravel) =>
+        toBeDisplayed.push(
+          <div>
+            {Object.keys(reservationForTravel)[0]}:{' '}
+            {Object.values(reservationForTravel)[0]}
+          </div>
+        )
+      );
+    } else {
+      toBeDisplayed.push(
+        <img
+          src="https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"
+          alt="loader"
+        />
+      );
+    }
+    return <div>{toBeDisplayed}</div>;
+  };
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
@@ -179,6 +231,7 @@ const Admin = () => {
           <Row>
             <Col sm="12">
               <h4>Welcome Marty!</h4>
+              {makeReservationGrid()}
             </Col>
           </Row>
         </TabPane>
