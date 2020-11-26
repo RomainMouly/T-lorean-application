@@ -27,6 +27,14 @@ const Login = ({ history }) => {
     <div className="form formLogin">
       <h1>T-LOREAN</h1>
 
+      <div className="disclaimer">
+        <h2>
+          Avant de poursuivre vers le backoffice,
+          <br />
+          assurez-vous de naviguer depuis un ordinateur.
+        </h2>
+      </div>
+
       <form onSubmit={handleLogin}>
         <fieldset>
           <legend className="legendLogin">Vos Informations de connexion</legend>
