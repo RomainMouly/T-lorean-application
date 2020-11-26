@@ -19,7 +19,7 @@ const PostModalBooking = (props) => {
     date_end: '',
     id_travel: '',
     id_user: '',
-    numberPerson: '',
+    numberPerson: '1',
   });
 
   const handleErrorForm = (e) => {
