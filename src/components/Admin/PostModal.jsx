@@ -46,34 +46,28 @@ const PostModal = (props) => {
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
-      .post('https://api-airbnb-node.herokuapp.com/api/travels', formPartOne)
+      .post(`${process.env.REACT_APP_BACK}/travels`, formPartOne)
       .then(() =>
         axios
-          .get('https://api-airbnb-node.herokuapp.com/api/travels')
+          .get(`${process.env.REACT_APP_BACK}/travels`)
           .then((result) => result.data[result.data.length - 1].id)
           .then((idTravel) =>
             axios
-              .post('https://api-airbnb-node.herokuapp.com/api/pictures', {
+              .post(`${process.env.REACT_APP_BACK}/pictures`, {
                 url: pictureOne,
                 id_travel: idTravel,
               })
               .then(() =>
-                axios.post(
-                  'https://api-airbnb-node.herokuapp.com/api/pictures',
-                  {
-                    url: pictureTwo,
-                    id_travel: idTravel,
-                  }
-                )
+                axios.post(`${process.env.REACT_APP_BACK}/pictures`, {
+                  url: pictureTwo,
+                  id_travel: idTravel,
+                })
               )
               .then(() =>
-                axios.post(
-                  'https://api-airbnb-node.herokuapp.com/api/pictures',
-                  {
-                    url: pictureThree,
-                    id_travel: idTravel,
-                  }
-                )
+                axios.post(`${process.env.REACT_APP_BACK}/pictures`, {
+                  url: pictureThree,
+                  id_travel: idTravel,
+                })
               )
               .then(() => setValidForm(`Le voyage a bien été enregistré !`))
               .catch((err) => {

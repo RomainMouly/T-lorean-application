@@ -11,7 +11,7 @@ const Booking = ({ match, location }) => {
 
   useEffect(() => {
     axios
-      .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}`)
+      .get(`${process.env.REACT_APP_BACK}/travels/${id}`)
       .then((result) => result.data[0])
       .then((data) => setTravel(data));
   }, [id]);

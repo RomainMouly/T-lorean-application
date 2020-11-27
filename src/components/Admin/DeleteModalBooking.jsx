@@ -20,12 +20,9 @@ const DeleteModalBooking = (props) => {
   };
 
   const handleDelete = () => {
-    axios.delete(
-      `https://api-airbnb-node.herokuapp.com/api/reservations/${bookingId}`,
-      {
-        headers: { Accept: '*/*' },
-      }
-    );
+    axios.delete(`${process.env.REACT_APP_BACK}/reservations/${bookingId}`, {
+      headers: { Accept: '*/*' },
+    });
     toggleNested();
   };
 

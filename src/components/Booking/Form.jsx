@@ -39,10 +39,7 @@ const Form = ({ startDate, endDate, travel, peopleNumber }) => {
     };
 
     axios
-      .post(
-        'https://api-airbnb-node.herokuapp.com/api/reservations',
-        reservation
-      )
+      .post(`${process.env.REACT_APP_BACK}/reservations`, reservation)
       .then(() =>
         setValidForm(
           `Félicitations ${form.firstname}, votre réservation a bien été prise en compte. Préparez-vous pour l'aventure !`
@@ -56,10 +53,10 @@ const Form = ({ startDate, endDate, travel, peopleNumber }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('https://api-airbnb-node.herokuapp.com/api/users', form)
+      .post(`${process.env.REACT_APP_BACK}/users`, form)
       .then(() =>
         axios
-          .get('https://api-airbnb-node.herokuapp.com/api/users')
+          .get(`${process.env.REACT_APP_BACK}/users`)
           .then((result) => setUserId(result.data[result.data.length - 1].id))
           .catch((err) => {
             handleErrorForm(err);

@@ -20,7 +20,7 @@ const DeleteModalUsers = (props) => {
   };
 
   const handleDelete = () => {
-    axios.delete(`https://api-airbnb-node.herokuapp.com/api/users/${userId}`, {
+    axios.delete(`${process.env.REACT_APP_BACK}/users/${userId}`, {
       headers: { Accept: '*/*' },
     });
     toggleNested();
