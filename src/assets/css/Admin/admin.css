@@ -1,6 +1,6 @@
 .levelGraph {
   width: 80%;
-  margin: calc(var(--spacing) * 3) auto;
+  margin: calc(var(--spacing) * 15) auto;
   text-align: center;
 }
 
