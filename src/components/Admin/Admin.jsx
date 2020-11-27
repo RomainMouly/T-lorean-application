@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaSortAlphaDown, FaSortNumericDown } from 'react-icons/fa';
 import axios from 'axios';
 import {
   TabContent,
@@ -247,29 +248,29 @@ const Admin = () => {
                     <th>
                       {' '}
                       <Button color="info" onClick={handleFilterTitle}>
-                        {isFilterTitle ? 'Trié par titre' : 'Titre'}
+                        Titre {isFilterTitle && <FaSortAlphaDown />}
                       </Button>
                     </th>
                     <th>Description</th>
                     <th>
                       <Button color="info" onClick={handleFilterLevel}>
-                        {isFilterLevel ? 'Sensation croissante' : 'Sensation'}
+                        Sensation {isFilterLevel && <FaSortNumericDown />}
                       </Button>
                     </th>
                     <th>
                       <Button color="info" onClick={handleFilterPrice}>
-                        {isFilterPrice ? 'Prix croissant' : 'Prix'}
+                        Prix {isFilterPrice && <FaSortNumericDown />}
                       </Button>
                     </th>
                     <th>
                       <Button color="info" onClick={handleFilterEra}>
-                        {isFilterEra ? 'Trié par Epoque' : 'Epoque'}
+                        Epoque {isFilterEra && <FaSortAlphaDown />}
                       </Button>
                     </th>
                     <th>
                       {' '}
                       <Button color="info" onClick={handleFilterCountry}>
-                        {isFilterCountry ? 'Trié par pays' : 'Pays'}
+                        Lieu {isFilterCountry && <FaSortAlphaDown />}
                       </Button>
                     </th>
                     <th colSpan="2">Actions</th>
