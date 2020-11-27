@@ -20,12 +20,9 @@ const DeleteModal = (props) => {
   };
 
   const handleDelete = () => {
-    axios.delete(
-      `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
-      {
-        headers: { Accept: '*/*' },
-      }
-    );
+    axios.delete(`${process.env.REACT_APP_BACK}/travels/${travelId}`, {
+      headers: { Accept: '*/*' },
+    });
     toggleNested();
   };
 

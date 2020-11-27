@@ -41,7 +41,7 @@ const PostModalBooking = (props) => {
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
-      .post(`https://api-airbnb-node.herokuapp.com/api/reservations`, form)
+      .post(`${process.env.REACT_APP_BACK}/reservations`, form)
       .then(() => setValidForm(`La réservation a bien été enregistrée !`))
       .catch((err) => {
         handleErrorForm(err);

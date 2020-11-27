@@ -28,7 +28,7 @@ const Results = ({ match }) => {
 
   const handleTravels = () => {
     axios
-      .get('https://api-airbnb-node.herokuapp.com/api/travels')
+      .get(`${process.env.REACT_APP_BACK}/travels`)
       .then((result) => result.data)
       .then((data) => handleType(data));
   };

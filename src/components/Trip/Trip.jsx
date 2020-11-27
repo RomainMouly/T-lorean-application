@@ -22,11 +22,11 @@ const Trip = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}`)
+      .get(`${process.env.REACT_APP_BACK}/travels/${id}`)
       .then((result) => result.data[0])
       .then((data) => setTravel(data));
     axios
-      .get(`https://api-airbnb-node.herokuapp.com/api/travels/${id}/pictures`)
+      .get(`${process.env.REACT_APP_BACK}/travels/${id}/pictures`)
       .then((responses) => responses.data)
       .then((data) => setPictures(data));
   }, [id]);

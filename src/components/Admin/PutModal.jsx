@@ -55,27 +55,24 @@ const PutModal = (props) => {
   const handleSubmitPartOne = (e) => {
     e.preventDefault();
     axios
-      .put(
-        `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}`,
-        formPartOne
-      )
+      .put(`${process.env.REACT_APP_BACK}/travels/${travelId}`, formPartOne)
       // .then(() =>
       //   axios
       //     .get(
-      //       `https://api-airbnb-node.herokuapp.com/api/travels/${travelId}/pictures`
+      //       `${process.env.REACT_APP_BACK}/travels/${travelId}/pictures`
       //     )
       //     .then((result) => result.data[0].id)
       //     .then((idPicOne) =>
       //       axios
       //         .put(
-      //           `https://api-airbnb-node.herokuapp.com/api/pictures/${idPicOne}`,
+      //           `${REACT_APP_BACK}/pictures/${idPicOne}`,
       //           {
       //             url: pictureOne,
       //           }
       //         )
       //         .then(() =>
       //           axios.put(
-      //             `https://api-airbnb-node.herokuapp.com/api/pictures/${idPicTwo}`,
+      //             `${REACT_APP_BACK}/pictures/${idPicTwo}`,
       //             {
       //               url: pictureTwo,
       //             }
@@ -83,7 +80,7 @@ const PutModal = (props) => {
       //         )
       //         .then(() =>
       //           axios.put(
-      //             `https://api-airbnb-node.herokuapp.com/api/pictures/${idPicThree}`,
+      //             `${REACT_APP_BACK}/pictures/${idPicThree}`,
       //             {
       //               url: pictureThree,
       //             }
