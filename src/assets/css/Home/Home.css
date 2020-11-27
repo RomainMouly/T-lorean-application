@@ -1,0 +1,22 @@
+.home-filter-era,
+.home-filter-level {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.home-filters h2 {
+  margin-top: calc(var(--spacing) * 2);
+  margin-left: calc(var(--spacing) * 2);
+  font-size: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .home-filter-level .link-box {
+    height: 250px;
+  }
+  .home-filters h2 {
+    font-size: 30px;
+  }
+}

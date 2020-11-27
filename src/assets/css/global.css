@@ -1,0 +1,61 @@
+:root {
+  --light-true: white;
+  --dark-true: #111d62;
+  --main-color: #c13636;
+  --second-color: #780e5a;
+  --third-color: #fc9972;
+  --spacing: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+#body,
+#root {
+  height: auto;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+#body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light-true);
+  color: var(--dark-true);
+}
+.App {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  font-family: 'Turret Road', cursive;
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+h4 {
+  text-transform: uppercase;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--light-true);
+}

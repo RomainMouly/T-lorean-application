@@ -1,0 +1,66 @@
+.recap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3rem auto;
+}
+.cardTitle {
+  margin: calc(var(--spacing) * 2) auto;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.cardDetail {
+  margin: calc(var(--spacing) * 2) auto;
+  padding-left: calc(var(--spacing) * 4);
+  font-weight: 500;
+}
+
+.travelCard {
+  justify-content: center;
+  padding: 10px;
+  width: 300px;
+  border: solid 1px lightgrey;
+  border-radius: 10px;
+  margin: 0 auto 20px auto;
+}
+
+.factureCard {
+  padding: 10px;
+  width: 300px;
+  border: solid 1px lightgrey;
+  border-radius: 10px;
+  margin: 0 auto 20px auto;
+}
+
+.facture {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing);
+}
+#total {
+  font-weight: bolder;
+}
+
+#bookingOk {
+  width: max-content;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .travelCard {
+    width: 500px;
+  }
+  .factureCard {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .recap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,65 @@
+.wrap {
+  padding: var(--spacing) 0;
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: url(../images/test.jpg) no-repeat center;
+}
+
+.fullChart {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 2rem auto;
+  font-size: 1rem;
+  border-radius: 32px 0 32px 0;
+  background-color: var(--light-true);
+  padding: calc(var(--spacing) * 2) var(--spacing);
+  text-align: center;
+}
+
+.warning {
+  font-weight: bolder;
+  font-size: 1.08rem;
+  padding: var(--spacing) calc(var(--spacing) * 2);
+}
+
+.chartArticle {
+  margin: var(--spacing) auto;
+  padding: 0 calc(var(--spacing) * 2);
+}
+
+.fullChart .underline {
+  height: 2px;
+  margin: calc(var(--spacing) * 2) auto;
+}
+
+@media screen and (min-width: 768px) {
+  .fullChart {
+    width: 75%;
+    padding: calc(var(--spacing) * 3);
+  }
+
+  .warning {
+    font-size: 1.2rem;
+  }
+
+  .chartArticle {
+    width: 90%;
+  }
+
+  .fullChart .firstUnderline {
+    height: 4px;
+  }
+
+  .fullChart .chartUnderlines {
+    width: 60%;
+    margin: var(--spacing) auto;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .wrap {
+    min-height: 90vh;
+  }
+}

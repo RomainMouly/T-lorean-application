@@ -1,0 +1,17 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.results-list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.travel-card-link:link,
+.travel-card-link:visited,
+.travel-card-link:hover,
+.travel-card-link:active {
+  text-decoration: none;
+  color: var(--dark-true);
+}

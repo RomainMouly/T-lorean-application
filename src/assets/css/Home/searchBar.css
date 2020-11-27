@@ -1,0 +1,95 @@
+.searchBar * {
+  font-family: 'Montserrat', sans-serif;
+  width: 99%;
+}
+
+.searchBar {
+  width: 95%;
+  margin: var(--spacing) 0;
+}
+
+form {
+  margin: var(--spacing);
+  display: inline-flex;
+}
+
+.colorButton {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--third-color),
+    var(--main-color),
+    var(--second-color),
+    var(--dark-true)
+  );
+  margin-left: 1em;
+  border-radius: 20px;
+  border-color: var(--light-true);
+  color: var(--light-true);
+  font-weight: bolder;
+  padding: var(--spacing) calc(var(--spacing) * 2);
+  font-family: 'Turret Road', 'cursive';
+  width: auto;
+  text-decoration: none;
+}
+
+a.colorButton:hover {
+  text-decoration: none;
+  color: var(--light-true);
+}
+
+#go {
+  letter-spacing: 2px;
+}
+
+.colorButton:hover {
+  filter: brightness(80%);
+}
+
+#searchInput {
+  margin-top: var(--calc);
+  padding: calc(var(--spacing) / 2);
+  font-size: 15px;
+  color: var(--second-color);
+  font-weight: bolder;
+  border-radius: 5px;
+}
+
+#searchInput:focus::placeholder {
+  color: transparent;
+}
+
+.travelTitles ul {
+  border-radius: 0 5px 5px 0;
+  background-color: white;
+  padding: calc(var(--spacing) / 2);
+  position: absolute;
+  padding: 0 0 0 var(--spacing);
+}
+.travelTitles ul li {
+  z-index: 1;
+  margin: 0;
+  border: solid 1px var(--light-true);
+  padding: calc(var(--spacing) / 2);
+  padding-top: 0;
+  background-color: white;
+}
+.travelTitles ul li:hover {
+  background-color: var(--dark-true);
+  color: var(--light-true);
+}
+
+.travelTitles ul li:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@media screen and (min-width: 992px) {
+  .searchBar,
+  form {
+    max-width: 70vh;
+    margin: var(--spacing) auto;
+  }
+  .travelTitles ul {
+    max-width: 60vh;
+  }
+}

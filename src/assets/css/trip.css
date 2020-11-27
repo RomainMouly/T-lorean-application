@@ -1,0 +1,169 @@
+.trip {
+  min-height: 90vh;
+  text-align: center;
+}
+
+.trip-texts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.tripTitle h2 {
+  width: 100%;
+  font-weight: bolder;
+  margin: calc(var(--spacing) * 2) auto calc(var(--spacing)) auto;
+}
+
+.underline {
+  background: linear-gradient(
+    to right,
+    var(--light-true),
+    var(--third-color),
+    var(--main-color),
+    var(--third-color),
+    var(--light-true)
+  );
+  height: 1px;
+  width: 85%;
+  margin: var(--spacing) auto;
+}
+
+.underlineLarge {
+  background: linear-gradient(
+    to right,
+    var(--light-true),
+    var(--third-color),
+    var(--main-color),
+    var(--third-color),
+    var(--light-true)
+  );
+  height: 1px;
+  width: 100%;
+  margin: var(--spacing) auto;
+}
+
+.trip-carousel-level {
+  position: absolute;
+  right: var(--spacing);
+  margin-top: var(--spacing);
+  z-index: 1;
+}
+
+.carousel-box {
+  background-position: center;
+  background-size: cover;
+  border-radius: 16px;
+  height: 450px;
+  margin: calc(var(--spacing) * 2) auto;
+  width: 90%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+.travel-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+.pin {
+  padding-bottom: 4px;
+}
+
+.travel-info-level {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.separation-trait {
+  display: none;
+}
+
+.trip-flash-container {
+  margin-left: var(--spacing);
+}
+
+.flash-description {
+  padding-bottom: 2px;
+  height: 16px;
+}
+
+.api-description {
+  font-weight: bolder;
+  margin: calc(var(--spacing) * 4) auto;
+}
+.description p {
+  margin: calc(var(--spacing) * 4);
+  text-align: justify;
+}
+
+.description-link-ext:link,
+.description-link-ext:visited,
+.description-link-ext:hover,
+.description-link-ext:active {
+  color: var(--dark-true);
+}
+
+.calendar {
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 8px hsl(0, 0%, 76%);
+}
+
+.calendar .nice-dates-day_month {
+  display: none;
+}
+
+.alertDates {
+  color: var(--main-color);
+  padding-bottom: var(--spacing);
+}
+
+.trip .colorButton {
+  display: block;
+  width: 195px;
+  margin: var(--spacing) auto calc(var(--spacing) * 2) auto;
+  padding: calc(var(--spacing) * 2) 0;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel-box {
+    height: 400px;
+  }
+
+  .travel-info {
+    flex-direction: row;
+  }
+
+  .travel-info-level {
+    padding-top: 5px;
+  }
+
+  .separation-trait {
+    display: inline;
+  }
+
+  .trip-infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: justify;
+    width: 100%;
+    margin: 0 auto var(--spacing) auto;
+  }
+
+  .description {
+    width: 42%;
+    margin-top: calc(var(--spacing) * 6);
+    padding-bottom: 0;
+  }
+
+  .calendar {
+    width: 40%;
+  }
+}

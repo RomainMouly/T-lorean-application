@@ -1,0 +1,5 @@
+.results-number {
+  margin: calc(var(--spacing) * 3);
+  font-size: 25px;
+  align-self: center;
+}

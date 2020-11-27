@@ -1,0 +1,31 @@
+.homeButton {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 1;
+  display: flex;
+}
+
+.homeButton a img {
+  height: 24px;
+  padding: 0 var(--spacing) 0 0;
+}
+
+.backButton {
+  cursor: pointer;
+}
+
+.homeButton .backButton img {
+  height: 24px;
+  padding: 0 var(--spacing) 0 0;
+}
+
+@media screen and (max-width: 992px) {
+  .homeButton {
+    flex-direction: column;
+  }
+
+  .backButton {
+    margin-top: 5px;
+  }
+}

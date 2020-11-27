@@ -1,0 +1,5 @@
+.trip-sensation-meter {
+  position: absolute;
+  top: var(--spacing);
+  right: var(--spacing);
+}

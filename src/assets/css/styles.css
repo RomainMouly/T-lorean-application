@@ -1,0 +1,9 @@
+@import 'global.css';
+@import './Results/Results.css';
+@import './Home/Home.css';
+@import 'footer.css';
+@import './Home/welcome.css';
+@import './Home/searchBar.css';
+@import './calendar.css';
+@import './Booking.css';
+@import './TravelerChart.css';
