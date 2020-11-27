@@ -68,7 +68,6 @@ const Admin = () => {
 
   useEffect(() => {
     const newReservationsPerTravel = [];
-    // we should probably make a dedicated endpoint for this
     const refreshCallbacks = travels.map(
       (travel) =>
         new Promise((resolve) => {
@@ -191,7 +190,7 @@ const Admin = () => {
               toggle('1');
             }}
           >
-            Accueil
+            Dashboard
           </NavLink>
         </NavItem>
         <NavItem>
@@ -211,7 +210,7 @@ const Admin = () => {
               toggle('3');
             }}
           >
-            Clients
+            Utilisateurs
           </NavLink>
         </NavItem>
         <NavItem>
@@ -230,7 +229,6 @@ const Admin = () => {
         <TabPane tabId="1">
           <Row>
             <Col sm="12">
-              <h5 className="welcomeAdmin">Bonjour, Marty!</h5>
               <div className="levelGraph"> {makeReservationGrid()}</div>
             </Col>
           </Row>

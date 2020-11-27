@@ -4,7 +4,7 @@ const AdminTitle = () => {
   return (
     <div className="tripTitle">
       <div className="underline" />
-      <h2 className="adminTilte">DASHBOARD</h2>
+      <h2 className="adminTilte">Bienvenue, Doc !</h2>
       <div className="underline" />
     </div>
   );
