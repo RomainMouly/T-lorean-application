@@ -3609,10 +3609,12 @@ input[type='submit'].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 .nav-link:focus,
 .nav-link:hover {
   text-decoration: none;
+  color: var(--primary);
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -3628,10 +3630,10 @@ input[type='submit'].btn-block {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
-.nav-tabs .nav-link:focus,
+/* .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
   border-color: #e9ecef #e9ecef #dee2e6;
-}
+} */
 .nav-tabs .nav-link.disabled {
   color: #6c757d;
   background-color: transparent;
